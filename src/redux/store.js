@@ -9,7 +9,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { phonebookReducer } from './phonebook';
+import { reportReducer } from './report';
 import { authReducer } from './auth';
 import storage from 'redux-persist/lib/storage';
 
@@ -26,7 +26,7 @@ const authPersistConfig = { key: 'token', whitelist: ['token'], storage };
 const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    phonebook: phonebookReducer,
+    report: reportReducer,
   },
   middleware,
 });

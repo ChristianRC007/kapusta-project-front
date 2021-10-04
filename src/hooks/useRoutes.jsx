@@ -3,7 +3,7 @@ import PublicRoute from '../routes/PublicRoute';
 import PrivateRoute from '../routes/PrivateRoute';
 import LoginPage from '../pages/LoginPage';
 import MainPage from '../pages/MainPage';
-import StatisticPage from '../pages/StatisticPage';
+import StatisticPage from '../pages/ReportPage';
 
 export default function useRoutes(isUserAuthenticated) {
   return (
@@ -31,7 +31,7 @@ export default function useRoutes(isUserAuthenticated) {
         isAuth={isUserAuthenticated}
       />
       <PrivateRoute
-        path="/statistic"
+        path="/report"
         component={StatisticPage}
         isAuth={isUserAuthenticated}
       />

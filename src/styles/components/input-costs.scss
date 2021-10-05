@@ -1,0 +1,52 @@
+// input {
+//   padding: 0;
+//   margin: 0;
+//   border: 0;
+//   border: none;
+// }
+
+input,
+textarea,
+select {
+  -webkit-appearance: none;
+  border: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .input-container {
+    display: flex;
+
+    position: absolute;
+    width: 467px;
+    height: 44px;
+    left: 219px;
+    top: 266px;
+
+    border: 2px solid #f5f6fb;
+    box-sizing: border-box;
+    border-radius: 16px 16px 16px 0px;
+  }
+
+  .form-field {
+    position: relative;
+  }
+
+  .form-input {
+    font: inherit;
+    height: 40px;
+    width: 100%;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    padding-left: 42px;
+    margin-bottom: 10px;
+  }
+
+  .input {
+    background-color: grey;
+    width: 192px;
+    height: 44px;
+  }
+}

@@ -1,15 +1,10 @@
 import React from 'react';
-import Costs from '../../components/CounterTabs/Costs';
-import Profits from '../../components/CounterTabs/Profits';
-import CounterTabButtons from '../../components/CounterTabs/CounterTabButtons'
+import CounterTabs from '../../components/CounterTabs';
 
 export default function MainPage() {
   return (
-        <>
-          {/* <Costs />
-      <Profits /> */}
-      <CounterTabButtons />
-        </>       
+    <>
+      <CounterTabs />
+    </>
   );
 }
-

@@ -6,7 +6,7 @@ export default function MainLayout({ children }) {
     <>
       <Header />
       <MainHeadPannel />
-      <div>{children}</div>
+      <div className="container">{children}</div>
     </>
   );
 }

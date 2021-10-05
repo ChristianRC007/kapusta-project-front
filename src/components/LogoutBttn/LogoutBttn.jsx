@@ -12,7 +12,7 @@ export default function LogoutBttn() {
   return (
     <>
       <button type="button" onClick={onLogout}>
-        Выйти
+        ДА
       </button>
     </>
   );

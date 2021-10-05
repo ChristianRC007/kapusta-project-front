@@ -1,3 +1,9 @@
+import LogoutBttn from '../LogoutBttn';
 export default function Header() {
-  return <div>HEADER</div>;
+  return (
+    <div>
+      HEADER
+      <LogoutBttn />
+    </div>
+  );
 }

@@ -12,7 +12,7 @@ const SelectCounter = () => {
     
     return (
     <>
-    <Select placeholder='Категория товара' options={options} />
+    <Select className='form-input' placeholder='Категория товара' options={options} />
         </>
 )}
 

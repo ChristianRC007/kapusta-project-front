@@ -4,10 +4,10 @@ import Profits from '../../components/MainPage/Profits';
 
 export default function MainPage() {
   return (
-        <>
+        <div className="container">
           <Costs />
           <Profits />
-        </>       
+        </div>       
   );
 }
 

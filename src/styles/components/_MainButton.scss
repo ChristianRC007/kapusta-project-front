@@ -19,9 +19,11 @@
   &.accent {
     background-color: #ff751d;
     color: #ffffff;
+    border-color: #ff751d;
 
     &:hover {
       background-color: #e66516;
+      border-color: #e66516;
     }
   }
 }
@@ -48,7 +50,7 @@
   border: 2px solid #f6f7fc;
 
   &:hover {
-    background-color: #f5f6fb;
+    background-color: #f6f7fc;
   }
 }
 

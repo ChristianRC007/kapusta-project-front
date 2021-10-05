@@ -1,9 +1,9 @@
 //module
 import { Component } from 'react'
 import {connect} from 'react-redux'
-//component
+
 import {authOperations} from '../../redux/auth'
-//style
+
 
 
 class LoginForm extends Component{

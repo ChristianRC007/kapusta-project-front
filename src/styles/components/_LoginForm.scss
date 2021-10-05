@@ -12,19 +12,29 @@
 }
 
 .container_form {
+padding: 0 10px;
+background: whitesmoke;
+}
+.form {
+
+@media screen and (min-width:300px) {
+    padding: 30px 18px;
+    width: 300px;
+    height: 630px; 
+}
+@media screen and (min-width:768px) {
+    padding: 40px 85px;
+    width: 436px;
+    height: 650px; 
+}
+@media screen and (min-width:1060px) {
   width: 436px;
-  height: 600px;
+  height: 650px; 
+}
 
-  display: flex;
-  justify-content: center;
-
-  border:1px solid red;
   border-radius: 30px;
   background-color: var(--cl_white);
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-}
-.form {
-  padding: 0px 85px;
 }
 .container_google {
   display: flex;

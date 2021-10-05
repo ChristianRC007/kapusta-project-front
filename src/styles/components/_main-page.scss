@@ -1,5 +1,16 @@
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  /* отображаем курсор в виде руки при наведении; некоторые
+  считают, что необходимо оставлять стрелочный вид для кнопок */
+  cursor: pointer;
+}
+
 @media screen and (min-width: 768px) {
-  .header {
+  .counter-tab-header-buttons {
     margin: 0;
     // font-family: Roboto;
     font-style: normal;
@@ -13,14 +24,12 @@
     // color: #000000;
   }
 
-  .header:hover {
+  .counter-tab-header-buttons:hover {
     cursor: pointer;
     color: #ff751d;
   }
 
-  .header-container {
-    margin: 0;
-    padding-top: 13px;
+  .counter-tab-header-container {
     position: absolute;
     width: 138px;
     height: 40px;
@@ -29,25 +38,24 @@
     align-items: center;
 
     border-radius: 20px 20px 0 0;
-    z-index: 0;
     background-color: #fafbfd;
   }
-  .costs {
+  .counter-tab-costs {
     left: 51px;
     top: 198px;
   }
-  .profits {
+  .counter-tab-profits {
     left: 189px;
     top: 198px;
   }
 
-  .active {
+  .counter-tab-active {
     color: #ff751d;
-    background-color: #fefefe;
+    // background-color: #fefefe;
+    background-color: grey;
   }
 
-  .container {
-    margin: 0;
+  .counter-tab-container {
     position: absolute;
     width: 665px;
     height: 626px;
@@ -62,20 +70,18 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .header-container {
-    margin: 0;
-    padding-top: 13px;
+  .counter-tab-header-container {
     position: absolute;
     left: 110px;
     top: 149px;
   }
 
-  .profits {
+  .counter-tab-profits {
     left: 248px;
     top: 149px;
   }
 
-  .container {
+  .counter-tab-container {
     width: 1060px;
     height: 579px;
     left: 110px;

@@ -7,9 +7,16 @@
     background-image: url('../../assets/images/kapustas.png'),
       linear-gradient(rgba(245, 246, 251, 1), rgba(245, 246, 251, 1));
     background-repeat: repeat-x;
-    background-position-y: 60px, 28px;
+    background-position-y: 84px, 0px;
     border-bottom-left-radius: 200px;
     box-shadow: 4px 0px 4px 0px #00000025;
+    @include sm {
+      background-image: url('../../assets/images/kapust.png'),
+        linear-gradient(rgba(245, 246, 251, 1), rgba(245, 246, 251, 1));
+      background-position: top 160px right -34px, 0;
+      // right: -34px;
+      background-repeat: no-repeat;
+    }
   }
   &__login-bottom {
     background-image: url('../../assets/images/kapusta.png');
@@ -19,6 +26,14 @@
     height: 142px;
     background-repeat: no-repeat;
     background-position-x: 230px;
+    @include lg {
+      background-position-x: 103px;
+      bottom: 56px;
+    }
+    @include sm {
+      background-image: url('../../assets/images/kapust.png');
+      background-position: bottom 0px left 35px, 0;
+    }
   }
   &__main-top {
     position: absolute;
@@ -31,7 +46,7 @@
     box-shadow: 4px 0px 4px 0px #00000025;
   }
   &__main-bottom {
-    background-image: url('../../assets/images/kapustas.png');
+    background-image: url(../../assets/images/kapustas.png);
     position: absolute;
     background-repeat: no-repeat;
     background-size: cover;
@@ -39,7 +54,5 @@
     left: 0;
     width: 100%;
     height: 232px;
-  }
-  @include tablet {
   }
 }

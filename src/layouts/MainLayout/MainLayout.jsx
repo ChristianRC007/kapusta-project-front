@@ -1,12 +1,14 @@
 import Header from '../../components/Header';
-import MainHeadPannel from '../../components/MainHeadPannel';
+import LoginForm from '../../components/LoginForm';
+
 
 export default function MainLayout({ children }) {
   return (
     <>
       <Header />
-      <MainHeadPannel />
-      
+
+      <LoginForm/>
+ 
       <div>{children}</div>
     </>
   );

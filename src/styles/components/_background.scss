@@ -2,24 +2,23 @@
   z-index: -1;
   &__login-top {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 583px;
-    background-color: #f5f6fb;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-y: 60px;
+    background-image: url('../../assets/images/kapustas.png'),
+      linear-gradient(rgba(245, 246, 251, 1), rgba(245, 246, 251, 1));
+    background-repeat: repeat-x;
+    background-position-y: 60px, 28px;
     border-bottom-left-radius: 200px;
     box-shadow: 4px 0px 4px 0px #00000025;
   }
   &__login-bottom {
+    background-image: url('../../assets/images/kapusta.png');
     position: absolute;
     bottom: 50px;
-    left: 230px;
     width: 100%;
     height: 142px;
     background-repeat: no-repeat;
+    background-position-x: 230px;
   }
   &__main-top {
     position: absolute;
@@ -32,6 +31,7 @@
     box-shadow: 4px 0px 4px 0px #00000025;
   }
   &__main-bottom {
+    background-image: url('../../assets/images/kapustas.png');
     position: absolute;
     background-repeat: no-repeat;
     background-size: cover;
@@ -39,8 +39,7 @@
     left: 0;
     width: 100%;
     height: 232px;
-    @include mobile() {
-      background-image: none;
-    }
+  }
+  @include tablet {
   }
 }

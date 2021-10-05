@@ -4,7 +4,8 @@ import {connect} from 'react-redux'
 //component
 import {authOperations} from '../../redux/auth'
 //style
-import styles from './LoginForm.module.css'
+
+
 class LoginForm extends Component{
     state = {
         name: '',
@@ -16,7 +17,6 @@ class LoginForm extends Component{
     e.preventDefault();
 
     this.props.onLogin(this.state);
-
     this.setState({ name:'',email:'',password:''  });
     };
   
@@ -31,24 +31,24 @@ class LoginForm extends Component{
     const { handleSubmit, handleChange } = this;
 
     return (
-      <div className={styles.container_form}>
-        <form className={styles.form} onSubmit={handleSubmit} autoComplete="off">
-    <div className={styles.container_google}>
-      <p className={styles.text}>
+      <div className="container_form">
+        <form className="form" onSubmit={handleSubmit} autoComplete="off">
+    <div className='container_google'>
+      <p className='text'>
         Вы можете авторизоваться с помощью <br />
         Google Account:
       </p>
-      <button className={styles.button_google}>Google</button>
+      <button className=' button_google'>Google</button>
     </div>
 
-    <div className={styles.container_input}>
-      <p className={styles.text}>
+    <div className='container_input'>
+      <p className='text'>
         Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
       </p>
-      <label className={styles.label}>
+      <label className='label'>
         Имя:
         <input
-          className={styles.input}
+          className='input'
           type="text"
           name="name"
           value={name}
@@ -61,10 +61,10 @@ class LoginForm extends Component{
         />
       </label>
 
-      <label className={styles.label}>
+      <label className='label'>
        Электронная почта:
         <input
-          className={styles.input}
+          className='input'
           type="email"
           name="email"
           value={email}
@@ -75,10 +75,10 @@ class LoginForm extends Component{
         />
       </label>
 
-      <label className={styles.label}>
+      <label className='label'>
         Пароль:
         <input
-          className={styles.input}
+          className='input'
           onChange={handleChange}
           type="password"
           name="password"
@@ -92,9 +92,9 @@ class LoginForm extends Component{
       </label>
     </div>
     
-    <div className={styles.button_container}>
-      <button className={styles.button_enter}>Войти</button>
-      <button className={styles.button_regist}>Регистрация</button>
+    <div className=' button_container'>
+      <button className='  button button_enter'>Войти</button>
+      <button className='  button button_regist'>Регистрация</button>
     </div>
     
   </form>

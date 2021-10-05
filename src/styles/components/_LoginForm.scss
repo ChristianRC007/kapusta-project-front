@@ -8,6 +8,7 @@
     --cl_green:green;
     --cl_white:white;
     --cl_input: #f6f7fb;
+    --cl_black:black;
 }
 
 .container_form {
@@ -126,19 +127,7 @@
 
   color: #a6abb9;
 }
-/* .label:last-child::after {
-  content: '*обязательные поля';
-  font-family: 'Roboto';
-  position: absolute;
-  bottom: -15px;
-  left: 0;
-  font-size: 10px;
-  line-height: 12px;
 
-  letter-spacing: 0.04em;
-
-  color: var(--cl_red);
-} */
 .input:focus {
   border-color: var(--cl_accent);
 }
@@ -160,29 +149,8 @@
   justify-content: center;
   margin-top: 40px;
 }
-.button_enter {
-  width: 125px;
-  height: 44px;
-  margin-right: 15px;
 
-  font-family: 'Roboto';
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-
-  color: var(--cl_white);
-
-  background: var(--cl_accent);
-  border-radius: 16px;
-  cursor: pointer;
-  border: inherit;
-  filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
-  transition: var(--trancition)
-}
-
-.button_regist {
+.button {
   width: 125px;
   height: 44px;
 
@@ -203,13 +171,36 @@
   filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
   transition: var(--trancition)
 }
+.button_enter {
+ 
+  margin-right: 15px;
+
+  color: var(--cl_white);
+
+  background: var(--cl_accent);
+}
+
 .button_enter:hover {
-  color: var(--cl_button_h);
+  color: var(--cl_black);
   background: var(--cl_accent_h);
   transition: var(--trancition)
 }
 .button_regist:hover {
-    color: var(--cl_white);
+    color: var(--cl_accent);
   background: var(--cl_button_h);
   transition: var(--trancition)
 }
+
+/* .label:last-child::after {
+  content: '*обязательные поля';
+  font-family: 'Roboto';
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  font-size: 10px;
+  line-height: 12px;
+
+  letter-spacing: 0.04em;
+
+  color: var(--cl_red);
+} */

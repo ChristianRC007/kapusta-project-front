@@ -6,10 +6,11 @@ export default function MainLayout({ children }) {
   return (
     <>
       <Header />
-
       <LoginForm/>
- 
-      <div>{children}</div>
+
+      <MainHeadPannel />
+      <div className="container">{children}</div>
+
     </>
   );
 }

@@ -1,4 +1,14 @@
+@import './utils/variables';
+@import './utils/mixins';
+@import './utils/breakpoints';
 @import './utils/normalize';
-@import './components/main-page';
+@import './utils/container';
+@import './utils/layout';
+@import './components/background';
+@import './components/mainTitle';
+@import './components/CounterTabs';
 @import './components/MainButton';
-@import './components/input-costs.scss';
+@import './components/InputCosts.scss';
+@import './components/Modal';
+@import './components/LoginForm';
+@import './components/GoogleAuth';

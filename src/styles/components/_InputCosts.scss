@@ -13,18 +13,13 @@ select {
     display: flex;
     justify-content: center;
 
-    position: absolute;
     width: 467px;
     height: 44px;
-    left: 219px;
-    top: 266px;
   }
 
   .form-input {
     display: flex;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
     font-size: 12px;
     line-height: 14px;
 
@@ -73,11 +68,8 @@ select {
   }
 
   .input-button {
-    position: absolute;
     width: 125px;
     height: 44px;
-    left: 251px;
-    top: 340px;
 
     border: 2px solid #f6f7fc;
     box-sizing: border-box;
@@ -89,11 +81,8 @@ select {
   }
 
   .input-clear {
-    position: absolute;
     width: 125px;
     height: 44px;
-    left: 391px;
-    top: 340px;
 
     border: 2px solid #f6f7fc;
     box-sizing: border-box;
@@ -109,8 +98,6 @@ select {
   .input-container {
     width: 601px;
     height: 44px;
-    left: 257px;
-    top: 221px;
   }
 
   .input-productName {

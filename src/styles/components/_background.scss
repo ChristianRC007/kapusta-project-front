@@ -12,6 +12,7 @@
     border-bottom-left-radius: 200px;
     box-shadow: 4px 0px 4px 0px #00000025;
     @include sm {
+      height: 342px;
       background-image: url('../../assets/images/kapust.png'),
         linear-gradient(rgba(245, 246, 251, 1), rgba(245, 246, 251, 1));
       background-position: top 160px right -34px, 0;
@@ -41,9 +42,12 @@
     left: 0;
     width: 100%;
     height: 583px;
-    background-color: #f5f6fb;
     border-bottom-left-radius: 200px;
     box-shadow: 4px 0px 4px 0px #00000025;
+    background: #f5f6fb;
+    @include sm {
+      height: 313px;
+    }
   }
   &__main-bottom {
     background-image: url('../../assets/images/kapustas.png');
@@ -54,5 +58,17 @@
     left: 0;
     width: 100%;
     height: 232px;
+    @include lg {
+      left: auto;
+      height: 142px;
+      width: 183px;
+      bottom: 64px;
+      right: 88px;
+      background-image: url('../../assets/images/kapusta.png');
+      background-repeat: no-repeat;
+    }
+    @include sm {
+      background: white;
+    }
   }
 }

@@ -17,9 +17,6 @@ const GoogleAuth = () => {
     };
 
     dispatch(authOperations.logIn(newUser));
-    // const user = await axios.post('http://localhost:5000/users', newUser);
-    // console.log(user);
-    // return user;
   };
 
   const loginError = error => {

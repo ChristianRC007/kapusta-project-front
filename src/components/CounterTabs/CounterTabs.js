@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import InputContainer from '../../components/InputContainer';
 
 const CounterTabs = () => {
   const [costs, setCosts] = useState(true);
@@ -40,9 +41,13 @@ const CounterTabs = () => {
         </button>
       </div>
       {costs ? (
-        <div className="counter-tab-container">Costs</div>
+        <div className="counter-tab-container">
+          <InputContainer />
+        </div>
       ) : (
-        <div className="counter-tab-container">Profits</div>
+        <div className="counter-tab-container">
+          <InputContainer />
+        </div>
       )}
     </div>
   );

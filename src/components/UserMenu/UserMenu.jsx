@@ -12,7 +12,7 @@ const UserMenu = ({avatar,name,onLogout}) => (
     <div className="auth__user_container">
         <img className='auth__user_logo'  src={avatar} alt="avatar"  width="32" />
         <p className='auth__user_name'> {name} </p>
-        <button type='button' onClick={onLogout} className={style.button}>Вийти</button>
+        <button type='button' onClick={onLogout} className='button'>Вийти</button>
     </div>
     </div>
 )

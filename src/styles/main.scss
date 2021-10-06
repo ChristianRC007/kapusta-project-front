@@ -1,7 +1,8 @@
+@import './utils/variables';
 @import './utils/normalize';
 @import './utils/container';
+@import './utils/layout';
 @import './components/CounterTabs';
 @import './components/MainButton';
-@import './components/LogoutModal';
+@import './components/Modal';
 @import './components/LoginForm';
-

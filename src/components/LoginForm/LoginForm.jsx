@@ -1,10 +1,9 @@
 //module
 import { Component } from 'react'
 import {connect} from 'react-redux'
+import MainButton from '../MainButton'
 
 import {authOperations} from '../../redux/auth'
-
-
 
 class LoginForm extends Component{
     state = {
@@ -92,9 +91,9 @@ class LoginForm extends Component{
       </label>
     </div>
     
-    <div className=' button_container'>
-      <button className='  button button_enter'>Войти</button>
-      <button className='  button button_regist'>Регистрация</button>
+    <div className='button_container'>
+    <MainButton type="submit" text="Войти" className="register mr-15" accent />
+    <MainButton type="submit" text="Регистрация" className="register" />
     </div>
     
   </form>

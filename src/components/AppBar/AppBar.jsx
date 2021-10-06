@@ -10,10 +10,13 @@ import kapustaLogo from '../../assets/img/logo.png'
 
 const AppBar = ({ isAuthenticated }) => (
     <header >
-    {true ? <Header/>:
+    {false? <Header/>:
      <div className='header__container'><img className='header__logo' src={kapustaLogo} alt="foto" width='90px' height="31px" /></div> }
   </header>  
 )
+//  isAuthenticated 
+// false не авторизованйи
+// true авторизований
 
 const mapStateToProps = (state) => ({
   isAuthenticated: authSelectors.getIsAuthenticated(state)

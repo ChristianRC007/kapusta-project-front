@@ -9,7 +9,7 @@ import kapustaLogo from '../../assets/img/logo.png'
 import defaultAvatar from '../../assets/images/default-avatar.png'
 import logOut from '../../assets/img/logout.png'
 
- function Header() {
+const Header=()=> {
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
@@ -22,7 +22,7 @@ import logOut from '../../assets/img/logout.png'
       
       <div className='auth__user_container'>
         <img src={defaultAvatar} alt="avatar" className='auth__user_logo' width='32px' height='32px'/>
-        <p className='auth__user_name' >userName</p><div className='auth__user_div'></div>
+        <p className='auth__user_name'>userName</p><div className='auth__user_div'></div>
         <button onClick={toggleModal} className='auth__user_btn'>Выйти</button>
         <button onClick={toggleModal} className='auth__user_btn_mobile'>
           <img src={logOut} alt="exit"/></button>
@@ -42,11 +42,11 @@ import logOut from '../../assets/img/logout.png'
     </div>
   );
 }
-
 const mapStateToProps = state => ({
     name:authSelectors.getUserEmail(state),
     avatar:defaultAvatar
 })
+    // name:authSelectors.getUserEmail(state) тут у майбутньому треба буде змінити на getUserName
 
 const mapDispatchToProps = {
     onLogout:authOperations.logOut

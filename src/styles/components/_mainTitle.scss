@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+.main-title {
+  width: 377px;
+  // height: 139px;
+  @include lg {
+    width: 307px;
+  }
+  @include sm {
+    width: 183px;
+  }
+
+  &__title {
+    font-family: Roboto, sans-serif;
+    font-weight: 900;
+    font-size: 102px;
+    line-height: 1.177;
+    margin: 0;
+    letter-spacing: -0.01em;
+    @include lg {
+      font-size: 80px;
+      line-height: 1.177;
+    }
+    @include sm {
+      font-size: 50px;
+    }
+  }
+  &__text {
+    padding-left: 72px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #52555f;
+    letter-spacing: 0.14em;
+    margin: 0;
+    @include lg {
+      padding-left: 53px;
+      letter-spacing: 0.11em;
+    }
+    @include sm {
+      font-size: 13px;
+      padding-left: 12px;
+    }
+  }
+}
+
+.dollar {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    left: 41%;
+    bottom: 11%;
+    width: 8px;
+    height: 13px;
+    background-color: black;
+    @include lg {
+      width: 7px;
+      height: 11px;
+    }
+    @include sm {
+      width: 4px;
+      height: 7px;
+    }
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    left: 41%;
+    top: 25%;
+    width: 8px;
+    height: 13px;
+    background-color: black;
+    @include lg {
+      width: 7px;
+      height: 11px;
+    }
+    @include sm {
+      width: 4px;
+      height: 7px;
+    }
+  }
+}

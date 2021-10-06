@@ -1,10 +1,3 @@
-// input {
-//   padding: 0;
-//   margin: 0;
-//   border: 0;
-//   border: none;
-// }
-
 input,
 textarea,
 select {
@@ -25,10 +18,6 @@ select {
     height: 44px;
     left: 219px;
     top: 266px;
-
-    border: 2px solid #f5f6fb;
-    box-sizing: border-box;
-    border-radius: 16px 16px 16px 0px;
   }
 
   .form-input {
@@ -46,13 +35,56 @@ select {
     color: #c7ccdc;
   }
 
-  //   .icon-input {
-  //     position: absolute;
-  //     display: block;
-  //     bottom: 0;
-  //     transform: translateY(-25%);
-  //     margin-left: 15px;
-  //     fill: #212121;
-  //     z-index: 100;
-  //   }
+  .input-productName {
+    width: 192px;
+    height: 44px;
+
+    padding-left: 20px;
+
+    border: 2px solid #f5f6fb;
+    box-sizing: border-box;
+    border-radius: 16px 0px 0px 0px;
+
+    .select-category {
+      width: 171px;
+      height: 44px;
+
+      padding-left: 20px;
+
+      border-top: 2px solid #f5f6fb;
+      border-bottom: 2px solid #f5f6fb;
+    }
+  }
+
+  .input-productValue {
+    width: 104px;
+    height: 44px;
+
+    padding-left: 20px;
+
+    border: 2px solid #f5f6fb;
+    box-sizing: border-box;
+    border-radius: 0px 16px 16px 0px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .input-container {
+    width: 601px;
+    height: 44px;
+    left: 257px;
+    top: 221px;
+  }
+
+  .input-productName {
+    width: 289px;
+  }
+
+  .select-category {
+    width: 188px;
+  }
+
+  .input-productValue {
+    width: 126px;
+  }
 }

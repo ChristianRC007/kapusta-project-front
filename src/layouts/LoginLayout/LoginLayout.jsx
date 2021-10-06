@@ -8,7 +8,7 @@ export default function LoginLayout({ children }) {
       <BackgroundLogin />
       <MainTitle/>
       <Header />
-      <div>{children}</div>
+      <div className="container">{children}</div>
     </>
   );
 }

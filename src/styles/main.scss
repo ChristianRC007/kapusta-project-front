@@ -1,4 +1,12 @@
+@import './utils/variables';
 @import './utils/mixins';
+@import './utils/breakpoints';
 @import './utils/normalize';
+@import './utils/container';
+@import './utils/layout';
 @import './components/background';
 @import './components/mainTitle';
+@import './components/CounterTabs';
+@import './components/MainButton';
+@import './components/Modal';
+@import './components/LoginForm';

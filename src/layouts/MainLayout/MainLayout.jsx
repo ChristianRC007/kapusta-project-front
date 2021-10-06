@@ -8,7 +8,7 @@ export default function MainLayout({ children }) {
       <BackgroundMain/>
       <Header />
       <MainHeadPannel />
-      <div>{children}</div>
+      <div className="container">{children}</div>
     </>
   );
 }

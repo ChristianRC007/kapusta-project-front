@@ -56,7 +56,7 @@ class LoginForm extends Component {
                 value={name}
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                 title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-                placeholder="Petr Ivanovich"
+                placeholder="Ваше имя"
                 required
                 minLength="3"
                 onChange={handleChange}
@@ -85,7 +85,7 @@ class LoginForm extends Component {
                 type="password"
                 name="password"
                 value={password}
-                placeholder="********"
+                placeholder="Пароль"
                 title="Пароль больше 6-ти символов"
                 required
                 minLength="6"

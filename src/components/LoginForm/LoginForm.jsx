@@ -97,10 +97,14 @@ class LoginForm extends Component {
             <MainButton
               type="submit"
               text="Войти"
-              className="register mr-15"
+              className="register-btn mr-15"
               accent
             />
-            <MainButton type="submit" text="Регистрация" className="register" />
+            <MainButton
+              type="submit"
+              text="Регистрация"
+              className="register-btn"
+            />
           </div>
         </form>
       </div>

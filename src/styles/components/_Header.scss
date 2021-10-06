@@ -1,0 +1,57 @@
+.header_container{
+    padding: 0 25px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header_logo{
+    width: 90px;
+    height: 31px;
+
+    background-image: url('../../assets/images/logo3.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+.auth__header{
+
+}
+.auth__header_logo{
+
+}
+.auth__user_container{
+
+}
+.auth__user_logo{
+
+}
+.auth__user_name{
+
+}
+
+.auth__user_btn{
+width: 65px;
+height: 15px;
+
+
+font-family: "Roboto";
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 14px;
+
+letter-spacing: 0.04em;
+color: #52555F;
+text-decoration-line: underline;
+background-color: inherit;
+border: none;
+outline: none;
+cursor: pointer;
+}
+.auth__user_btn:hover{
+color: orange;
+}
+.auth__user_btn_mobile{
+    
+}

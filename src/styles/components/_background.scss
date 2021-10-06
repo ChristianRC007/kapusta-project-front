@@ -11,7 +11,7 @@
     background-position-y: 84px, 0px;
     border-bottom-left-radius: 200px;
     box-shadow: 4px 0px 4px 0px #00000025;
-    @include sm {
+    @include mobile {
       height: 342px;
       background-image: url('../../assets/images/kapust.png'),
         linear-gradient(rgba(245, 246, 251, 1), rgba(245, 246, 251, 1));
@@ -27,11 +27,11 @@
     height: 142px;
     background-repeat: no-repeat;
     background-position-x: 230px;
-    @include lg {
+    @include tablet {
       background-position-x: 103px;
       bottom: 56px;
     }
-    @include sm {
+    @include mobile {
       background-image: url('../../assets/images/kapust.png');
       background-position: bottom 0px left 35px, 0;
     }
@@ -45,7 +45,7 @@
     border-bottom-left-radius: 200px;
     box-shadow: 4px 0px 4px 0px #00000025;
     background: #f5f6fb;
-    @include sm {
+    @include mobile {
       height: 313px;
     }
   }
@@ -58,17 +58,14 @@
     left: 0;
     width: 100%;
     height: 232px;
-    @include lg {
-      left: auto;
-      height: 142px;
-      width: 183px;
+    @include tablet {
       bottom: 64px;
-      right: 88px;
       background-image: url('../../assets/images/kapusta.png');
       background-repeat: no-repeat;
+      background-position: right 88px bottom 0;
     }
-    @include sm {
-      background: white;
+    @include mobile {
+      background-image: none;
     }
   }
 }

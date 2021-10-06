@@ -3,10 +3,10 @@
 .main-title {
   width: 377px;
   // height: 139px;
-  @include lg {
+  @include tablet {
     width: 307px;
   }
-  @include sm {
+  @include mobile {
     width: 183px;
   }
 
@@ -17,11 +17,11 @@
     line-height: 1.177;
     margin: 0;
     letter-spacing: -0.01em;
-    @include lg {
+    @include tablet {
       font-size: 80px;
       line-height: 1.177;
     }
-    @include sm {
+    @include mobile {
       font-size: 50px;
     }
   }
@@ -34,11 +34,11 @@
     color: #52555f;
     letter-spacing: 0.14em;
     margin: 0;
-    @include lg {
+    @include tablet {
       padding-left: 53px;
       letter-spacing: 0.11em;
     }
-    @include sm {
+    @include mobile {
       font-size: 13px;
       padding-left: 12px;
     }
@@ -56,11 +56,11 @@
     width: 8px;
     height: 13px;
     background-color: black;
-    @include lg {
+    @include tablet {
       width: 7px;
       height: 11px;
     }
-    @include sm {
+    @include mobile {
       width: 4px;
       height: 7px;
     }
@@ -74,11 +74,11 @@
     width: 8px;
     height: 13px;
     background-color: black;
-    @include lg {
+    @include tablet {
       width: 7px;
       height: 11px;
     }
-    @include sm {
+    @include mobile {
       width: 4px;
       height: 7px;
     }

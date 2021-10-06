@@ -1,16 +1,16 @@
-@mixin sm {
+@mixin mobile {
   @media (max-width: 767px) {
     @content;
   }
 }
 
-@mixin lg {
+@mixin tablet {
   @media (max-width: 1199px) {
     @content;
   }
 }
 
-@mixin xxl {
+@mixin desktop {
   @media (min-width: 1200px) {
     @content;
   }

@@ -71,8 +71,16 @@ background-color: inherit;
 border: none;
 outline: none;
 cursor: pointer;
+transition: fill 200ms liner;
     }
     @media screen and (min-width: 481px) {
          display: none;
+    }
+    &:hover{
+        fill:black;
+    }
+    &>svg{
+        width: 18px;
+        height: 18px;
     }
 }

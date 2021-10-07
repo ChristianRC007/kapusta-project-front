@@ -30,12 +30,12 @@ const Header=()=> {
       
       {showModal && (
         <Modal onClose={toggleModal} text="Вы действительно хотите выйти?">
-          <MainButton type="submit" text="Да" className="main" accent />
+          <MainButton type="submit" text="Да" className="main-btn" accent />
           <MainButton
             onClick={toggleModal}
             type="button"
             text="Нет"
-            className="main"
+            className="main-btn"
           />
         </Modal>
       )}

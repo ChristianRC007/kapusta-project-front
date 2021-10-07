@@ -28,7 +28,7 @@
   }
 }
 
-.register {
+.register-btn {
   @extend .Button;
   background-color: #f5f6fb;
   border: transparent;
@@ -44,7 +44,7 @@
   }
 }
 
-.main {
+.main-btn {
   @extend .Button;
   background-color: transparent;
   border: 2px solid #f6f7fc;
@@ -54,7 +54,7 @@
   }
 }
 
-.balance {
+.balance-btn {
   @extend .Button;
   background-color: transparent;
   border: 2px solid #ffffff;

@@ -19,7 +19,7 @@ const Header=({ isAuthenticated,name })=> {
   };
 
   isAuthenticated = true;
-  name = "Wim Mostila"
+  name = "Kleopatra"
   
   return (
     <header >

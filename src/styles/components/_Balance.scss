@@ -1,0 +1,103 @@
+.balance {
+  display: flex;
+  align-items: center;
+  width: 369px;
+  position: relative;
+  &__title {
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: rgba(82, 85, 95, 0.7);
+    margin-right: 31px;
+  }
+  &__input {
+    border: 2px solid #ffffff;
+    box-sizing: border-box;
+    border-radius: 16px;
+    background-color: #f2f5fc;
+    font-weight: 700;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 20px;
+    text-align: right;
+    color: black;
+    margin-right: 15px;
+    width: 125px;
+    height: 44px;
+  }
+  &__submit {
+    //   border: 2px solid #ffffff;
+    //   box-sizing: border-box;
+    //   border-radius: 16px;
+    //   background-color: #f2f5fc;
+    //   padding-top: 12px;
+    //   padding-bottom: 12px;
+    //   padding-right: 6px;
+    //   padding-left: 6px;
+    //   text-align: center;
+    //   color: black;
+    //   font-family: Roboto;
+    //   font-weight: 400;
+    //   font-size: 12px;
+    //   line-height: 14px;
+    //   text-align: center;
+    //   letter-spacing: 0.02em;
+    //   text-transform: uppercase;
+    //   color: rgba(82, 85, 95, 0.7);
+    //   width: 125px;
+    &:hover {
+      color: #ffffff;
+    }
+  }
+  ::placeholder {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #000000;
+  }
+  &__tooltip {
+    position: absolute;
+    top: 154%;
+    left: 17%;
+    width: 292px;
+    height: 152px;
+    background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    padding: 30px;
+    border-radius: 30px;
+    &::before {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
+      left: 17%;
+      top: -8%;
+      width: 26px;
+      height: 26px;
+      transform: rotate(45deg);
+      z-index: -1;
+    }
+
+    &__text-first {
+      font-family: Roboto;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: #ffffff;
+      margin: 0px 0px 20px 0px;
+    }
+    &__text-second {
+      font-size: 12px;
+      line-height: 16px;
+      color: #ffffff;
+    }
+  }
+}

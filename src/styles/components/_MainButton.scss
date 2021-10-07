@@ -1,4 +1,5 @@
 .Button {
+  display: inline-block;
   height: 44px;
   width: 125px;
 
@@ -47,10 +48,10 @@
 .main-btn {
   @extend .Button;
   background-color: transparent;
-  border: 2px solid #f6f7fc;
+  border: 2px solid $light-cl;
 
   &:hover {
-    background-color: #f6f7fc;
+    background-color: $light-cl;
   }
 }
 

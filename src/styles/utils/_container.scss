@@ -10,13 +10,14 @@
 
   @media screen and (min-width: $tablet) {
     width: $tablet;
+    padding: 0;
   }
 
   @media screen and (min-width: $desktop) {
     width: $desktop;
   }
 
-  @media screen and (min-width: $desktop-large) {
-    width: $desktop-large;
-  }
+  // @media screen and (min-width: $desktop-large) {
+  //   width: $desktop-large;
+  // }
 }

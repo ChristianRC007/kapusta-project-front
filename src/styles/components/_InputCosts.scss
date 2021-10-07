@@ -1,124 +1,47 @@
-input,
-textarea,
-select {
-  -webkit-appearance: none;
+.input-container {
+  display: flex;
+  justify-content: space-between;
+}
+.form-input {
+  display: flex;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 0.02em;
+}
+
+.input-productName {
+  padding: 13px;
+  width: 270px;
+
   border: none;
-  border: 0;
-  margin: 0;
-  padding: 0;
+  box-sizing: border-box;
+  border: 2px solid #f5f6fb;
+  border-radius: 16px 0px 0px 0px;
+  border-right: none;
+  outline: none;
 }
 
-@media screen and (min-width: 768px) {
-  .input-container {
-    display: flex;
-    justify-content: center;
+.input-productValue {
+  padding: 13px 50px 13px 13px;
+  width: 125px;
 
-    width: 467px;
-    height: 44px;
-  }
-
-  .form-input {
-    display: flex;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.02em;
-  }
-
-  .border-select-category {
-    width: 171px;
-    height: 44px;
-    border-top: 2px solid #f5f6fb;
-    border-bottom: 2px solid #f5f6fb;
-  }
-
-  .input-productName {
-    width: 192px;
-    height: 44px;
-
-    padding-left: 20px;
-
-    border: 2px solid #f5f6fb;
-    box-sizing: border-box;
-    border-radius: 16px 0px 0px 0px;
-
-    .select-category {
-      width: 171px;
-      height: 44px;
-
-      padding-left: 20px;
-
-      border-top: 2px solid #f5f6fb;
-      border-bottom: 2px solid #f5f6fb;
-    }
-  }
-
-  .input-productValue {
-    width: 104px;
-    height: 44px;
-
-    padding-left: 20px;
-
-    border: 2px solid #f5f6fb;
-    box-sizing: border-box;
-    border-radius: 0px 16px 16px 0px;
-  }
-
-  .input-button {
-    width: 125px;
-    height: 44px;
-
-    border: 2px solid #f6f7fc;
-    box-sizing: border-box;
-    border-radius: 16px;
-
-    &:hover {
-      background: #ff751d;
-    }
-  }
-
-  .input-clear {
-    width: 125px;
-    height: 44px;
-
-    border: 2px solid #f6f7fc;
-    box-sizing: border-box;
-    border-radius: 16px;
-
-    &:hover {
-      background: #ff751d;
-    }
-  }
+  border: 2px solid #f5f6fb;
+  box-sizing: border-box;
+  border-radius: 0px 16px 16px 0px;
+  border-left: none;
+  outline: none;
+  text-align: right;
 }
 
-@media screen and (min-width: 1200px) {
-  .input-container {
-    width: 601px;
-    height: 44px;
-  }
-
-  .input-productName {
-    width: 289px;
-  }
-
-  .select-category {
-    width: 188px;
-  }
-
-  .input-productValue {
-    width: 126px;
-  }
-
-  .input-button {
-    left: 885px;
-    top: 221px;
-  }
-
-  .input-clear {
-    left: 1025px;
-    top: 221px;
+.input-productValue-label {
+  position: relative;
+  & > svg {
+    position: absolute;
+    top: 10px;
+    right: 20px;
   }
 }

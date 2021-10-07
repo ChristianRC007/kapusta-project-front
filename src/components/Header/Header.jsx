@@ -8,7 +8,7 @@ import MainButton from '../MainButton';
 
 
 import kapustaLogo from '../../assets/img/logo.png'
-import defaultAvatar from '../../assets/images/default-avatar.png'
+
 import logOut from '../../assets/img/logout.png'
 
 const Header=({ isAuthenticated,name })=> {
@@ -19,7 +19,8 @@ const Header=({ isAuthenticated,name })=> {
   };
 
   isAuthenticated = true;
-  name="Wim Mostila"
+  name = "Wim Mostila"
+  
   return (
     <header >
       {isAuthenticated ?    
@@ -52,8 +53,7 @@ const Header=({ isAuthenticated,name })=> {
 }
 const mapStateToProps = state => ({
   name: authSelectors.getUserEmail(state),
-  isAuthenticated: authSelectors.getIsAuthenticated(state),
-    // avatar:defaultAvatar
+  isAuthenticated: authSelectors.getIsAuthenticated(state)
 })
  
 const mapDispatchToProps = {

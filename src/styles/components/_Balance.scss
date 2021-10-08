@@ -3,6 +3,15 @@
   align-items: center;
   width: 369px;
   position: relative;
+  @include tablet {
+    width: 369px;
+  }
+  @include mobile {
+    display: block;
+    width: 248px;
+    justify-content: center;
+    margin: 0;
+  }
   &__title {
     font-family: Roboto, sans-serif;
     font-weight: 500;
@@ -12,12 +21,24 @@
     letter-spacing: 0.02em;
     color: rgba(82, 85, 95, 0.7);
     margin-right: 31px;
+    @include tablet {
+      margin-right: 21px;
+    }
+    @include mobile {
+      margin-bottom: 12px;
+      text-align: center;
+    }
+  }
+  &__buttons {
+    @include mobile {
+      display: flex;
+    }
   }
   &__input {
     border: 2px solid #ffffff;
     box-sizing: border-box;
     border-radius: 16px;
-    background-color: #f2f5fc;
+    background-color: transparent;
     font-weight: 700;
     padding-top: 12px;
     padding-bottom: 12px;
@@ -27,7 +48,16 @@
     margin-right: 15px;
     width: 125px;
     height: 44px;
+    @include tablet {
+      margin-right: 15px;
+    }
+    @include mobile {
+      border-radius: 22px 0px 0px 22px;
+      margin-right: 0;
+      border-right: 1px solid #ffffff;
+    }
   }
+
   &__submit {
     //   border: 2px solid #ffffff;
     //   box-sizing: border-box;
@@ -51,6 +81,10 @@
     &:hover {
       color: #ffffff;
     }
+    @include mobile {
+      border-radius: 0px 22px 22px 0px;
+      border-left: 1px solid #ffffff;
+    }
   }
   ::placeholder {
     font-family: Roboto;
@@ -73,6 +107,10 @@
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
     padding: 30px;
     border-radius: 30px;
+    @include mobile {
+      width: 282px;
+    }
+
     &::before {
       content: '';
       position: absolute;
@@ -99,5 +137,13 @@
       line-height: 16px;
       color: #ffffff;
     }
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
   }
 }

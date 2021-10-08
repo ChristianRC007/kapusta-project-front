@@ -18,22 +18,25 @@ const Balance = () => {
   return (
     <div className="balance">
       <p className="balance__title">Баланс:</p>
-      <input
-        className="balance__input"
-        type="number"
-        step="0.01"
-        placeholder="00.00 UAH"
-        value={balance}
-        onChange={e => {
-          setBalance(e.target.value);
-        }}
-      />
-      <input
-        className="balance__submit balance-btn"
-        type="button"
-        value="Подтвердить"
-        onClick={() => dispatch(balanceOperations.updateBalance(balance))}
-      />
+      <div className="balance__buttons">
+        <input
+          className="balance__input"
+          type="number"
+          step="0.01"
+          placeholder="00.00 UAH"
+          value={balance}
+          onChange={e => {
+            setBalance(e.target.value);
+          }}
+        />
+        <input
+          className="balance__submit balance-btn"
+          type="button"
+          value="Подтвердить"
+          onClick={() => dispatch(balanceOperations.updateBalance(balance))}
+        />
+      </div>
+
       {!balance && tooltipOpen && (
         <div className="balance__tooltip" onClick={removeTooltip}>
           <p className="balance__tooltip__text-first">

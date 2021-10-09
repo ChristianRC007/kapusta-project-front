@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authActions from './auth-actions';
 
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = 'https://kapusta-app-api.herokuapp.com';
 
 const token = {
   set(token) {
@@ -15,7 +15,7 @@ const token = {
 const register = credentials => async dispatch => {
   dispatch(authActions.registerRequest());
   try {
-    const response = await axios.post('/users/signup', credentials);
+    const response = await axios.post('/api/v1/users/signup', credentials);
 
     token.set(response.data.token);
     dispatch(authActions.registerSuccess(response.data));
@@ -27,7 +27,7 @@ const register = credentials => async dispatch => {
 const logIn = credentials => async dispatch => {
   dispatch(authActions.loginRequest());
   try {
-    const response = await axios.post('/users/login', credentials);
+    const response = await axios.post('/api/v1/users/login', credentials);
 
     token.set(response.data.token);
     dispatch(authActions.loginSuccess(response.data));
@@ -39,7 +39,7 @@ const logIn = credentials => async dispatch => {
 const logOut = () => async dispatch => {
   dispatch(authActions.logoutRequest());
   try {
-    await axios.post('/users/logout');
+    await axios.post('/api/v1/users/logout');
 
     token.unset();
     dispatch(authActions.logoutSuccess());
@@ -61,7 +61,7 @@ const getCurrentUser = () => async (dispatch, getState) => {
 
   dispatch(authActions.getCurrentUserRequest());
   try {
-    const response = await axios.get('/users/current');
+    const response = await axios.get('/api/v1/users/logout/current');
     dispatch(authActions.getCurrentUserSuccess(response.data));
   } catch (error) {
     dispatch(authActions.getCurrentUserError(error.message));

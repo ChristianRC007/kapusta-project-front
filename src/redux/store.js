@@ -11,7 +11,9 @@ import {
 } from 'redux-persist';
 import { reportReducer } from './report';
 import { authReducer } from './auth';
+import { balanceReducer } from './balance';
 import storage from 'redux-persist/lib/storage';
+import balanceOperations from './balance/balance-operations';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -27,9 +29,13 @@ const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     report: reportReducer,
+    balance: balanceReducer,
   },
   middleware,
 });
+
+//getting current balance on start application
+store.dispatch(balanceOperations.getBalance());
 
 const persistor = persistStore(store);
 

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import InputContainer from '../../components/InputContainer';
+import Summary from '../Summary';
 
 const optionsExpense = [
   { value: 'transport', label: 'Транспорт' },
@@ -62,10 +63,16 @@ const CounterTabs = () => {
       {expense ? (
         <div className="counter-tab-container">
           <InputContainer options={optionsExpense} />
+          <div>
+            <Summary />
+          </div>
         </div>
       ) : (
         <div className="counter-tab-container">
           <InputContainer options={optionsProfit} profit={profits} />
+          <div>
+            <Summary />
+          </div>
         </div>
       )}
     </div>

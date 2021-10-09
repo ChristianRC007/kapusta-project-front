@@ -79,3 +79,68 @@
     right: 20px;
   }
 }
+
+.react-datepicker {
+  font-family: inherit;
+  font-size: inherit;
+
+  &__current-month {
+    color: $main-text-cl;
+  }
+
+  &__day-name {
+    color: $main-text-cl;
+  }
+
+  &__day {
+    color: $main-text-cl;
+  }
+
+  &__today-button {
+    color: $main-text-cl;
+
+    &:hover {
+      background-color: rgb(219, 219, 219);
+    }
+  }
+
+  &__current-month {
+    text-transform: capitalize;
+  }
+}
+
+.datepicker-button {
+  margin-right: 25px;
+
+  font-weight: 900;
+  color: $main-text-cl;
+
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  & .wrapper {
+    display: flex;
+    align-items: end;
+
+    & svg {
+      margin-right: 10px;
+    }
+  }
+}
+
+.react-datepicker__day--selected {
+  background-color: $hero-cl;
+  color: white;
+
+  &:hover {
+    background-color: $hero-cl;
+  }
+}
+.react-datepicker__day--outside-month {
+  color: rgb(209, 209, 209);
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: $hero-cl;
+}

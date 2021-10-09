@@ -1,0 +1,41 @@
+body {
+  background-color: #f0f1f3;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  width: 230px;
+  height:  38px;
+  border-top-left-radius: 20px;
+  border-top-right-radius:  20px;
+  box-sizing: 230px 38px;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  color: #000000;
+  background-color: #F5F6FB;
+}

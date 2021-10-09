@@ -1,0 +1,34 @@
+.list {
+  align-items: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;  
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius:  20px;
+}
+
+
+.item {
+width: 230px;
+height:  38px;
+font-size: 12px;
+display: flex;
+align-items: center;
+text-transform: uppercase;
+justify-content: space-between;   // space-around; //
+margin-top: 2px;
+    margin-left: auto;
+    margin-right: auto;
+color: #52555F;
+background-color: #F5F6FB; 
+}
+
+.itembottom {}
+
+.field_month {
+padding-left: 22px;
+}
+
+.field_summ {
+padding-right: 20px;
+}

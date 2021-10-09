@@ -12,6 +12,7 @@ import {
 import { reportReducer } from './report';
 import { authReducer } from './auth';
 import storage from 'redux-persist/lib/storage';
+import counterReducer from './counter/counter-reducer';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -27,6 +28,7 @@ const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     report: reportReducer,
+    counter: counterReducer,
   },
   middleware,
 });

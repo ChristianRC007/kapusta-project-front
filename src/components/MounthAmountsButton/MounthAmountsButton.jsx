@@ -1,29 +1,31 @@
 import React from "react";
+import * as actions from '../../redux/counter/counter-actions';
+import { connect } from 'react-redux';
+import Controls from "./Controls";
 
+ function MounthAmountsButton({ value, step, onIncrement, onDecrement }) {
 
-export default function MounthAmountsButton() {
-    
-    const data =Date()
-    // console.log(data.getMounth())
+     
+     return (
+         <div>
+         <Controls
+             step={step}
+             value={value}
+             onIncrement={() => onIncrement(step)}
+        onDecrement={() => onDecrement(step)}
+         />
+</div>
+     )
 
-    return (
-             <div className='currentmb'>
-            <div className='currentmb__container'>
-                 <p className='currentmb__title'>Текущий период:</p>
-                <div className="currentmb__buttons">
-                <button className='currentmb__btn'>
-                    <svg width="7" height="12" viewBox="4 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 1L6 6L10 11" stroke="#FF751D" strokeWidth="2"/>
-                    </svg>
-                </button>
-                    <p className='currentmb__mounth'>Ноябрь 2019</p>
-                <button className='currentmb__btn'>
-                    <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1L5 6L1 11" stroke="#FF751D" strokeWidth="2"/>
-                    </svg>
-                </button>
-                </div>
-               </div>
-            </div>
-    )
 }
+
+const mapStateToProps = state => ({
+  value: state.counter.value,
+  step: state.counter.step,
+    });
+    
+const mapDispatchToProps = dispatch => ({
+  onIncrement: value => dispatch(actions.increment(value)),
+  onDecrement: value => dispatch(actions.decrement(value)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(MounthAmountsButton);

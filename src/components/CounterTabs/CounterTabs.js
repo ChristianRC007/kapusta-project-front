@@ -1,8 +1,29 @@
 import { useState } from 'react';
 import InputContainer from '../../components/InputContainer';
+import Summary from '../Summary';
+import TransactionTable from '../TransactionTable';
+
+const optionsExpense = [
+  { value: 'transport', label: 'Транспорт' },
+  { value: 'products', label: 'Продукты' },
+  { value: 'health', label: 'Здоровье' },
+  { value: 'alcohol', label: 'Алкоголь' },
+  { value: 'entertainment', label: 'Развлечения' },
+  { value: 'home', label: 'Всё для дома' },
+  { value: 'technics', label: 'Техника' },
+  { value: 'bill', label: 'Комуналка, связь' },
+  { value: 'sport', label: 'Спортб хобби' },
+  { value: 'education', label: 'Образование' },
+  { value: 'other', label: 'Прочее' },
+];
+
+const optionsProfit = [
+  { value: 'salary', label: 'Зарплата' },
+  { value: 'additional', label: 'Доп. доход' },
+];
 
 const CounterTabs = () => {
-  const [costs, setCosts] = useState(true);
+  const [expense, setCosts] = useState(true);
   const [profits, setProfits] = useState(false);
 
   const clickCosts = () => {
@@ -20,7 +41,7 @@ const CounterTabs = () => {
       <div>
         <button
           className={
-            costs
+            expense
               ? 'counter-tab-header-buttons counter-tab-active'
               : 'counter-tab-header-buttons'
           }
@@ -40,13 +61,21 @@ const CounterTabs = () => {
           Доход
         </button>
       </div>
-      {costs ? (
+      {expense ? (
         <div className="counter-tab-container">
-          <InputContainer />
+          <InputContainer options={optionsExpense} />
+          <TransactionTable />
+          <div>
+            <Summary />
+          </div>
         </div>
       ) : (
         <div className="counter-tab-container">
-          <InputContainer />
+          <InputContainer options={optionsProfit} profit={profits} />
+          <TransactionTable profit={profits} />
+          <div>
+            <Summary />
+          </div>
         </div>
       )}
     </div>

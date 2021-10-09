@@ -1,0 +1,51 @@
+.summary__wrapper {
+  max-width: 230px;
+}
+
+.summary__list {
+  margin: 0;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  border-bottom-right-radius: 20px;
+  height: 240px;
+  background-color: #f5f6fb;
+  padding-inline-start: 0;
+}
+.summary__item {
+  padding: 10px 20px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  justify-content: space-between;
+  margin-top: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #52555f;
+  background-color: transparent;
+  &:not(:last-child) {
+    border-bottom: 2px solid white;
+  }
+}
+
+.field_month {
+  padding-left: 22px;
+}
+
+.field_summ {
+  padding-right: 20px;
+}
+
+.summary__title {
+  margin: 0;
+  padding: 15px 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  color: $black-cl;
+  background-color: #f5f6fb;
+}

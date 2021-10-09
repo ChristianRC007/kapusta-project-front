@@ -24,16 +24,16 @@ const addContact = contact => async dispatch => {
   }
 };
 
-const deleteContact = id => async dispatch => {
-  dispatch(reportActions.deleteContactRequest());
+const deleteTransaction = id => async dispatch => {
+  dispatch(reportActions.deleteTransactionRequest());
 
   try {
-    await axios.delete(`/contacts/${id}`);
-    dispatch(reportActions.deleteContactSuccess(id));
+    await axios.delete(`/api/v1/transactions/${id}`);
+    dispatch(reportActions.deleteTransactionSuccess(id));
   } catch (error) {
-    dispatch(reportActions.deleteContactError(error.message));
+    dispatch(reportActions.deleteTransactionError(error.message));
   }
 };
 
 // eslint-disable-next-line
-export default { fetchContacts, addContact, deleteContact };
+export default { fetchContacts, addContact, deleteTransaction };

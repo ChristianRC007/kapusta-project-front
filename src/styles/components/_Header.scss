@@ -1,0 +1,84 @@
+header {
+  background-color: #fff;
+}
+
+.header__container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 25px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.auth__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.auth__user_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.auth__user_logo {
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.auth__user_name {
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+.auth__user_div {
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+  width: 1px;
+  height: 40px;
+  margin: 0 20px;
+  background-color: #e0e5eb;
+}
+
+.auth__user_btn {
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+
+  color: #52555f;
+  text-decoration-line: underline;
+
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.auth__user_btn:hover {
+  color: orange;
+}
+
+.auth__user_btn_mobile {
+  @media screen and (max-width: 480px) {
+    color: #52555f;
+
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: fill 200ms liner;
+  }
+  @media screen and (min-width: 481px) {
+    display: none;
+  }
+  &:hover {
+    fill: black;
+  }
+  & > svg {
+    width: 18px;
+    height: 18px;
+  }
+}

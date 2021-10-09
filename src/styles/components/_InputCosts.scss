@@ -1,0 +1,81 @@
+.input-container {
+  display: flex;
+
+  @media screen and (min-width: $tablet) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media screen and (min-width: $desktop) {
+    justify-content: space-between;
+    flex-direction: initial;
+  }
+}
+
+.inner-container {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin: 0;
+  }
+}
+
+.form-input {
+  display: flex;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 0.02em;
+}
+
+.input-productName {
+  padding: 13px;
+
+  border: none;
+  border: 2px solid #f5f6fb;
+  border-radius: 16px 0px 0px 0px;
+  border-right: none;
+  outline: none;
+
+  @media screen and (min-width: $tablet) {
+    width: 190px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 270px;
+  }
+}
+
+.input-productValue {
+  padding: 13px 50px 13px 13px;
+
+  border: 2px solid #f5f6fb;
+  border-radius: 0px 16px 16px 0px;
+  border-left: none;
+  outline: none;
+  text-align: right;
+
+  @media screen and (min-width: $tablet) {
+    width: 105px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 125px;
+  }
+}
+
+.input-productValue-label {
+  position: relative;
+  & > svg {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+}

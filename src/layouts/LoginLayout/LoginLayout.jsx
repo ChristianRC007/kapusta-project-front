@@ -1,13 +1,12 @@
-import Header from '../../components/Header';
-import BackgroundLogin from '../../components/Backgrounds/BackgroundLogin'
-import MainTitle from '../../components/MainTitle/MainTitle';
+
+import Header from '../../components/Header/Header';
+import BackgroundLogin from '../../components/Backgrounds/BackgroundLogin';
 
 export default function LoginLayout({ children }) {
   return (
     <>
+      <Header/>
       <BackgroundLogin />
-      <MainTitle/>
-      <Header />
       <div className="container">{children}</div>
     </>
   );

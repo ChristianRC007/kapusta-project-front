@@ -64,16 +64,16 @@ const CounterTabs = () => {
       {expense ? (
         <div className="counter-tab-container">
           <InputContainer options={optionsExpense} />
-          <TransactionTable />
-          <div>
+          <div className="tables-wrapper">
+            <TransactionTable />
             <Summary />
           </div>
         </div>
       ) : (
         <div className="counter-tab-container">
           <InputContainer options={optionsProfit} profit={profits} />
-          <TransactionTable profit={profits} />
-          <div>
+          <div className="tables-wrapper">
+            <TransactionTable profit={profits} />
             <Summary />
           </div>
         </div>

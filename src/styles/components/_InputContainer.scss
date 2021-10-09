@@ -84,6 +84,10 @@
   font-family: inherit;
   font-size: inherit;
 
+  &__header {
+    background-color: #f5f6fb;
+  }
+
   &__current-month {
     color: $main-text-cl;
   }
@@ -98,6 +102,7 @@
 
   &__today-button {
     color: $main-text-cl;
+    background-color: #f5f6fb;
 
     &:hover {
       background-color: rgb(219, 219, 219);

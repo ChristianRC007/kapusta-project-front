@@ -9,18 +9,22 @@ const Balance = () => {
   const currentBalance = useSelector(balanceSelectors.balanceCurrent);
   const balanceLoading = useSelector(balanceSelectors.balanceLoading);
 
-  const [balance, setBalance] = useState(0);
+  const [balance, setBalance] = useState('');
   const [tooltipOpen, setTooltipOpen] = useState(true);
 
   const loadingMessage = '...';
 
   //updating balance from state
   useEffect(() => {
-    setBalance(currentBalance || 0);
+    setBalance(currentBalance || '');
   }, [currentBalance]);
 
   const removeTooltip = () => {
     setTooltipOpen(false);
+  };
+
+  const handleClick = () => {
+    dispatch(balanceOperations.updateBalance(balance));
   };
 
   return (
@@ -29,8 +33,7 @@ const Balance = () => {
       <div className="balance__buttons">
         <input
           className="balance__input"
-          type="number"
-          step="0.01"
+          type="text"
           placeholder="00.00 UAH"
           value={balanceLoading ? loadingMessage : balance}
           onChange={e => {
@@ -41,7 +44,7 @@ const Balance = () => {
           className="balance__submit balance-btn"
           type="button"
           value="Подтвердить"
-          onClick={() => dispatch(balanceOperations.updateBalance(balance))}
+          onClick={handleClick}
         />
       </div>
 

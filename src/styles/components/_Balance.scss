@@ -12,7 +12,6 @@
     margin: 0 auto;
   }
   &__title {
-    font-family: Roboto, sans-serif;
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
@@ -38,7 +37,6 @@
   }
   &__input {
     border: 2px solid #ffffff;
-    box-sizing: border-box;
     border-radius: 16px;
     background-color: transparent;
     font-weight: 700;
@@ -70,7 +68,6 @@
     }
   }
   ::placeholder {
-    font-family: Roboto;
     font-weight: 700;
     font-size: 12px;
     line-height: 14px;

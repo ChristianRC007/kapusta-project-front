@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import InputContainer from '../../components/InputContainer';
+import InputContainer from '../InputContainer';
 import Summary from '../Summary';
 import TransactionTable from '../TransactionTable';
 

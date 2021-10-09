@@ -27,7 +27,7 @@ export default function useRoutes(isUserAuthenticated) {
       />
       <PrivateRoute
         path="/main"
-        component={() => <MainPage isAuth={isUserAuthenticated} />}
+        component={MainPage}
         isAuth={isUserAuthenticated}
       />
       <PrivateRoute

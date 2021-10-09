@@ -13,7 +13,9 @@ import { reportReducer } from './report';
 import { authReducer } from './auth';
 import { balanceReducer } from './balance';
 import storage from 'redux-persist/lib/storage';
+import counterReducer from './counter/counter-reducer';
 import balanceOperations from './balance/balance-operations';
+
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -29,7 +31,9 @@ const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     report: reportReducer,
+    counter: counterReducer,
     balance: balanceReducer,
+
   },
   middleware,
 });

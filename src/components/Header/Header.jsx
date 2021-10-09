@@ -50,7 +50,7 @@ const Header = ({ isAuthenticated, name }) => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g clip-path="url(#clip0)">
+                <g clipPath="url(#clip0)">
                   <path
                     d="M9.99998 14H1.99998V1.99998H9.99998V2.99998H12V0H0V16H12V13H10V14H9.99998Z"
                     fill="#CBCCD0"

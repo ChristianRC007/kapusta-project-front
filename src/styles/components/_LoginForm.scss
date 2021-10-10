@@ -119,7 +119,10 @@
 
 .input:not(:placeholder-shown):required:valid {
   border-color: var(--cl_green);
-  & 
+//   & .form__starAttantion{
+//   display: block;
+//   color: red;
+// }
 }
 .button_container {
   display: flex;
@@ -179,7 +182,7 @@
   }
 }
 .form__starAttantion{
-  color: red;
+  display: none;
 }
 .Form__textAttantion{
   width: 100%;

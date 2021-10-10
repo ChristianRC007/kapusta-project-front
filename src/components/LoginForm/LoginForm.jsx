@@ -3,8 +3,9 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import MainButton from '../MainButton';
 
-import { authOperations } from '../../redux/auth';
+import { authOperations,authSelectors } from '../../redux/auth';
 import GoogleAuth from '../GoogleAuth';
+import { NULL } from 'node-sass';
 
 class LoginForm extends Component {
   state = {
@@ -12,7 +13,7 @@ class LoginForm extends Component {
     email: '',
     password: '',
 
-    showAttention:false,
+showAttention:true
   };
 
 
@@ -23,9 +24,9 @@ class LoginForm extends Component {
 
     this.props.onLogin(this.state);
    
-     if (!this.name && !this.email && !this.password) {
-        this.setState({showAttention:true});
-    }
+    //  if (!this.name && !this.email && !this.password) {
+    //     this.setState({showAttention:true});
+    // }
 
     this.setState({ name: '', email: '', password: '' });
   };
@@ -111,7 +112,7 @@ class LoginForm extends Component {
                 autoComplete="off"
               />
             </label>
-            {this.showAttention?<p className='Form__textAttantion'>это обязательное поле</p>:''}
+            <p className='Form__textAttantion'>это обязательное поле</p>
           </div>
 
           <div className="button_container">
@@ -135,7 +136,7 @@ class LoginForm extends Component {
 
 const mapDispatchToProps = {
   onLogin: authOperations.register,
-  isAuthenticated: authSelectors.getIsAuthenticated(state),
+
 };
 
-export default connect(null, mapDispatchToProps)(LoginForm);
+export default connect(NULL, mapDispatchToProps)(LoginForm);

@@ -4,37 +4,27 @@ import PrivateRoute from '../routes/PrivateRoute';
 import LoginPage from '../pages/LoginPage';
 import MainPage from '../pages/MainPage';
 import StatisticPage from '../pages/ReportPage';
+import { useSelector } from 'react-redux';
+import { authSelectors } from '../redux/auth';
 
-export default function useRoutes(isUserAuthenticated) {
+export default function useRoutes() {
+  const isAuthenticated = useSelector(authSelectors.getIsAuthenticated);
   return (
     <Switch>
       <Route
         exact
         path="/"
         render={() => {
-          return isUserAuthenticated ? (
+          return isAuthenticated ? (
             <Redirect to="/main" />
           ) : (
             <Redirect to="/login" />
           );
         }}
       />
-      <PublicRoute
-        exact
-        path="/login"
-        component={LoginPage}
-        isAuth={isUserAuthenticated}
-      />
-      <PrivateRoute
-        path="/main"
-        component={MainPage}
-        isAuth={isUserAuthenticated}
-      />
-      <PrivateRoute
-        path="/report"
-        component={StatisticPage}
-        isAuth={isUserAuthenticated}
-      />
+      <PublicRoute exact path="/login" component={LoginPage} />
+      <PrivateRoute path="/main" component={MainPage} />
+      <PrivateRoute path="/report" component={StatisticPage} />
       <Redirect to="/login" />
     </Switch>
   );

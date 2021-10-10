@@ -1,10 +1,6 @@
 import axios from 'axios';
 import balanceActions from './balance-actions';
 
-//temporary test authorization header
-axios.defaults.headers.common['Authorization'] =
-  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjE5YWEwYWIwZjA3NGE1NDI1ZTA0ZSIsImlhdCI6MTYzMzc4NjU4NX0.yZWCwoDhjvhyBQIWFO9obkIHQO05N9MaG_Ak0V5exnQ';
-
 //operation for get balance on start
 const getBalance = () => async dispatch => {
   try {

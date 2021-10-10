@@ -1,12 +1,15 @@
 import { Route, Redirect } from 'react-router-dom';
 import LoginLayout from '../layouts/LoginLayout';
+import { useSelector } from 'react-redux';
+import { authSelectors } from '../redux/auth';
 
 const PublicRoute = ({ component: Component, isAuth, ...rest }) => {
+  const isAuthenticated = useSelector(authSelectors.getIsAuthenticated);
   return (
     <Route
       {...rest}
       render={props =>
-        isAuth ? (
+        isAuthenticated ? (
           <Redirect to={{ pathname: '/main' }} />
         ) : (
           <LoginLayout>

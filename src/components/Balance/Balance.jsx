@@ -14,6 +14,10 @@ const Balance = () => {
 
   const loadingMessage = '...';
 
+  useEffect(() => {
+    dispatch(balanceOperations.getBalance());
+  }, []);
+
   //updating balance from state
   useEffect(() => {
     setBalance(currentBalance || '');
@@ -34,6 +38,7 @@ const Balance = () => {
         <input
           className="balance__input"
           type="text"
+          pattern="^[ 0-9]+$"
           placeholder="00.00 UAH"
           value={balanceLoading ? loadingMessage : balance}
           onChange={e => {

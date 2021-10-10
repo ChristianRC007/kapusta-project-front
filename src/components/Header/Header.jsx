@@ -8,15 +8,12 @@ import MainButton from '../MainButton';
 
 import kapustaLogo from '../../assets/img/logo.png';
 
-const Header = ({ isAuthenticated, name }) => {
+const Header = ({ isAuthenticated, userName }) => {
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
     setShowModal(!showModal);
   };
-
-  isAuthenticated = true;
-  name = 'Kleopatra';
 
   return (
     <header>
@@ -27,7 +24,7 @@ const Header = ({ isAuthenticated, name }) => {
           </div>
           <div className="auth__user_container">
             <Avatar
-              name={name}
+              name={userName}
               size="32"
               color={Avatar.getRandomColor('sitebase', [
                 'red',
@@ -37,7 +34,7 @@ const Header = ({ isAuthenticated, name }) => {
               ])}
               className="auth__user_logo"
             />
-            <p className="auth__user_name">{name}</p>
+            <p className="auth__user_name">{userName}</p>
             <div className="auth__user_div"></div>
             <button onClick={toggleModal} className="auth__user_btn">
               Выйти
@@ -95,7 +92,7 @@ const Header = ({ isAuthenticated, name }) => {
   );
 };
 const mapStateToProps = state => ({
-  name: authSelectors.getUserEmail(state),
+  userName: authSelectors.getUserName(state),
   isAuthenticated: authSelectors.getIsAuthenticated(state),
 });
 

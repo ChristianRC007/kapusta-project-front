@@ -22,7 +22,7 @@ const optionsExpense = [
 ];
 
 const optionsProfit = [
-  { value: 'salary', label: 'Зарплата' },
+  { value: 'salary', label: 'ЗП' },
   { value: 'additional', label: 'Доп. доход' },
 ];
 

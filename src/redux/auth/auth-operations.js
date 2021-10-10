@@ -61,7 +61,7 @@ const getCurrentUser = () => async (dispatch, getState) => {
 
   dispatch(authActions.getCurrentUserRequest());
   try {
-    const response = await axios.get('/api/v1/users/logout/current');
+    const response = await axios.get('/api/v1/users/current');
     dispatch(authActions.getCurrentUserSuccess(response.data));
   } catch (error) {
     dispatch(authActions.getCurrentUserError(error.message));

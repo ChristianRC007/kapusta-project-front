@@ -13,7 +13,7 @@ class LoginForm extends Component {
     password: '',
   };
 
-  handleSubmit = e => {
+  handleLogin = e => {
     e.preventDefault();
 
     this.props.onLogin(this.state);
@@ -28,11 +28,11 @@ class LoginForm extends Component {
 
   render() {
     const { name, email, password } = this.state;
-    const { handleSubmit, handleChange } = this;
+    const { handleChange } = this;
 
     return (
       <div className="container_form">
-        <form className="form" onSubmit={handleSubmit} autoComplete="off">
+        <form className="form" autoComplete="off">
           <div className="container_google">
             <p className="text">
               Вы можете авторизоваться с помощью <br />
@@ -99,11 +99,13 @@ class LoginForm extends Component {
               text="Войти"
               className="register-btn mr-15"
               accent
+              onClick={this.handleLogin}
             />
             <MainButton
               type="submit"
               text="Регистрация"
               className="register-btn"
+              onClick={this.handleRegister}
             />
           </div>
         </form>
@@ -113,7 +115,8 @@ class LoginForm extends Component {
 }
 
 const mapDispatchToProps = {
-  onLogin: authOperations.register,
+  onLogin: authOperations.logIn,
+  onRegister: authOperations.register,
 };
 
 export default connect(null, mapDispatchToProps)(LoginForm);

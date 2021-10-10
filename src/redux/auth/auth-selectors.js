@@ -1,5 +1,5 @@
-const getIsAuthenticated = state => state.auth.isLoggedIn;
-const getUserEmail = state => state.auth.user.email;
+const getIsAuthenticated = state => state.auth.isAuthenticated;
+const getUserName = state => state.auth.user.user?.name;
 
 // eslint-disable-next-line
-export default { getIsAuthenticated, getUserEmail };
+export default { getIsAuthenticated, getUserName };

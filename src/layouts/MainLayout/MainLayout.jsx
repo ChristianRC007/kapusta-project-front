@@ -1,6 +1,6 @@
-
+import { ToastContainer } from 'react-toastify';
 import MainHeadPannel from '../../components/MainHeadPannel';
-import BackgroundMain from '../../components/Backgrounds/BackgroundMain'
+import BackgroundMain from '../../components/Backgrounds/BackgroundMain';
 import Header from '../../components/Header/Header';
 import MounthAmountsButton from '../../components/MounthAmountsButton';
 
@@ -9,8 +9,19 @@ export default function MainLayout({ children }) {
     <>
       <Header />
       <BackgroundMain />
-      <MounthAmountsButton/>
+      <MounthAmountsButton />
       <MainHeadPannel />
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+      />
       <div className="container">{children}</div>
     </>
   );

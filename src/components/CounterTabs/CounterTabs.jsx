@@ -2,6 +2,10 @@ import { useState } from 'react';
 import InputContainer from '../InputContainer';
 import Summary from '../Summary';
 import TransactionTable from '../TransactionTable';
+import { useDispatch } from 'react-redux';
+import counterOperations from '../../redux/transactions/transactions-operations';
+import balanceOperations from '../../redux/balance/balance-operations';
+import { toast } from 'react-toastify';
 
 const optionsExpense = [
   { value: 'transport', label: 'Транспорт' },
@@ -23,6 +27,7 @@ const optionsProfit = [
 ];
 
 const CounterTabs = () => {
+  const dispatch = useDispatch();
   const [expense, setCosts] = useState(true);
   const [profits, setProfits] = useState(false);
 
@@ -34,6 +39,23 @@ const CounterTabs = () => {
   const clickProfits = () => {
     setProfits(true);
     setCosts(false);
+  };
+
+  const onSuccess = () => {
+    toast.success('Transaction successаully added.');
+    dispatch(balanceOperations.getBalance());
+  };
+
+  const onError = error => {
+    toast.error('Something went wrong, please try again later.');
+  };
+
+  const handleSubmit = data => {
+    if (profits) {
+      dispatch(counterOperations.addIncome(data, onSuccess, onError));
+    } else {
+      dispatch(counterOperations.addExpense(data, onSuccess, onError));
+    }
   };
 
   return (
@@ -63,7 +85,7 @@ const CounterTabs = () => {
       </div>
       {expense ? (
         <div className="counter-tab-container">
-          <InputContainer options={optionsExpense} />
+          <InputContainer options={optionsExpense} onSubmit={handleSubmit} />
           <div className="tables-wrapper">
             <TransactionTable />
             <Summary />
@@ -71,7 +93,11 @@ const CounterTabs = () => {
         </div>
       ) : (
         <div className="counter-tab-container">
-          <InputContainer options={optionsProfit} profit={profits} />
+          <InputContainer
+            options={optionsProfit}
+            profit={profits}
+            onSubmit={handleSubmit}
+          />
           <div className="tables-wrapper">
             <TransactionTable profit={profits} />
             <Summary />

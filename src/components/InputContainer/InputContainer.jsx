@@ -6,7 +6,7 @@ import ru from 'date-fns/locale/ru';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
-export default function InputContainer({ options, profit }) {
+export default function InputContainer({ options, profit, onSubmit }) {
   const initialDate = Date.now();
   const [productName, setProductName] = useState('');
   const [payValue, setPayValue] = useState('');
@@ -14,11 +14,15 @@ export default function InputContainer({ options, profit }) {
   const [date, setDate] = useState(initialDate);
 
   useEffect(() => {
+    resetData();
+  }, [profit]);
+
+  const resetData = () => {
     setProductName('');
     setPayValue('');
     setCategory([]);
     setDate(initialDate);
-  }, [profit]);
+  };
 
   const customStyles = {
     option: (provided, { isSelected }) => ({
@@ -60,12 +64,17 @@ export default function InputContainer({ options, profit }) {
     }),
   };
 
-  const onSubmit = () => {};
-
   const onReset = () => {
     setProductName('');
     setPayValue('');
     setCategory([]);
+  };
+
+  const data = {
+    date,
+    category: category.label,
+    description: productName,
+    amount: +payValue,
   };
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
@@ -197,7 +206,10 @@ export default function InputContainer({ options, profit }) {
           type="submit"
           text="Ввод"
           className="main-btn mr-15"
-          onClick={onSubmit}
+          onClick={() => {
+            onSubmit(data);
+            onReset();
+          }}
           accent
         />
         <MainButton

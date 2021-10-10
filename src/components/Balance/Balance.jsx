@@ -40,12 +40,13 @@ const Balance = () => {
             setBalance(e.target.value);
           }}
         />
-        <input
+        <button
           className="balance__submit balance-btn"
           type="button"
-          value="Подтвердить"
           onClick={handleClick}
-        />
+        >
+          Подтвердить
+        </button>
       </div>
 
       {!balance && !balanceLoading && tooltipOpen && (

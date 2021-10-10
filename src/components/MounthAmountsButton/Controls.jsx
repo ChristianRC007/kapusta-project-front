@@ -34,11 +34,8 @@ const mounthArr = [
   
 
 
-    return((
- 
-
-    
-             <div className='currentmb'>
+    return ((
+        <div >
             <div className='currentmb__container'>
                 <p className='currentmb__title'>Текущий период:</p>
                 <div className="currentmb__buttons">
@@ -55,8 +52,8 @@ const mounthArr = [
                 </button>
                 </div>
                </div>
-            </div>
-))
+        </div>
+    ))
 }
 
 export default Controls;

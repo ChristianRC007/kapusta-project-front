@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { balanceSelectors } from '../../redux/balance';
 import balanceOperations from '../../redux/balance/balance-operations';
+import MounthAmountsButton from '../MounthAmountsButton';
 
 const Balance = () => {
   const dispatch = useDispatch();
@@ -48,6 +49,7 @@ const Balance = () => {
           Подтвердить
         </button>
       </div>
+      <MounthAmountsButton/>
 
       {!balance && !balanceLoading && tooltipOpen && (
         <div className="balance__tooltip" onClick={removeTooltip}>

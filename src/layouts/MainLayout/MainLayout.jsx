@@ -9,7 +9,6 @@ export default function MainLayout({ children }) {
     <>
       <Header />
       <BackgroundMain />
-      <MounthAmountsButton />
       <MainHeadPannel />
       <ToastContainer
         position="top-center"

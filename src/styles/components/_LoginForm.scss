@@ -81,6 +81,7 @@
   margin-top: 10px;
   width: 265px;
   height: 40px;
+  
 
   font-family: 'Roboto';
   font-size: 14px;
@@ -118,6 +119,7 @@
 
 .input:not(:placeholder-shown):required:valid {
   border-color: var(--cl_green);
+  & 
 }
 .button_container {
   display: flex;
@@ -175,4 +177,20 @@
     flex-direction: initial;
     margin-top: 100px;
   }
+}
+.form__starAttantion{
+  color: red;
+}
+.Form__textAttantion{
+  width: 100%;
+
+  margin: 0;
+  color:red;
+  font-family: "Roboto";
+
+  font-size: 10px;
+  line-height: 12px;
+
+
+letter-spacing: 0.04em;
 }

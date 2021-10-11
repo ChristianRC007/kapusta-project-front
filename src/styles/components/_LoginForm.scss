@@ -176,3 +176,20 @@
     margin-top: 100px;
   }
 }
+.form__attention-text{
+  position: absolute;
+bottom: -25px;
+left: 0;
+
+  font-family: "Roboto";
+font-size: 10px;
+line-height: 12px;
+letter-spacing: 0.04em;
+color: #EB5757;
+}
+.form__star{
+  position: absolute;
+  top:5px;
+  left: -5px;
+color: #EB5757;
+}

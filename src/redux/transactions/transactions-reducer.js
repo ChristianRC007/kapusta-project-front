@@ -5,16 +5,10 @@ import transactionsActions from './transactions-actions';
 const transactions = createReducer(
   {},
   {
-    [transactionsActions.getExpenseByDateRequest]: (_, { payload }) => payload,
-    // [balanceActions.getBalance]: (_, { payload }) => payload,
-  },
-);
-
-const selectedDate = createReducer(
-  { date: Date.now() },
-  {
-    [transactionsActions.setDate]: (_, { payload }) => payload,
-    // [balanceActions.getBalance]: (_, { payload }) => payload,
+    [transactionsActions.getExpenseByDateSuccess]: (_, { payload }) =>
+      payload.transactions,
+    [transactionsActions.getIncomeByDateSuccess]: (_, { payload }) =>
+      payload.transactions,
   },
 );
 
@@ -24,5 +18,5 @@ const selectedDate = createReducer(
 
 export default combineReducers({
   transactions,
-  selectedDate,
+  // selectedDate,
 });

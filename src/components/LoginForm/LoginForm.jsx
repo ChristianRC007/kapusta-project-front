@@ -20,6 +20,11 @@ class LoginForm extends Component {
     this.setState({ name: '', email: '', password: '' });
   };
 
+  handleRegister = (e) => {
+    e.preventDefault();
+    this.props.onRegister(this.state)
+  }
+
   handleChange = e => {
     this.setState({
       [e.currentTarget.name]: e.currentTarget.value,

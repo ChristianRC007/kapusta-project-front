@@ -1,12 +1,5 @@
 import axios from 'axios';
-import {
-  addIncomeRequest,
-  addIncomeSuccess,
-  addIncomeError,
-  addExpenseRequest,
-  addExpenseSuccess,
-  addExpenseError,
-} from './transactions-actions';
+import transactionsActions from './transactions-actions';
 
 const addIncome = (data, onSuccess, onError) => async dispatch => {
   // dispatch(addIncomeRequest());
@@ -34,5 +27,21 @@ const addExpense = (data, onSuccess, onError) => async dispatch => {
   }
 };
 
-const counterOperations = { addIncome, addExpense };
+const getExpenseByDate = (date, onSuccess, onError) => async dispatch => {
+  // dispatch(addIncomeRequest());
+
+  try {
+    const { data } = await axios.get(
+      `/api/v1/transactions/getExpenseByDate/${date}`,
+    );
+    dispatch(transactionsActions.getExpenseByDateSuccess(data));
+    // onSuccess();
+  } catch (error) {
+    // onError(error);
+    console.log(error);
+    // dispatch(addIncomeError(error.message));
+  }
+};
+
+const counterOperations = { addIncome, addExpense, getExpenseByDate };
 export default counterOperations;

@@ -1,9 +1,36 @@
 import { createAction } from '@reduxjs/toolkit';
 
-export const addIncomeRequest = createAction('contacts/addIncomeRequest');
-export const addIncomeSuccess = createAction('contacts/addIncomeSuccess');
-export const addIncomeError = createAction('contacts/addIncomeError');
+const setDate = createAction('set-date');
 
-export const addExpenseRequest = createAction('contacts/addExpenseRequest');
-export const addExpenseSuccess = createAction('contacts/addExpenseSuccess');
-export const addExpenseError = createAction('contacts/addExpenseError');
+const addIncomeRequest = createAction('transactions/addIncomeRequest');
+const addIncomeSuccess = createAction('transactions/addIncomeSuccess');
+const addIncomeError = createAction('transactions/addIncomeError');
+
+const addExpenseRequest = createAction('transactions/addExpenseRequest');
+const addExpenseSuccess = createAction('transactions/addExpenseSuccess');
+const addExpenseError = createAction('transactions/addExpenseError');
+
+const getExpenseByDateRequest = createAction(
+  'transactions/getExpenseByDateRequest',
+);
+const getExpenseByDateSuccess = createAction(
+  'transactions/getExpenseByDateSuccess',
+);
+const getExpenseByDateError = createAction(
+  'transactions/getExpenseByDateError',
+);
+
+const transactionsActions = {
+  addIncomeRequest,
+  addIncomeSuccess,
+  addIncomeError,
+  addExpenseRequest,
+  addExpenseSuccess,
+  addExpenseError,
+  getExpenseByDateRequest,
+  getExpenseByDateSuccess,
+  getExpenseByDateError,
+  setDate,
+};
+
+export default transactionsActions;

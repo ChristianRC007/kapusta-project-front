@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import InputContainer from '../InputContainer';
 import Summary from '../Summary';
 import TransactionTable from '../TransactionTable';
 import { useDispatch } from 'react-redux';
 import counterOperations from '../../redux/transactions/transactions-operations';
 import balanceOperations from '../../redux/balance/balance-operations';
+import transactionsOperations from '../../redux/transactions/transactions-operations';
 import { toast } from 'react-toastify';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 const optionsExpense = [
   { value: 'transport', label: 'Транспорт' },
@@ -30,6 +32,16 @@ const CounterTabs = () => {
   const dispatch = useDispatch();
   const [expense, setCosts] = useState(true);
   const [profits, setProfits] = useState(false);
+
+  let isDesktopWide = useMediaQuery('(min-width: 1060px)');
+  let isTabletWide = useMediaQuery(
+    '(min-width: 768px) and (max-width: 1060px)',
+  );
+
+  // useEffect(() => {
+  //   const date = new Date();
+  //   dispatch(transactionsOperations.getExpenseByDate(date));
+  // }, [dispatch]);
 
   const clickCosts = () => {
     setProfits(false);
@@ -59,51 +71,54 @@ const CounterTabs = () => {
   };
 
   return (
-    <div className="counter-tabs-wrapper">
-      <div>
-        <button
-          className={
-            expense
-              ? 'counter-tab-header-buttons counter-tab-active'
-              : 'counter-tab-header-buttons'
-          }
-          onClick={clickCosts}
-        >
-          Расход
-        </button>
-        <button
-          className={
-            profits
-              ? 'counter-tab-header-buttons counter-tab-active'
-              : 'counter-tab-header-buttons'
-          }
-          type="button"
-          onClick={clickProfits}
-        >
-          Доход
-        </button>
+    <div>
+      <div className="counter-tabs-wrapper">
+        <div>
+          <button
+            className={
+              expense
+                ? 'counter-tab-header-buttons counter-tab-active'
+                : 'counter-tab-header-buttons'
+            }
+            onClick={clickCosts}
+          >
+            Расход
+          </button>
+          <button
+            className={
+              profits
+                ? 'counter-tab-header-buttons counter-tab-active'
+                : 'counter-tab-header-buttons'
+            }
+            type="button"
+            onClick={clickProfits}
+          >
+            Доход
+          </button>
+        </div>
+        {expense ? (
+          <div className="counter-tab-container">
+            <InputContainer options={optionsExpense} onSubmit={handleSubmit} />
+            <div className="tables-wrapper">
+              <TransactionTable />
+              {isDesktopWide && <Summary />}
+            </div>
+          </div>
+        ) : (
+          <div className="counter-tab-container">
+            <InputContainer
+              options={optionsProfit}
+              profit={profits}
+              onSubmit={handleSubmit}
+            />
+            <div className="tables-wrapper">
+              <TransactionTable profit={profits} />
+              {isDesktopWide && <Summary />}
+            </div>
+          </div>
+        )}
       </div>
-      {expense ? (
-        <div className="counter-tab-container">
-          <InputContainer options={optionsExpense} onSubmit={handleSubmit} />
-          <div className="tables-wrapper">
-            <TransactionTable />
-            <Summary />
-          </div>
-        </div>
-      ) : (
-        <div className="counter-tab-container">
-          <InputContainer
-            options={optionsProfit}
-            profit={profits}
-            onSubmit={handleSubmit}
-          />
-          <div className="tables-wrapper">
-            <TransactionTable profit={profits} />
-            <Summary />
-          </div>
-        </div>
-      )}
+      {isTabletWide && <Summary />}
     </div>
   );
 };

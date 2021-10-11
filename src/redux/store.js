@@ -12,6 +12,7 @@ import {
 import { reportReducer } from './report';
 import { authReducer } from './auth';
 import { balanceReducer } from './balance';
+import { transactionsReducer } from './transactions';
 import storage from 'redux-persist/lib/storage';
 import counterReducer from './counter/counter-reducer';
 
@@ -31,6 +32,7 @@ const store = configureStore({
     report: reportReducer,
     counter: counterReducer,
     balance: balanceReducer,
+    transactions: transactionsReducer,
   },
   middleware,
 });

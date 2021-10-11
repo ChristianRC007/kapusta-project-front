@@ -16,7 +16,6 @@ import storage from 'redux-persist/lib/storage';
 import counterReducer from './counter/counter-reducer';
 import balanceOperations from './balance/balance-operations';
 
-
 const middleware = [
   ...getDefaultMiddleware({
     serializableCheck: {
@@ -33,13 +32,14 @@ const store = configureStore({
     report: reportReducer,
     counter: counterReducer,
     balance: balanceReducer,
-
   },
   middleware,
 });
 
 //getting current balance on start application
 store.dispatch(balanceOperations.getBalance());
+store.dispatch(balanceOperations.updateCurrentExpenses());
+store.dispatch(balanceOperations.updateCurrentIncomes());
 
 const persistor = persistStore(store);
 

@@ -6,18 +6,58 @@ import MainButton from '../MainButton';
 import { authOperations } from '../../redux/auth';
 import GoogleAuth from '../GoogleAuth';
 
+
 class LoginForm extends Component {
   state = {
     name: '',
     email: '',
     password: '',
+    emptyFieldName: false,
+    emptyFieldEmail: false,
+    emptyFieldPassword:false,
   };
 
+  handleRegister = e => {
+    e.preventDefault();
+    const { name, email, password } = this.state;
+
+    if (!name) {
+   this.setState({emptyFieldName:true})
+    }
+     if (!email) {
+   this.setState({emptyFieldEmail:true})
+     }
+     if (!password) {
+   this.setState({emptyFieldPassword:true})
+     }
+   
+    if (name && email&&password) {
+      this.setState({ emptyFieldName: false, emptyFieldEmail: false, emptyFieldPassword: false })
+      
+       this.props.onRegister(this.state);
+    this.setState({ name: '', email: '', password: '' });
+    }
+}
   handleLogin = e => {
     e.preventDefault();
+    const { name, email, password } = this.state;
 
+    if (!name) {
+   this.setState({emptyFieldName:true})
+     }
+     if (!email) {
+   this.setState({emptyFieldEmail:true})
+     }
+     if (!password) {
+   this.setState({emptyFieldPassword:true})
+     }
+ if (name && email&&password) {
+   this.setState({ emptyFieldName: false, emptyFieldEmail: false, emptyFieldPassword: false })
+   
     this.props.onLogin(this.state);
     this.setState({ name: '', email: '', password: '' });
+    }
+   
   };
 
   handleRegister = (e) => {
@@ -32,7 +72,7 @@ class LoginForm extends Component {
   };
 
   render() {
-    const { name, email, password } = this.state;
+    const {emptyFieldName,emptyFieldEmail,emptyFieldPassword, name, email, password } = this.state;
     const { handleChange } = this;
 
     return (
@@ -53,6 +93,7 @@ class LoginForm extends Component {
               зарегистрировавшись:
             </p>
             <label className="label">
+               { !emptyFieldName?'':<sup className='form__star'>*</sup>}
               Имя:
               <input
                 className="input"
@@ -65,24 +106,32 @@ class LoginForm extends Component {
                 required
                 minLength="3"
                 onChange={handleChange}
+          
               />
+               { !emptyFieldName?'':<p className='form__attention-text'>это обязательное поле</p>}
             </label>
+            
 
             <label className="label">
+              { !emptyFieldEmail?'':<sup className='form__star'>*</sup>}
               Электронная почта:
               <input
                 className="input"
                 type="email"
                 name="email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                 value={email}
                 placeholder="your@email.com"
                 title="Введите свою пошту."
                 required
                 onChange={handleChange}
+             
               />
+              { !emptyFieldEmail?'':<p className='form__attention-text'>это обязательное поле</p>}
             </label>
 
             <label className="label">
+              { !emptyFieldPassword?'':<sup className='form__star'>*</sup>}
               Пароль:
               <input
                 className="input"
@@ -94,7 +143,9 @@ class LoginForm extends Component {
                 title="Пароль больше 6-ти символов"
                 required
                 minLength="6"
+              
               />
+              { !emptyFieldPassword?'':<p className='form__attention-text'>это обязательное поле</p>}
             </label>
           </div>
 
@@ -105,6 +156,7 @@ class LoginForm extends Component {
               className="register-btn mr-15"
               accent
               onClick={this.handleLogin}
+              disable='sd'
             />
             <MainButton
               type="submit"

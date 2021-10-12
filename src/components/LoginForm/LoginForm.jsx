@@ -37,7 +37,7 @@ class LoginForm extends Component {
         emptyFieldPassword: false,
       });
 
-      this.props.onRegister(this.state);
+      this.props.onRegister({ name, email, password });
       this.setState({ name: '', email: '', password: '' });
     }
   };
@@ -66,10 +66,10 @@ class LoginForm extends Component {
     }
   };
 
-  handleRegister = e => {
-    e.preventDefault();
-    this.props.onRegister(this.state);
-  };
+  // handleRegister = e => {
+  //   e.preventDefault();
+  //   this.props.onRegister(this.state);
+  // };
 
   handleChange = e => {
     this.setState({

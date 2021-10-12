@@ -6,6 +6,7 @@ import { format } from 'date-fns';
 import ru from 'date-fns/locale/ru';
 import { useDispatch } from 'react-redux';
 import transactionsOperations from '../../redux/transactions/transactions-operations';
+import transactionsActions from '../../redux/transactions/transactions-actions';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -37,6 +38,7 @@ export default function InputContainer({ options, profit, onSubmit }) {
 
   const selectDate = date => {
     setDate(date);
+    dispatch(transactionsActions.setDate(date));
   };
 
   const customStyles = {

@@ -83,7 +83,7 @@ const Header = ({ isAuthenticated, userName, onLogout }) => {
             text="Да"
             className="main-btn"
             accent
-            onClick={onLogout}
+            onClick={() => onLogout()}
           />
           <MainButton
             onClick={toggleModal}

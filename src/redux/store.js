@@ -15,7 +15,7 @@ import { balanceReducer } from './balance';
 import { transactionsReducer } from './transactions';
 import storage from 'redux-persist/lib/storage';
 import counterReducer from './counter/counter-reducer';
-import balanceOperations from './balance/balance-operations';
+// import balanceOperations from './balance/balance-operations';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -40,9 +40,9 @@ const store = configureStore({
 
 
 //getting current balance on start application
-store.dispatch(balanceOperations.getBalance());
-store.dispatch(balanceOperations.updateCurrentExpenses());
-store.dispatch(balanceOperations.updateCurrentIncomes());
+// store.dispatch(balanceOperations.getBalance());
+// store.dispatch(balanceOperations.updateCurrentExpenses());
+// store.dispatch(balanceOperations.updateCurrentIncomes());
 
 const persistor = persistStore(store);
 

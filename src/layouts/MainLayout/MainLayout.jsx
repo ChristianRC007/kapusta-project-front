@@ -9,7 +9,6 @@ export default function MainLayout({ children }) {
     <>
       <Header />
       <BackgroundMain />
-      <MainHeadPannel />
       <ToastContainer
         position="top-center"
         autoClose={3000}

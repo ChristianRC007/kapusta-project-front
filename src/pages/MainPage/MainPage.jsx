@@ -5,7 +5,7 @@ import CounterTabs from '../../components/CounterTabs';
 export default function MainPage() {
   return (
     <>
-      {/* <Balance /> */}
+      <Balance />
       <CounterTabs />
     </>
   );

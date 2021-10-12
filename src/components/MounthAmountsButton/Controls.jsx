@@ -1,8 +1,9 @@
 import React from 'react';
 
+
 const Controls = ({ dataArr, onIncrement, onDecrement }) => {
    
-    return ((
+    return (
         <div >
             <div className='currentmb__container'>
                 <p className='currentmb__title'>Текущий период:</p>
@@ -19,9 +20,9 @@ const Controls = ({ dataArr, onIncrement, onDecrement }) => {
                     </svg>
                 </button>
                 </div>
-               </div>
+            </div>
         </div>
-    ))
-}
+    )
+};
 
 export default Controls;

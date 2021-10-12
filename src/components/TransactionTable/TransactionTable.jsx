@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+import { transactionsSelectors } from '../../redux/transactions';
 import Transaction from './Transaction';
 
 const arr = [
@@ -88,6 +90,7 @@ const arr = [
 ];
 
 const TransactionTable = ({ profit, transactions }) => {
+  const isLoading = useSelector(transactionsSelectors.getIsLoading);
   return (
     <div className="tableDeskWrapper">
       <table className="table">
@@ -101,10 +104,18 @@ const TransactionTable = ({ profit, transactions }) => {
         </thead>
 
         <tbody className="tableBody">
-          {transactions.length > 0 && transactions.map(item => (
-            <Transaction key={item._id} item={item} profit={profit} />
-          ))}
-          
+          {isLoading ? (
+            <tr className="tableTr">
+              <td>
+                <span>Loading</span>
+              </td>
+            </tr>
+          ) : (
+            transactions.length > 0 &&
+            transactions.map(item => (
+              <Transaction key={item._id} item={item} profit={profit} />
+            ))
+          )}
         </tbody>
       </table>
     </div>

@@ -3,7 +3,6 @@ import InputContainer from '../InputContainer';
 import Summary from '../Summary';
 import TransactionTable from '../TransactionTable';
 import { useDispatch, useSelector } from 'react-redux';
-import counterOperations from '../../redux/transactions/transactions-operations';
 import balanceOperations from '../../redux/balance/balance-operations';
 import transactionsOperations from '../../redux/transactions/transactions-operations';
 import { transactionsSelectors } from '../../redux/transactions';

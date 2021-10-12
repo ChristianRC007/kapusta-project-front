@@ -2,32 +2,32 @@ import axios from 'axios';
 import transactionsActions from './transactions-actions';
 
 const addIncome = (data, onSuccess, onError) => async dispatch => {
-  // dispatch(addIncomeRequest());
+  dispatch(transactionsActions.addIncomeRequest());
 
   try {
     await axios.post('api/v1/transactions/addIncome', data);
-    // dispatch(addIncomeSuccess(data));
+    dispatch(transactionsActions.addIncomeSuccess());
     onSuccess();
   } catch (error) {
     onError(error);
-    // dispatch(addIncomeError(error.message));
+    dispatch(transactionsActions.addIncomeError(error.message));
   }
 };
 
 const addExpense = (data, onSuccess, onError) => async dispatch => {
-  // dispatch(addIncomeRequest());
+  dispatch(transactionsActions.addExpenseRequest());
 
   try {
     await axios.post('/api/v1/transactions/addExpense', data);
-    // dispatch(addIncomeSuccess(data));
+    dispatch(transactionsActions.addExpenseSuccess());
     onSuccess();
   } catch (error) {
     onError(error);
-    // dispatch(addIncomeError(error.message));
+    dispatch(transactionsActions.addExpenseError(error.message));
   }
 };
 
-const getExpenseByDate = (date, onSuccess, onError) => async dispatch => {
+const getExpenseByDate = date => async dispatch => {
   dispatch(transactionsActions.getExpenseByDateRequest());
 
   try {
@@ -35,12 +35,8 @@ const getExpenseByDate = (date, onSuccess, onError) => async dispatch => {
       `/api/v1/transactions/getExpenseByDate/${date}`,
     );
     dispatch(transactionsActions.getExpenseByDateSuccess(data));
-    // onSuccess();
   } catch (error) {
-    // onError(error);
     dispatch(transactionsActions.getExpenseByDateError());
-    // console.log(error);
-    // dispatch(addIncomeError(error.message));
   }
 };
 
@@ -52,12 +48,8 @@ const getIncomeByDate = (date, onSuccess, onError) => async dispatch => {
       `/api/v1/transactions/getIncomeByDate/${date}`,
     );
     dispatch(transactionsActions.getIncomeByDateSuccess(data));
-    // onSuccess();
   } catch (error) {
-    // onError(error);
     dispatch(transactionsActions.getIncomeByDateError(error));
-    // console.log(error);
-    // dispatch(addIncomeError(error.message));
   }
 };
 
@@ -66,12 +58,11 @@ const deleteTransaction = (id, onSuccess, onError) => async dispatch => {
 
   try {
     await axios.delete(`/api/v1/transactions/${id}`);
+    dispatch(transactionsActions.deleteTransactionSuccess());
     // onSuccess();
   } catch (error) {
     // onError(error);
     dispatch(transactionsActions.deleteTransactionError(error));
-    // console.log(error);
-    // dispatch(addIncomeError(error.message));
   }
 };
 

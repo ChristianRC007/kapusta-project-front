@@ -1,24 +1,35 @@
 import { useEffect } from 'react';
 import { ReactComponent as DeleteButton } from '../../assets/img/delete-button.svg';
-import { useDispatch } from 'react-redux';
-import { transactionsOperations } from '../../redux/transactions';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  transactionsOperations,
+  transactionsSelectors,
+} from '../../redux/transactions';
 import { format } from 'date-fns';
 
 const Transaction = ({ item, profit }) => {
   const dispatch = useDispatch();
+  const selectedDate = useSelector(transactionsSelectors.currentDate);
 
-  useEffect(() => {
-    if (!profit) {
-      const date = format(new Date(), 'yyyy-MM-dd');
-      dispatch(transactionsOperations.getExpenseByDate(date));
-    }
-  }, [dispatch, profit]);
+  // useEffect(() => {
+  //   if (!profit) {
+  //     const date = format(new Date(), 'yyyy-MM-dd');
+  //     dispatch(transactionsOperations.getExpenseByDate(date));
+  //   }
+  // }, [dispatch, profit]);
 
   const currCategory = profit ? item.amount : -item.amount;
   const currClass = profit ? 'tableAmountIncome' : 'tableAmount';
 
   const hanldeClick = id => {
     dispatch(transactionsOperations.deleteTransaction(id));
+
+    if (profit) {
+      dispatch(transactionsOperations.getIncomeByDate(selectedDate));
+    }
+    if (!profit) {
+      dispatch(transactionsOperations.getExpenseByDate(selectedDate));
+    }
   };
 
   return (

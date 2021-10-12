@@ -8,12 +8,21 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  @include mobile {
+    height: 85px;
+    box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+    border-radius: 20px;
+  }
 
   &__splitter-line {
     width: 1px;
     height: 36px;
     background-color: #e0e5eb;
     margin: 0 20px;
+    @include mobile {
+      height: 70px;
+      margin: 0 12px;
+    }
   }
 
   &__line {
@@ -21,16 +30,28 @@
     font-weight: bold;
     font-size: 14px;
     line-height: 16px;
+    @include mobile {
+      text-align: center;
+    }
 
-    color: #52555f;
     &_red {
       padding-left: 15px;
       color: #e53935;
+      @include mobile {
+        padding-left: 0;
+        display: block;
+        margin-top: 3px;
+      }
     }
 
     &_green {
       padding-left: 15px;
       color: #407946;
+      @include mobile {
+        padding-left: 0;
+        margin-top: 3px;
+        display: block;
+      }
     }
   }
 }

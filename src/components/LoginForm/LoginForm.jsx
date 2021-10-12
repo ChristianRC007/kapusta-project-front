@@ -20,7 +20,18 @@ class LoginForm extends Component {
     e.preventDefault();
     const { name, email, password } = this.state;
 
-    if (!name) {
+   this.chekUserField(name, email, password )
+  };
+  
+    handleLogin = e => {
+    e.preventDefault();
+    const { name, email, password } = this.state;
+
+   this.chekUserField(name, email, password )
+  };
+
+  chekUserField(name,email,password) {
+     if (!name) {
       this.setState({ emptyFieldName: true });
     }
     if (!email) {
@@ -40,36 +51,7 @@ class LoginForm extends Component {
       this.props.onRegister({ name, email, password });
       this.setState({ name: '', email: '', password: '' });
     }
-  };
-  handleLogin = e => {
-    e.preventDefault();
-    const { name, email, password } = this.state;
-
-    if (!name) {
-      this.setState({ emptyFieldName: true });
-    }
-    if (!email) {
-      this.setState({ emptyFieldEmail: true });
-    }
-    if (!password) {
-      this.setState({ emptyFieldPassword: true });
-    }
-    if (name && email && password) {
-      this.setState({
-        emptyFieldName: false,
-        emptyFieldEmail: false,
-        emptyFieldPassword: false,
-      });
-
-      this.props.onLogin({ name, email, password });
-      this.setState({ name: '', email: '', password: '' });
-    }
-  };
-
-  // handleRegister = e => {
-  //   e.preventDefault();
-  //   this.props.onRegister(this.state);
-  // };
+  }
 
   handleChange = e => {
     this.setState({

@@ -3,14 +3,13 @@ import * as actions from '../../redux/counter/counter-actions';
 import { connect } from 'react-redux';
 import Controls from "./Controls";
 
- function MounthAmountsButton({ value, step, onIncrement, onDecrement }) {
+ function MounthAmountsButton({ dataArr, step, onIncrement, onDecrement }) {
 
-     
+    
      return (
          <div>
          <Controls
-             step={step}
-             value={value}
+           dataArr={dataArr}
              onIncrement={() => onIncrement(step)}
         onDecrement={() => onDecrement(step)}
          />
@@ -22,6 +21,7 @@ import Controls from "./Controls";
 const mapStateToProps = state => ({
   value: state.counter.value,
   step: state.counter.step,
+  dataArr:state.counter.dataArr,
     });
     
 const mapDispatchToProps = dispatch => ({

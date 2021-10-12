@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authActions from './auth-actions';
 
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = 'https://kapusta-app-api.herokuapp.com';
 
 const token = {
   set(token) {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { balanceSelectors } from '../../redux/balance';
 import balanceOperations from '../../redux/balance/balance-operations';
+import MounthAmountsButton from '../MounthAmountsButton';
 
 const Balance = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,10 @@ const Balance = () => {
   const [tooltipOpen, setTooltipOpen] = useState(true);
 
   const loadingMessage = '...';
+
+  useEffect(() => {
+    dispatch(balanceOperations.getBalance());
+  }, []);
 
   //updating balance from state
   useEffect(() => {
@@ -34,6 +39,7 @@ const Balance = () => {
         <input
           className="balance__input"
           type="text"
+          pattern="^[ 0-9]+$"
           placeholder="00.00 UAH"
           value={balanceLoading ? loadingMessage : balance}
           onChange={e => {
@@ -48,6 +54,7 @@ const Balance = () => {
           Подтвердить
         </button>
       </div>
+      <MounthAmountsButton/>
 
       {!balance && !balanceLoading && tooltipOpen && (
         <div className="balance__tooltip" onClick={removeTooltip}>

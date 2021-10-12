@@ -39,7 +39,7 @@ const logIn = credentials => async dispatch => {
 const logOut = () => async dispatch => {
   dispatch(authActions.logoutRequest());
   try {
-    await axios.post('/api/v1/users/logout');
+    await axios.get('/api/v1/users/logout');
 
     token.unset();
     dispatch(authActions.logoutSuccess());
@@ -61,7 +61,7 @@ const getCurrentUser = () => async (dispatch, getState) => {
 
   dispatch(authActions.getCurrentUserRequest());
   try {
-    const response = await axios.get('/api/v1/users/logout/current');
+    const response = await axios.get('/api/v1/users/current');
     dispatch(authActions.getCurrentUserSuccess(response.data));
   } catch (error) {
     dispatch(authActions.getCurrentUserError(error.message));

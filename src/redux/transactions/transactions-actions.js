@@ -1,9 +1,54 @@
 import { createAction } from '@reduxjs/toolkit';
 
-export const addIncomeRequest = createAction('contacts/addIncomeRequest');
-export const addIncomeSuccess = createAction('contacts/addIncomeSuccess');
-export const addIncomeError = createAction('contacts/addIncomeError');
+const setDate = createAction('set-date');
 
-export const addExpenseRequest = createAction('contacts/addExpenseRequest');
-export const addExpenseSuccess = createAction('contacts/addExpenseSuccess');
-export const addExpenseError = createAction('contacts/addExpenseError');
+const addIncomeRequest = createAction('transactions/addIncomeRequest');
+const addIncomeSuccess = createAction('transactions/addIncomeSuccess');
+const addIncomeError = createAction('transactions/addIncomeError');
+
+const addExpenseRequest = createAction('transactions/addExpenseRequest');
+const addExpenseSuccess = createAction('transactions/addExpenseSuccess');
+const addExpenseError = createAction('transactions/addExpenseError');
+
+const getExpenseByDateRequest = createAction(
+  'transactions/getExpenseByDateRequest',
+);
+const getExpenseByDateSuccess = createAction(
+  'transactions/getExpenseByDateSuccess',
+);
+const getExpenseByDateError = createAction(
+  'transactions/getExpenseByDateError',
+);
+
+const getIncomeByDateRequest = createAction(
+  'transactions/getIncomeByDateRequest',
+);
+const getIncomeByDateSuccess = createAction(
+  'transactions/getIncomeByDateSuccess',
+);
+const getIncomeByDateError = createAction('transactions/getIncomeByDateError');
+
+const deleteTransactionRequest = createAction('transactions/deleteRequest');
+const deleteTransactionSuccess = createAction('transactions/deleteSuccess');
+const deleteTransactionError = createAction('transactions/deleteError');
+
+const transactionsActions = {
+  addIncomeRequest,
+  addIncomeSuccess,
+  addIncomeError,
+  addExpenseRequest,
+  addExpenseSuccess,
+  addExpenseError,
+  getExpenseByDateRequest,
+  getExpenseByDateSuccess,
+  getExpenseByDateError,
+  getIncomeByDateRequest,
+  getIncomeByDateSuccess,
+  getIncomeByDateError,
+  deleteTransactionRequest,
+  deleteTransactionSuccess,
+  deleteTransactionError,
+  setDate,
+};
+
+export default transactionsActions;

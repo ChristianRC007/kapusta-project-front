@@ -1,5 +1,9 @@
 .summary__wrapper {
   width: 230px;
+
+  @media screen and (min-width: 768px) and (max-width: 1060px) {
+    margin: 40px 0 50px 80px;
+  }
 }
 
 .summary__list {

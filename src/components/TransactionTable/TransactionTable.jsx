@@ -87,7 +87,7 @@ const arr = [
   },
 ];
 
-const TransactionTable = ({ profit }) => {
+const TransactionTable = ({ profit, transactions }) => {
   return (
     <div className="tableDeskWrapper">
       <table className="table">
@@ -101,9 +101,10 @@ const TransactionTable = ({ profit }) => {
         </thead>
 
         <tbody className="tableBody">
-          {arr.map(item => (
-            <Transaction key={item.id} item={item} profit={profit} />
+          {transactions.length > 0 && transactions.map(item => (
+            <Transaction key={item._id} item={item} profit={profit} />
           ))}
+          
         </tbody>
       </table>
     </div>

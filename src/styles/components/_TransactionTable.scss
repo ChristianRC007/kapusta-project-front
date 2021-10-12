@@ -4,7 +4,7 @@
   }
 
   .table {
-    width: 605px;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -32,12 +32,12 @@
 
   .tableTransThDate {
     padding-left: 21px;
-    width: 119px;
+    width: 146px;
     display: flex;
   }
   .tableTransThDescr {
     display: flex;
-    width: 178px;
+    width: 209px;
   }
 
   .tableTransThCategory {
@@ -45,7 +45,7 @@
   }
 
   .tableTransThAmount {
-    width: 119px;
+    width: 169px;
     display: flex;
     justify-content: flex-end;
   }
@@ -124,7 +124,7 @@
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1060px) {
   .tableDeskWrapper {
     margin-right: 30px;
   }

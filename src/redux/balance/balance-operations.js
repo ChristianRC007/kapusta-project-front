@@ -29,9 +29,12 @@ const updateCurrentExpenses =
       );
       dispatch(
         balanceActions.updateCurrentExpenses(
-          updatedExpenses.data.expenseByMonth.find(
-            report => report._id.month === month && report._id.year === year,
-          ).total,
+          updatedExpenses.data.expenseByMonth.length
+            ? updatedExpenses.data.expenseByMonth.find(
+                report =>
+                  report._id.month === month && report._id.year === year,
+              ).total
+            : 0,
         ),
       );
       dispatch(balanceActions.setLoading(false));
@@ -48,12 +51,14 @@ const updateCurrentIncomes =
       const updatedIncomes = await axios.get(
         '/api/v1/transactions/getIncomeByMonth',
       );
-      console.log(updatedIncomes);
       dispatch(
         balanceActions.updateCurrentIncomes(
-          updatedIncomes.data.incomeByMonth.find(
-            report => report._id.month === month && report._id.year === year,
-          ).total,
+          updatedIncomes.data.incomeByMonth.length
+            ? updatedIncomes.data.incomeByMonth.find(
+                report =>
+                  report._id.month === month && report._id.year === year,
+              ).total
+            : 0,
         ),
       );
       dispatch(balanceActions.setLoading(false));

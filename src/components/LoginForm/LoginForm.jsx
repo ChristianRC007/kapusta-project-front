@@ -20,18 +20,24 @@ class LoginForm extends Component {
     e.preventDefault();
     const { name, email, password } = this.state;
 
-   this.chekUserField(name, email, password )
+   if (this.chekUserField(name, email, password )){
+    this.props.onRegister({ name, email, password });
+    this.setState({ name: '', email: '', password: '' });
+   }
   };
   
-    handleLogin = e => {
+  handleLogin = e => {
     e.preventDefault();
     const { name, email, password } = this.state;
 
-   this.chekUserField(name, email, password )
+    if(this.chekUserField(name, email, password )){
+      this.props.onLogin({ name, email, password });
+      this.setState({ name: '', email: '', password: '' });
+    }
   };
 
   chekUserField(name,email,password) {
-     if (!name) {
+    if (!name) {
       this.setState({ emptyFieldName: true });
     }
     if (!email) {
@@ -48,8 +54,9 @@ class LoginForm extends Component {
         emptyFieldPassword: false,
       });
 
-      this.props.onRegister({ name, email, password });
-      this.setState({ name: '', email: '', password: '' });
+      return true
+    } else {
+      return false
     }
   }
 

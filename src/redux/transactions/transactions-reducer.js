@@ -20,6 +20,12 @@ const selectedDate = createReducer(initialDate, {
 });
 
 const isLoading = createReducer(false, {
+  [transactionsActions.addExpenseRequest]: () => true,
+  [transactionsActions.addExpenseSuccess]: () => false,
+  [transactionsActions.addExpenseError]: () => false,
+  [transactionsActions.addIncomeRequest]: () => true,
+  [transactionsActions.addIncomeSuccess]: () => false,
+  [transactionsActions.addIncomeError]: () => false,
   [transactionsActions.getExpenseByDateRequest]: () => true,
   [transactionsActions.getExpenseByDateSuccess]: () => false,
   [transactionsActions.getExpenseByDateError]: () => false,

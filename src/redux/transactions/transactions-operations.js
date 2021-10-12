@@ -59,9 +59,9 @@ const deleteTransaction = (id, onSuccess, onError) => async dispatch => {
   try {
     await axios.delete(`/api/v1/transactions/${id}`);
     dispatch(transactionsActions.deleteTransactionSuccess());
-    // onSuccess();
+    onSuccess();
   } catch (error) {
-    // onError(error);
+    onError(error);
     dispatch(transactionsActions.deleteTransactionError(error));
   }
 };

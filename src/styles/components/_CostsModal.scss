@@ -1,0 +1,41 @@
+.costs-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 3;
+}
+
+.costs-modal {
+  width: 100vw;
+  height: 100vh;
+  // padding: 60px;
+
+  background: #f5f6fb;
+
+  // &-text {
+  //   margin-top: 0;
+  //   margin-bottom: 20px;
+
+  //   text-align: center;
+  // }
+}
+.costs-close-btn {
+  position: absolute;
+  left: 22px;
+  top: 77px;
+
+  background: none;
+  border: none;
+  &:hover > svg > path {
+    fill: #ffffff;
+  }
+}
+.costs-close-div {
+  height: 54px;
+}

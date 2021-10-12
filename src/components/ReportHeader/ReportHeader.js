@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { balanceSelectors } from '../../redux/balance';
+import balanceOperations from '../../redux/balance/balance-operations';
 
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ' ');
 }
 
 const ReportHeader = () => {
+  const dispatch = useDispatch();
   const currentExpenses = useSelector(balanceSelectors.currentExpenses);
   const currentIncomses = useSelector(balanceSelectors.currentIncomses);
+
+  useEffect(() => {
+    dispatch(balanceOperations.updateCurrentExpenses());
+    dispatch(balanceOperations.updateCurrentIncomes());
+  }, [dispatch]);
 
   return (
     <div className="report-header">

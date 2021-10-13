@@ -27,7 +27,14 @@
   border: none;
   outline: none;
   cursor: pointer;
+  & svg {
+    stroke: #ff751d;
+  }
 }
+.currentmb__btn:hover svg {
+  stroke: #cc5105;
+}
+
 .currentmb__mounth {
   margin: 0;
   font-family: 'Roboto';

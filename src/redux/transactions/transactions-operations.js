@@ -53,6 +53,17 @@ const getIncomeByDate = (date, onSuccess, onError) => async dispatch => {
   }
 };
 
+const getLast = (onSuccess, onError) => async dispatch => {
+  dispatch(transactionsActions.getLastRequest());
+
+  try {
+    const { data } = await axios.get(`/api/v1/transactions/getLast`);
+    dispatch(transactionsActions.getLastSuccess(data));
+  } catch (error) {
+    dispatch(transactionsActions.getLastError(error));
+  }
+};
+
 const deleteTransaction = (id, onSuccess, onError) => async dispatch => {
   dispatch(transactionsActions.deleteTransactionRequest());
 
@@ -72,5 +83,6 @@ const counterOperations = {
   getExpenseByDate,
   getIncomeByDate,
   deleteTransaction,
+  getLast,
 };
 export default counterOperations;

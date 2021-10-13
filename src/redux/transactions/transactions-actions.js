@@ -28,6 +28,10 @@ const getIncomeByDateSuccess = createAction(
 );
 const getIncomeByDateError = createAction('transactions/getIncomeByDateError');
 
+const getLastRequest = createAction('transactions/getLastRequest');
+const getLastSuccess = createAction('transactions/getLastSuccess');
+const getLastError = createAction('transactions/getLastError');
+
 const deleteTransactionRequest = createAction('transactions/deleteRequest');
 const deleteTransactionSuccess = createAction('transactions/deleteSuccess');
 const deleteTransactionError = createAction('transactions/deleteError');
@@ -49,6 +53,9 @@ const transactionsActions = {
   deleteTransactionSuccess,
   deleteTransactionError,
   setDate,
+  getLastRequest,
+  getLastSuccess,
+  getLastError,
 };
 
 export default transactionsActions;

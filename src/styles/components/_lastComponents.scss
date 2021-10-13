@@ -7,15 +7,22 @@
   }
 }
 .balance {
-  height: 235px;
+  @include mobile {
+    height: 235px;
+  }
 }
 
 .getlast-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  margin-top: 30px;
-  flex-grow: 2;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  @include mobile {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 30px;
+    flex-grow: 2;
+  }
 }
 .getlast-li {
   width: 100%;

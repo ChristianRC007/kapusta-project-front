@@ -17,7 +17,6 @@ export default function GetLastElements() {
 
   return (
     <ul className="getlast-ul">
-      {/* {console.log(transactions)} */}
       {isLoading ? (
         <li>Loaging...</li>
       ) : (

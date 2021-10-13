@@ -38,13 +38,14 @@ const store = configureStore({
   middleware,
 });
 
-
 //getting current balance on start application
 // store.dispatch(balanceOperations.getBalance());
 // store.dispatch(balanceOperations.updateCurrentExpenses());
 // store.dispatch(balanceOperations.updateCurrentIncomes());
 
 const persistor = persistStore(store);
+
+console.log(store.getState());
 
 // eslint-disable-next-line
 export default { store, persistor };

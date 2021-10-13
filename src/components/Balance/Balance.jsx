@@ -54,7 +54,6 @@ const Balance = () => {
           Подтвердить
         </button>
       </div>
-      <MounthAmountsButton/>
 
       {!balance && !balanceLoading && tooltipOpen && (
         <div className="balance__tooltip" onClick={removeTooltip}>

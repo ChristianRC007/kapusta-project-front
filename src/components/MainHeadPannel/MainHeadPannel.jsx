@@ -1,20 +1,20 @@
 import React from 'react';
-import { useHistory, NavLink } from 'react-router-dom';
+import { useLocation, NavLink } from 'react-router-dom';
+import arrowButton from '../../images/arrow-back.svg'
+import routes from '../../routes/routes';
+
 
 export default function MainHeadPannel() {
-  const history = useHistory();
+  const location = useLocation()
 
-  function handleClick() {
-    history.goBack();
-  }
   return (
-    <div>
-      <button type="button" onClick={handleClick}>
-        Вернуться на главную
-      </button>
-      <NavLink exact to="/report">
-        Перейти к отчетам
-      </NavLink>
+    <div className="main-head-panel">
+      {location.pathname === routes.report && (
+          <NavLink exact to={routes.main}>
+            <img src={arrowButton} alt="" />
+            Вернуться на главную
+          </NavLink>
+      )}
     </div>
   );
 }

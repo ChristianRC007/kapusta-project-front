@@ -4,13 +4,9 @@ import { format } from 'date-fns';
 export default function GetLastElementLi({ transactions }) {
   return (
     <>
-      {console.log(transactions)}
       {transactions.map(
         ({ _id, amount, category, description, date, isIncome }) => {
           const formatDate = format(new Date(date), 'dd.MM.yyyy');
-
-          // console.log(editDate);
-
           return (
             <li key={_id} className="getlast-li">
               <p className="getlast-li-name">{description}</p>

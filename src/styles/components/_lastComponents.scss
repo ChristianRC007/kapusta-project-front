@@ -14,9 +14,8 @@
 
 .getlast-ul {
   display: none;
-  visibility: hidden;
-  opacity: 0;
   @include mobile {
+    display: block;
     list-style: none;
     padding: 0;
     margin: 0;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { balanceSelectors } from '../../redux/balance';
 import balanceOperations from '../../redux/balance/balance-operations';
@@ -13,10 +13,10 @@ const Balance = () => {
   const [balance, setBalance] = useState('');
   const [tooltipOpen, setTooltipOpen] = useState(true);
 
-  const loadingMessage = '...';
+  const loadingMessage = 'loading...';
 
-  useEffect(() => {
-    dispatch(balanceOperations.getBalance());
+  useEffect(() => { 
+    dispatch(balanceOperations.getBalance())
   }, []);
 
   //updating balance from state

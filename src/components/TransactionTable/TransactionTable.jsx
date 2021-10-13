@@ -1,93 +1,9 @@
+import { useSelector } from 'react-redux';
+import { transactionsSelectors } from '../../redux/transactions';
 import Transaction from './Transaction';
 
-const arr = [
-  {
-    id: '1',
-    date: '22.09.21',
-    description: 'lskdj slkdj lskdjf lkdj',
-    category: 'Росход',
-    amount: 2000,
-  },
-  {
-    id: '2',
-    date: '22.09.21',
-    description: 'lskdj slkdj lskdjf lkdj',
-    category: 'Росход',
-    amount: 20,
-  },
-  {
-    id: '3',
-    date: '22.09.21',
-    description: 'lskdj slkdj lskdjf lkdj',
-    category: 'Доход',
-    amount: 300,
-  },
-  {
-    id: '4',
-    date: '22.09.21',
-    description: 'lskdj slkdj lskdjf lkdj',
-    category: 'Росход',
-    amount: 250,
-  },
-  {
-    id: '5',
-    date: '22.09.21',
-    description: 'lskdj slkdj lskdjf lkdj',
-    category: 'Росход',
-    amount: 2004,
-  },
-  {
-    id: '6',
-    date: '22.09.21',
-    description: 'lskdj slkdj lskdjf lkdj',
-    category: 'Росход',
-    amount: 240,
-  },
-  {
-    id: '7',
-    date: '22.09.21',
-    description: 'lskdj slkdj lskdjf lkdj',
-    category: 'Доход',
-    amount: 204,
-  },
-  {
-    id: '8',
-    date: '22.09.21',
-    description: 'lskdj slkdj lskdjf lkdj',
-    category: 'Росход',
-    amount: 2000,
-  },
-  {
-    id: '9',
-    date: '22.09.21',
-    description: 'lskdj slkdj lskdjf lkdj',
-    category: 'Доход',
-    amount: 2000,
-  },
-  {
-    id: '10',
-    date: '22.09.21',
-    description: 'lskdj slkdj lskdjf lkdj',
-    category: 'Росход',
-    amount: 207,
-  },
-  {
-    id: '11',
-    date: '22.09.21',
-    description: 'lskdj slkdj lskdjf lkdj',
-    category: 'Росход',
-    amount: 24500,
-  },
-  {
-    id: '12',
-    date: '22.09.21',
-    description: 'lskdj slkdj lskdjf lkdj',
-    category: 'Доход',
-    amount: 20,
-  },
-];
-
-const TransactionTable = ({ profit }) => {
+const TransactionTable = ({ profit, transactions, onDelete }) => {
+  const isLoading = useSelector(transactionsSelectors.getIsLoading);
   return (
     <div className="tableDeskWrapper">
       <table className="table">
@@ -101,9 +17,23 @@ const TransactionTable = ({ profit }) => {
         </thead>
 
         <tbody className="tableBody">
-          {arr.map(item => (
-            <Transaction key={item.id} item={item} profit={profit} />
-          ))}
+          {isLoading ? (
+            <tr className="tableTr">
+              <td>
+                <span>Loading</span>
+              </td>
+            </tr>
+          ) : (
+            transactions.length > 0 &&
+            transactions.map(item => (
+              <Transaction
+                key={item._id}
+                item={item}
+                profit={profit}
+                onDelete={onDelete}
+              />
+            ))
+          )}
         </tbody>
       </table>
     </div>

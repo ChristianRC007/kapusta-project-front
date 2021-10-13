@@ -8,9 +8,8 @@ import MainButton from '../MainButton';
 
 import kapustaLogo from '../../assets/img/logo.png';
 
-const Header = ({ isAuthenticated, userName }) => {
+const Header = ({ isAuthenticated, userName, onLogout }) => {
   const [showModal, setShowModal] = useState(false);
-
   const toggleModal = () => {
     setShowModal(!showModal);
   };
@@ -79,7 +78,13 @@ const Header = ({ isAuthenticated, userName }) => {
       )}
       {showModal && (
         <Modal onClose={toggleModal} text="Вы действительно хотите выйти?">
-          <MainButton type="submit" text="Да" className="main-btn" accent />
+          <MainButton
+            type="submit"
+            text="Да"
+            className="main-btn"
+            accent
+            onClick={() => onLogout()}
+          />
           <MainButton
             onClick={toggleModal}
             type="button"

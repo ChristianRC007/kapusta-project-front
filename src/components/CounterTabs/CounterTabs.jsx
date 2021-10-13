@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import InputContainer from '../InputContainer';
 import Summary from '../Summary';
 import TransactionTable from '../TransactionTable';
-import { useDispatch } from 'react-redux';
-import counterOperations from '../../redux/transactions/transactions-operations';
+import { useDispatch, useSelector } from 'react-redux';
 import balanceOperations from '../../redux/balance/balance-operations';
 import transactionsOperations from '../../redux/transactions/transactions-operations';
+import { transactionsSelectors } from '../../redux/transactions';
 import { toast } from 'react-toastify';
+import { format } from 'date-fns';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 const optionsExpense = [
@@ -18,7 +19,7 @@ const optionsExpense = [
   { value: 'home', label: 'Всё для дома' },
   { value: 'technics', label: 'Техника' },
   { value: 'bill', label: 'Комуналка, связь' },
-  { value: 'sport', label: 'Спортб хобби' },
+  { value: 'sport', label: 'Спорт, хобби' },
   { value: 'education', label: 'Образование' },
   { value: 'other', label: 'Прочее' },
 ];
@@ -32,16 +33,18 @@ const CounterTabs = () => {
   const dispatch = useDispatch();
   const [expense, setCosts] = useState(true);
   const [profits, setProfits] = useState(false);
+  const selectedDate = useSelector(transactionsSelectors.currentDate);
+  const transactions = useSelector(transactionsSelectors.getTransactions);
 
   let isDesktopWide = useMediaQuery('(min-width: 1060px)');
   let isTabletWide = useMediaQuery(
     '(min-width: 768px) and (max-width: 1060px)',
   );
 
-  // useEffect(() => {
-  //   const date = new Date();
-  //   dispatch(transactionsOperations.getExpenseByDate(date));
-  // }, [dispatch]);
+  useEffect(() => {
+    const date = format(new Date(), 'yyyy-MM-dd');
+    dispatch(transactionsOperations.getExpenseByDate(date));
+  }, [dispatch]);
 
   const clickCosts = () => {
     setProfits(false);
@@ -49,13 +52,22 @@ const CounterTabs = () => {
   };
 
   const clickProfits = () => {
+    if (profits) return;
     setProfits(true);
     setCosts(false);
+    const date = format(new Date(), 'yyyy-MM-dd');
+    dispatch(transactionsOperations.getIncomeByDate(date));
   };
 
   const onSuccess = () => {
-    toast.success('Transaction successаully added.');
+    toast.success('Transaction successfully added.');
     dispatch(balanceOperations.getBalance());
+    if (profits) {
+      dispatch(transactionsOperations.getIncomeByDate(selectedDate));
+    }
+    if (expense) {
+      dispatch(transactionsOperations.getExpenseByDate(selectedDate));
+    }
   };
 
   const onError = error => {
@@ -64,10 +76,36 @@ const CounterTabs = () => {
 
   const handleSubmit = data => {
     if (profits) {
-      dispatch(counterOperations.addIncome(data, onSuccess, onError));
-    } else {
-      dispatch(counterOperations.addExpense(data, onSuccess, onError));
+      dispatch(transactionsOperations.addIncome(data, onSuccess, onError));
     }
+    if (expense) {
+      dispatch(transactionsOperations.addExpense(data, onSuccess, onError));
+    }
+  };
+
+  const onDeleteTransaction = id => {
+    dispatch(
+      transactionsOperations.deleteTransaction(
+        id,
+        onDeleteTransactionSuccess,
+        onDeleteTransactionError,
+      ),
+    );
+  };
+
+  const onDeleteTransactionSuccess = () => {
+    toast.success('Transaction has been deleted.');
+    dispatch(balanceOperations.getBalance());
+    if (profits) {
+      dispatch(transactionsOperations.getIncomeByDate(selectedDate));
+    }
+    if (expense) {
+      dispatch(transactionsOperations.getExpenseByDate(selectedDate));
+    }
+  };
+
+  const onDeleteTransactionError = error => {
+    toast.error('Something went wrong, please try again later.');
   };
 
   return (
@@ -100,7 +138,10 @@ const CounterTabs = () => {
           <div className="counter-tab-container">
             <InputContainer options={optionsExpense} onSubmit={handleSubmit} />
             <div className="tables-wrapper">
-              <TransactionTable />
+              <TransactionTable
+                transactions={transactions}
+                onDelete={onDeleteTransaction}
+              />
               {isDesktopWide && <Summary />}
             </div>
           </div>
@@ -112,7 +153,11 @@ const CounterTabs = () => {
               onSubmit={handleSubmit}
             />
             <div className="tables-wrapper">
-              <TransactionTable profit={profits} />
+              <TransactionTable
+                profit={profits}
+                transactions={transactions}
+                onDelete={onDeleteTransaction}
+              />
               {isDesktopWide && <Summary />}
             </div>
           </div>

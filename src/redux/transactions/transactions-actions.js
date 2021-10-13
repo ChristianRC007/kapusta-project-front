@@ -20,6 +20,18 @@ const getExpenseByDateError = createAction(
   'transactions/getExpenseByDateError',
 );
 
+const getIncomeByDateRequest = createAction(
+  'transactions/getIncomeByDateRequest',
+);
+const getIncomeByDateSuccess = createAction(
+  'transactions/getIncomeByDateSuccess',
+);
+const getIncomeByDateError = createAction('transactions/getIncomeByDateError');
+
+const deleteTransactionRequest = createAction('transactions/deleteRequest');
+const deleteTransactionSuccess = createAction('transactions/deleteSuccess');
+const deleteTransactionError = createAction('transactions/deleteError');
+
 const transactionsActions = {
   addIncomeRequest,
   addIncomeSuccess,
@@ -30,6 +42,12 @@ const transactionsActions = {
   getExpenseByDateRequest,
   getExpenseByDateSuccess,
   getExpenseByDateError,
+  getIncomeByDateRequest,
+  getIncomeByDateSuccess,
+  getIncomeByDateError,
+  deleteTransactionRequest,
+  deleteTransactionSuccess,
+  deleteTransactionError,
   setDate,
 };
 

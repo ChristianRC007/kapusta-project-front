@@ -2,9 +2,11 @@ import React, { useState, useEffect, forwardRef } from 'react';
 import Select from 'react-select';
 import MainButton from '../MainButton';
 import DatePicker from 'react-datepicker';
+import { format } from 'date-fns';
 import ru from 'date-fns/locale/ru';
 import { useDispatch } from 'react-redux';
 import transactionsOperations from '../../redux/transactions/transactions-operations';
+import transactionsActions from '../../redux/transactions/transactions-actions';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -17,7 +19,14 @@ export default function InputContainer({ options, profit, onSubmit }) {
   const [date, setDate] = useState(initialDate);
 
   useEffect(() => {
-    dispatch(transactionsOperations.getExpenseByDate(date));
+    if (!profit) {
+      const formatDate = format(new Date(date), 'yyyy-MM-dd');
+      dispatch(transactionsOperations.getExpenseByDate(formatDate));
+    }
+    if (profit) {
+      const formatDate = format(new Date(date), 'yyyy-MM-dd');
+      dispatch(transactionsOperations.getIncomeByDate(formatDate));
+    }
   }, [dispatch, date]);
 
   useEffect(() => {
@@ -32,8 +41,9 @@ export default function InputContainer({ options, profit, onSubmit }) {
   };
 
   const selectDate = date => {
-    console.log(date);
     setDate(date);
+    const formatDate = format(new Date(date), 'yyyy-MM-dd');
+    dispatch(transactionsActions.setDate(formatDate));
   };
 
   const customStyles = {
@@ -83,7 +93,7 @@ export default function InputContainer({ options, profit, onSubmit }) {
   };
 
   const data = {
-    date,
+    date: format(new Date(date), 'yyyy-MM-dd'),
     category: category.label,
     description: productName,
     amount: +payValue,

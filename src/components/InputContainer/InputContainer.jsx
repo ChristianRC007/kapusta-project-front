@@ -23,6 +23,10 @@ export default function InputContainer({ options, profit, onSubmit }) {
       const formatDate = format(new Date(date), 'yyyy-MM-dd');
       dispatch(transactionsOperations.getExpenseByDate(formatDate));
     }
+    if (profit) {
+      const formatDate = format(new Date(date), 'yyyy-MM-dd');
+      dispatch(transactionsOperations.getIncomeByDate(formatDate));
+    }
   }, [dispatch, date]);
 
   useEffect(() => {
@@ -38,7 +42,8 @@ export default function InputContainer({ options, profit, onSubmit }) {
 
   const selectDate = date => {
     setDate(date);
-    dispatch(transactionsActions.setDate(date));
+    const formatDate = format(new Date(date), 'yyyy-MM-dd');
+    dispatch(transactionsActions.setDate(formatDate));
   };
 
   const customStyles = {

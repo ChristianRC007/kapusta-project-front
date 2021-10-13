@@ -8,12 +8,11 @@ const GoogleAuth = () => {
   const dispatch = useDispatch();
 
   const successLogin = async ({ tokenId, profileObj }) => {
-    const { email, name, googleId } = profileObj;
+    const { email, name } = profileObj;
     const newUser = {
-      email: email,
-      name: name,
-      token: tokenId,
-      googleId: googleId,
+      email,
+      name,
+      tokenId,
     };
 
     dispatch(authOperations.logIn(newUser));

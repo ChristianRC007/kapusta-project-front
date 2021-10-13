@@ -33,6 +33,8 @@ const CounterTabs = () => {
   const dispatch = useDispatch();
   const [expense, setCosts] = useState(true);
   const [profits, setProfits] = useState(false);
+  const selectedDate = useSelector(transactionsSelectors.currentDate);
+  const transactions = useSelector(transactionsSelectors.getTransactions);
 
   let isDesktopWide = useMediaQuery('(min-width: 1060px)');
   let isTabletWide = useMediaQuery(
@@ -44,15 +46,13 @@ const CounterTabs = () => {
     dispatch(transactionsOperations.getExpenseByDate(date));
   }, [dispatch]);
 
-  const transactions = useSelector(transactionsSelectors.getTransactions);
-  // const incomeTransactions = useSelector(transactionsSelectors.getTransactions);
-
   const clickCosts = () => {
     setProfits(false);
     setCosts(true);
   };
 
   const clickProfits = () => {
+    if (profits) return;
     setProfits(true);
     setCosts(false);
     const date = format(new Date(), 'yyyy-MM-dd');
@@ -60,8 +60,14 @@ const CounterTabs = () => {
   };
 
   const onSuccess = () => {
-    toast.success('Transaction successаully added.');
+    toast.success('Transaction successfully added.');
     dispatch(balanceOperations.getBalance());
+    if (profits) {
+      dispatch(transactionsOperations.getIncomeByDate(selectedDate));
+    }
+    if (expense) {
+      dispatch(transactionsOperations.getExpenseByDate(selectedDate));
+    }
   };
 
   const onError = error => {
@@ -71,12 +77,35 @@ const CounterTabs = () => {
   const handleSubmit = data => {
     if (profits) {
       dispatch(transactionsOperations.addIncome(data, onSuccess, onError));
-      dispatch(transactionsOperations.getIncomeByDate(data.date));
     }
     if (expense) {
       dispatch(transactionsOperations.addExpense(data, onSuccess, onError));
-      dispatch(transactionsOperations.getExpenseByDate(data.date));
     }
+  };
+
+  const onDeleteTransaction = id => {
+    dispatch(
+      transactionsOperations.deleteTransaction(
+        id,
+        onDeleteTransactionSuccess,
+        onDeleteTransactionError,
+      ),
+    );
+  };
+
+  const onDeleteTransactionSuccess = () => {
+    toast.success('Transaction has been deleted.');
+    dispatch(balanceOperations.getBalance());
+    if (profits) {
+      dispatch(transactionsOperations.getIncomeByDate(selectedDate));
+    }
+    if (expense) {
+      dispatch(transactionsOperations.getExpenseByDate(selectedDate));
+    }
+  };
+
+  const onDeleteTransactionError = error => {
+    toast.error('Something went wrong, please try again later.');
   };
 
   return (
@@ -109,7 +138,10 @@ const CounterTabs = () => {
           <div className="counter-tab-container">
             <InputContainer options={optionsExpense} onSubmit={handleSubmit} />
             <div className="tables-wrapper">
-              <TransactionTable transactions={transactions} />
+              <TransactionTable
+                transactions={transactions}
+                onDelete={onDeleteTransaction}
+              />
               {isDesktopWide && <Summary />}
             </div>
           </div>
@@ -121,7 +153,11 @@ const CounterTabs = () => {
               onSubmit={handleSubmit}
             />
             <div className="tables-wrapper">
-              <TransactionTable profit={profits} transactions={transactions} />
+              <TransactionTable
+                profit={profits}
+                transactions={transactions}
+                onDelete={onDeleteTransaction}
+              />
               {isDesktopWide && <Summary />}
             </div>
           </div>

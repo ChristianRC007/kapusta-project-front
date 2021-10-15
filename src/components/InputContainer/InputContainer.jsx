@@ -19,7 +19,6 @@ export default function InputContainer({ options, profit, onSubmit }) {
   const [payValue, setPayValue] = useState('');
   const [category, setCategory] = useState([]);
   const [date, setDate] = useState(initialDate);
-  console.log(payValue);
 
   useEffect(() => {
     if (!profit) {

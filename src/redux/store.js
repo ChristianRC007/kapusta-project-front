@@ -13,6 +13,7 @@ import { reportReducer } from './report';
 import { authReducer } from './auth';
 import { balanceReducer } from './balance';
 import { transactionsReducer } from './transactions';
+import summaryReducer from './transactionSummary/summary-reducer';
 import storage from 'redux-persist/lib/storage';
 import counterReducer from './counter/counter-reducer';
 // import balanceOperations from './balance/balance-operations';
@@ -34,10 +35,10 @@ const store = configureStore({
     counter: counterReducer,
     balance: balanceReducer,
     transactions: transactionsReducer,
+    summary: summaryReducer,
   },
   middleware,
 });
-
 
 //getting current balance on start application
 // store.dispatch(balanceOperations.getBalance());

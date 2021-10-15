@@ -158,7 +158,7 @@ const CounterTabs = () => {
                 transactions={transactions}
                 onDelete={onDeleteTransaction}
               />
-              {isDesktopWide && <Summary />}
+              {isDesktopWide && <Summary profits={profits} />}
             </div>
           </div>
         )}

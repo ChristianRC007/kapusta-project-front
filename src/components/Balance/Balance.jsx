@@ -17,11 +17,11 @@ const Balance = () => {
 
   useEffect(() => { 
     dispatch(balanceOperations.getBalance())
-  }, []);
+  }, [dispatch]);
 
-  //updating balance from state
   useEffect(() => {
-    setBalance(currentBalance || '');
+    setBalance(`${parseFloat(currentBalance).toFixed(2)} UAH` || '');
+    console.log(currentBalance)
   }, [currentBalance]);
 
   const removeTooltip = () => {
@@ -29,8 +29,27 @@ const Balance = () => {
   };
 
   const handleClick = () => {
-    dispatch(balanceOperations.updateBalance(balance));
+    dispatch(balanceOperations.updateBalance(parseFloat(balance)));
   };
+
+  const enterKeyHandler = (e) => {
+    if (e.code === 'Enter') {
+      dispatch(balanceOperations.updateBalance(parseFloat(balance)));
+      e.target.blur()
+    }
+  }
+
+  const inputFocusHandler = (e) => {
+    setBalance(parseFloat(e.target.value).toFixed(2));
+  }
+
+  const inputBlurHandler = () => {
+    setBalance(`${parseFloat(currentBalance).toFixed(2)} UAH`)
+  }
+
+  const onInputHandler = (e) => {
+    setBalance(e.target.value)
+  } 
 
   return (
     <div className="balance">
@@ -42,9 +61,12 @@ const Balance = () => {
           pattern="^[ 0-9]+$"
           placeholder="00.00 UAH"
           value={balanceLoading ? loadingMessage : balance}
-          onChange={e => {
-            setBalance(e.target.value);
-          }}
+          onChange={
+            onInputHandler
+          }
+          onFocus={inputFocusHandler}
+          onBlur={inputBlurHandler}
+          onKeyDown={enterKeyHandler}
         />
         <button
           className="balance__submit balance-btn"

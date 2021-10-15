@@ -12,7 +12,7 @@ export default function MainHeadPannel() {
       {location.pathname === routes.report && (
           <NavLink exact to={routes.main}>
             <img src={arrowButton} alt="" />
-            Вернуться на главную
+            <span>Вернуться на главную</span>
           </NavLink>
       )}
     </div>

@@ -10,14 +10,20 @@ const BalanceHeader = () => {
   const location = useLocation();
 
   return (
-    <div className="balance-header">
+    <div
+      className={`balance-header  ${
+        location.pathname === routes.report && 'report'
+      }`}
+    >
       <MainHeadPannel />
       <Balance />
       {location.pathname === routes.main && (
-        <NavLink exact to={routes.report}>
-          Перейти к отчетам
-          <img src={reportIcon} alt="report link" />
-        </NavLink>
+        <div>
+          <NavLink exact to={routes.report}>
+            <span>Перейти к отчетам</span>
+            <img src={reportIcon} alt="report link" />
+          </NavLink>
+        </div>
       )}
       {location.pathname === routes.report && <MounthAmountsButton />}
     </div>

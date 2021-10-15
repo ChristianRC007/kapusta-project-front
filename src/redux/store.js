@@ -47,5 +47,7 @@ const store = configureStore({
 
 const persistor = persistStore(store);
 
+console.log(store.getState());
+
 // eslint-disable-next-line
 export default { store, persistor };

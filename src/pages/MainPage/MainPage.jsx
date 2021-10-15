@@ -1,5 +1,5 @@
 import React from 'react';
-import Balance from '../../components/Balance/Balance';
+import BalanceHeader from '../../components/BalanceHeader/BalanceHeader';
 import CounterTabs from '../../components/CounterTabs';
 import MobileCounterTabs from '../../components/MobileCounterTabs';
 import GetLastElements from '../../components/GetLastElements';
@@ -8,7 +8,7 @@ export default function MainPage() {
   return (
     <>
       <div className="mobile-main-container">
-        <Balance />
+        <BalanceHeader/>
         <CounterTabs />
         <GetLastElements />
       </div>

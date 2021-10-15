@@ -23,8 +23,8 @@ export default function useRoutes() {
         }}
       />
       <PublicRoute exact path="/login" component={LoginPage} />
-      <PrivateRoute path="/main" component={MainPage} />
-      <PrivateRoute path="/report" component={ReportPage} />
+      <PrivateRoute exact path="/main" component={MainPage} />
+      <PrivateRoute exact path="/report" component={ReportPage} />
       <Redirect to="/login" />
     </Switch>
   );

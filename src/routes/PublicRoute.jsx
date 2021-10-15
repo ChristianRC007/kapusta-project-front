@@ -3,7 +3,7 @@ import LoginLayout from '../layouts/LoginLayout';
 import { useSelector } from 'react-redux';
 import { authSelectors } from '../redux/auth';
 
-const PublicRoute = ({ component: Component, isAuth, ...rest }) => {
+const PublicRoute = ({ component: Component, ...rest }) => {
   const isAuthenticated = useSelector(authSelectors.getIsAuthenticated);
   return (
     <Route

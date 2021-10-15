@@ -1,4 +1,5 @@
 import React from 'react';
+import Loader from 'react-js-loader';
 
 export default function GlobalLoader() {
   const DivStyle = {
@@ -8,7 +9,7 @@ export default function GlobalLoader() {
     left: '0',
     right: '0',
     bottom: '0',
-    backgroundColor: 'rgba(0, 35, 73, .2)',
+    backgroundColor: '#f5f6fb',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -16,7 +17,14 @@ export default function GlobalLoader() {
   return (
     <div style={DivStyle}>
       <div>
-        <div></div>
+        <div>
+          <Loader
+            type="spinner-circle"
+            bgColor={'#ff751d'}
+            color={'#ff751d'}
+            size={120}
+          />
+        </div>
       </div>
     </div>
   );

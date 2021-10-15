@@ -1,0 +1,69 @@
+.mobile-input-container {
+  text-align: center;
+}
+// .mobile-input-bgr {
+//   // z-index: -1;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 313px;
+//   border-bottom-left-radius: 200px;
+//   box-shadow: 4px 0px 4px 0px #00000025;
+//   background: #f5f6fb;
+// }
+// .mobile-form-input {}
+
+.mobile-input-productName {
+  border: 2px solid #ffffff;
+  border-bottom-right-radius: 0%;
+  border-bottom-left-radius: 0%;
+  border-bottom: none;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  width: 282px;
+  height: 44px;
+  background-color: inherit;
+}
+.mobile-input-productName::placeholder {
+  padding-left: 20px;
+}
+
+.mobile-input-productValue {
+  width: 125px;
+  height: 44px;
+
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 22px 0px 0px 22px;
+  border-right: none;
+  outline: none;
+  text-align: right;
+
+  background-color: inherit;
+}
+
+.mobile-input-productValue-label {
+  display: inline-flex;
+  padding-bottom: 35px;
+}
+
+.mobile-input-productValue-label-div {
+  display: inline-block;
+  border: 2px solid #ffffff;
+  width: 60px;
+  height: 44px;
+  border-radius: 0px 22px 22px 0px;
+  position: relative;
+  & > svg {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+  }
+}
+.mobile-input-btn-container {
+  margin-top: 40px;
+}
+.gray-bg {
+  background: #f5f6fb;
+}

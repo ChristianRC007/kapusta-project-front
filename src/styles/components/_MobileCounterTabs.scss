@@ -1,0 +1,76 @@
+.counter-tab-header-buttons {
+  @include mobile {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+.counter-tabs-wrapper {
+  @include mobile {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+//////////////
+
+.mobile-counter-tabs-wrapper {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  @include mobile {
+    visibility: visible;
+    opacity: 1;
+    margin: 0;
+    padding: 0;
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    flex-direction: row;
+    background-color: white;
+  }
+}
+
+.mobile-counter-tab-header-buttons {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  @include mobile {
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+    width: 50vw;
+    margin: 1px;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    background-color: #f1f1f1;
+    border: none;
+    color: #000000;
+    transition: color 100ms linear;
+
+    &:hover {
+      background-color: #ff751d;
+      color: #ffffff;
+    }
+  }
+}
+
+.mobile-counter-tab-active {
+  color: #fefefe;
+  background-color: #ff751d;
+}
+
+// .mobile-counter-tab-container {
+//   padding: 30px 20px;
+//   width: 100%;
+
+//   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+//   border-radius: 0px 30px 30px 30px;
+// }

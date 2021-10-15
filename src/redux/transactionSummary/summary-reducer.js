@@ -7,12 +7,22 @@ const sixMonthsIncome = createReducer([], {
     getFormattedMonth(payload.incomeByMonth),
 });
 
-const sixMonthsExpanse = createReducer([], {
+const sixMonthsExpense = createReducer([], {
   [summaryActions.getExpanseSummarySuccess]: (_, { payload }) =>
     getFormattedMonth(payload.expenseByMonth),
 });
 
+const summaryIsLoading = createReducer([], {
+  [summaryActions.getIncomeSummaryRequest]: () => true,
+  [summaryActions.getIncomeSummarySuccess]: () => false,
+  [summaryActions.getIncomeSummaryError]: () => false,
+  [summaryActions.getExpanseSummaryRequest]: () => true,
+  [summaryActions.getExpanseSummarySuccess]: () => false,
+  [summaryActions.getExpanseSummaryError]: () => false,
+});
+
 export default combineReducers({
   sixMonthsIncome,
-  sixMonthsExpanse,
+  sixMonthsExpense,
+  summaryIsLoading,
 });

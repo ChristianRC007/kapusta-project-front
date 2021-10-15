@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import InputContainer from '../InputContainer';
 import Summary from '../Summary';
 import TransactionTable from '../TransactionTable';
@@ -9,6 +9,7 @@ import { transactionsSelectors } from '../../redux/transactions';
 import { toast } from 'react-toastify';
 import { format } from 'date-fns';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
+import { summaryOperations } from '../../redux/transactionSummary';
 
 const optionsExpense = [
   { value: 'transport', label: 'Транспорт' },
@@ -31,7 +32,7 @@ const optionsProfit = [
 
 const CounterTabs = () => {
   const dispatch = useDispatch();
-  const [expense, setCosts] = useState(true);
+  const [expense, setExpense] = useState(true);
   const [profits, setProfits] = useState(false);
   const selectedDate = useSelector(transactionsSelectors.currentDate);
   const transactions = useSelector(transactionsSelectors.getTransactions);
@@ -46,27 +47,38 @@ const CounterTabs = () => {
     dispatch(transactionsOperations.getExpenseByDate(date));
   }, [dispatch]);
 
-  const clickCosts = () => {
+  const clickExpense = () => {
+    if (expense) return;
     setProfits(false);
-    setCosts(true);
+    setExpense(true);
   };
 
   const clickProfits = () => {
     if (profits) return;
     setProfits(true);
-    setCosts(false);
+    setExpense(false);
     const date = format(new Date(), 'yyyy-MM-dd');
     dispatch(transactionsOperations.getIncomeByDate(date));
   };
+
+  const getIncome = useCallback(() => {
+    dispatch(summaryOperations.getIncomeByMonth());
+  }, [dispatch]);
+
+  const getExpense = useCallback(() => {
+    dispatch(summaryOperations.getExpenseByMonth());
+  }, [dispatch]);
 
   const onSuccess = () => {
     toast.success('Transaction successfully added.');
     dispatch(balanceOperations.getBalance());
     if (profits) {
       dispatch(transactionsOperations.getIncomeByDate(selectedDate));
+      getIncome();
     }
     if (expense) {
       dispatch(transactionsOperations.getExpenseByDate(selectedDate));
+      getExpense();
     }
   };
 
@@ -98,9 +110,11 @@ const CounterTabs = () => {
     dispatch(balanceOperations.getBalance());
     if (profits) {
       dispatch(transactionsOperations.getIncomeByDate(selectedDate));
+      getIncome();
     }
     if (expense) {
       dispatch(transactionsOperations.getExpenseByDate(selectedDate));
+      getExpense();
     }
   };
 
@@ -118,7 +132,7 @@ const CounterTabs = () => {
                 ? 'counter-tab-header-buttons counter-tab-active'
                 : 'counter-tab-header-buttons'
             }
-            onClick={clickCosts}
+            onClick={clickExpense}
           >
             Расход
           </button>

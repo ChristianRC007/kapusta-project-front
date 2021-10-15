@@ -19,6 +19,7 @@ export default function InputContainer({ options, profit, onSubmit }) {
   const [payValue, setPayValue] = useState('');
   const [category, setCategory] = useState([]);
   const [date, setDate] = useState(initialDate);
+  console.log(payValue);
 
   useEffect(() => {
     if (!profit) {
@@ -39,6 +40,7 @@ export default function InputContainer({ options, profit, onSubmit }) {
     setProductName('');
     setPayValue('');
     setCategory([]);
+    setDate(initialDate);
   };
 
   const selectDate = date => {
@@ -87,17 +89,11 @@ export default function InputContainer({ options, profit, onSubmit }) {
     }),
   };
 
-  const onReset = () => {
-    setProductName('');
-    setPayValue('');
-    setCategory([]);
-  };
-
   const data = {
     date: format(new Date(date), 'yyyy-MM-dd'),
     category: category.label,
     description: productName,
-    amount: +payValue,
+    amount: payValue.includes(',') ? +payValue.replace(/,/g, '.') : +payValue,
   };
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
@@ -231,7 +227,7 @@ export default function InputContainer({ options, profit, onSubmit }) {
           className="main-btn mr-15"
           onClick={() => {
             onSubmit(data);
-            onReset();
+            resetData();
           }}
           accent
         />
@@ -239,7 +235,7 @@ export default function InputContainer({ options, profit, onSubmit }) {
           type="button"
           text="Очистить"
           className="main-btn"
-          onClick={onReset}
+          onClick={resetData}
         />
       </div>
     </div>

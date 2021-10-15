@@ -16,6 +16,7 @@ import { transactionsReducer } from './transactions';
 import summaryReducer from './transactionSummary/summary-reducer';
 import storage from 'redux-persist/lib/storage';
 import counterReducer from './counter/counter-reducer';
+import { reportsReducer } from './reports';
 // import balanceOperations from './balance/balance-operations';
 
 const middleware = [
@@ -36,6 +37,7 @@ const store = configureStore({
     balance: balanceReducer,
     transactions: transactionsReducer,
     summary: summaryReducer,
+    reports: reportsReducer,
   },
   middleware,
 });
@@ -46,8 +48,6 @@ const store = configureStore({
 // store.dispatch(balanceOperations.updateCurrentIncomes());
 
 const persistor = persistStore(store);
-
-console.log(store.getState());
 
 // eslint-disable-next-line
 export default { store, persistor };

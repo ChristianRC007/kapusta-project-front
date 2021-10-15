@@ -85,4 +85,5 @@ const counterOperations = {
   deleteTransaction,
   getLast,
 };
+
 export default counterOperations;

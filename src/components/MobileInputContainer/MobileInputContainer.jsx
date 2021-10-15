@@ -1,31 +1,40 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
 import MainButton from '../MainButton';
+import { useDispatch, useSelector } from 'react-redux';
+import { transactionsSelectors } from '../../redux/transactions';
 
-export default function MobileInputContainer({ costs }) {
+const options = [
+  { value: 'transport', label: 'Транспорт' },
+  { value: 'products', label: 'Продукты' },
+  { value: 'health', label: 'Здоровье' },
+  { value: 'alcohol', label: 'Алкоголь' },
+  { value: 'entertainment', label: 'Развлечения' },
+  { value: 'home', label: 'Всё для дома' },
+  { value: 'technics', label: 'Техника' },
+  { value: 'bill', label: 'Комуналка, связь' },
+  { value: 'sport', label: 'Спорт, хобби' },
+  { value: 'education', label: 'Образование' },
+  { value: 'other', label: 'Прочее' },
+];
+
+const optionsProfit = [
+  { value: 'salary', label: 'ЗП' },
+  { value: 'additional', label: 'Доп. доход' },
+];
+
+export default function MobileInputContainer({ costs, onSubmit }) {
   const [productName, setProductName] = useState('');
   const [payValue, setPayValue] = useState('');
+  const [category, setCategory] = useState([]);
 
-  console.log(costs);
+  const selectedDate = useSelector(transactionsSelectors.currentDate);
 
-  const options = [
-    { value: 'transport', label: 'Транспорт' },
-    { value: 'products', label: 'Продукты' },
-    { value: 'health', label: 'Здоровье' },
-    { value: 'alcohol', label: 'Алкоголь' },
-    { value: 'entertainment', label: 'Развлечения' },
-    { value: 'home', label: 'Всё для дома' },
-    { value: 'technics', label: 'Техника' },
-    { value: 'bill', label: 'Комуналка, связь' },
-    { value: 'sport', label: 'Спортб хобби' },
-    { value: 'education', label: 'Образование' },
-    { value: 'other', label: 'Прочее' },
-  ];
-
-  const optionsProfit = [
-    { value: 'salary', label: 'ЗП' },
-    { value: 'additional', label: 'Доп. доход' },
-  ];
+  const onReset = () => {
+    setProductName('');
+    setPayValue('');
+    setCategory([]);
+  };
 
   const customStyles = {
     option: (provided, { isSelected }) => ({
@@ -70,6 +79,13 @@ export default function MobileInputContainer({ costs }) {
     }),
   };
 
+  const data = {
+    date: selectedDate,
+    category: category.label,
+    description: productName,
+    amount: +payValue,
+  };
+
   return (
     <div className="mobile-input-container">
       <form className="mobile-form-input">
@@ -86,6 +102,8 @@ export default function MobileInputContainer({ costs }) {
           styles={customStyles}
           placeholder="Категория товара"
           options={costs ? options : optionsProfit}
+          value={category}
+          onChange={setCategory}
         />
         <label className="mobile-input-productValue-label">
           <input
@@ -142,11 +160,13 @@ export default function MobileInputContainer({ costs }) {
           text="Ввод"
           className="main-btn mr-15"
           accent
+          onClick={() => onSubmit(data)}
         />
         <MainButton
           type="button"
           text="Очистить"
           className="main-btn gray-bg"
+          onClick={onReset}
         />
       </div>
     </div>

@@ -5,8 +5,10 @@ import DatePicker from 'react-datepicker';
 import { format } from 'date-fns';
 import ru from 'date-fns/locale/ru';
 import { useDispatch } from 'react-redux';
-import transactionsOperations from '../../redux/transactions/transactions-operations';
-import transactionsActions from '../../redux/transactions/transactions-actions';
+import {
+  transactionsOperations,
+  transactionsActions,
+} from '../../redux/transactions';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -37,7 +39,6 @@ export default function InputContainer({ options, profit, onSubmit }) {
     setProductName('');
     setPayValue('');
     setCategory([]);
-    setDate(initialDate);
   };
 
   const selectDate = date => {

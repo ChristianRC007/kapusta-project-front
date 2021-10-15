@@ -139,4 +139,12 @@
   input[type='number'] {
     -moz-appearance: textfield;
   }
+
+  &__datepicker {
+    display: none;
+    @include mobile() {
+      display: block;
+      margin-top: 40px;
+    }
+  }
 }

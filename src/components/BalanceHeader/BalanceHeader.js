@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import Balance from '../Balance/Balance';
 import MainHeadPannel from '../MainHeadPannel';
-import MounthAmountsButton from '../MounthAmountsButton';
 import routes from '../../routes/routes';
 import reportIcon from '../../images/report-icon.svg';
 import BalanceDatepicker from '../BalanceDatepicker/BalanceDatepicker';

@@ -34,7 +34,7 @@ const MobileCharts = ({ data }) => {
         className="chartText"
       >
         <Bar
-          dataKey="amount"
+          dataKey="total"
           barSize={18}
           radius={[0, 10, 10, 0]}
           label={<MobileBarLabel />}
@@ -45,14 +45,14 @@ const MobileCharts = ({ data }) => {
             <Cell key={`cell-${idx}`} fill={idx % 3 ? '#FFDAC0' : '#ff751d'} />
           ))}
           <LabelList
-            dataKey="category"
+            dataKey="description"
             content={<MobileCategoryLabel />}
             fill="#52555F"
           />
         </Bar>
 
         <XAxis type="number" hide={true} />
-        <YAxis dataKey="category" type="category" scale="band" hide={true} />
+        <YAxis dataKey="description" type="category" scale="band" hide={true} />
       </BarChart>
     </ResponsiveContainer>
   );

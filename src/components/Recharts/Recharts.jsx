@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 import DesktopCharts from './DesktopChart';
@@ -5,85 +6,45 @@ import MobileCharts from './MobileChart';
 import { reportsSelectors } from '../../redux/reports';
 import { useSelector } from 'react-redux';
 
-const data = [
-  {
-    category: "Гов'ядина",
-    amount: 398,
-  },
-  {
-    category: "Гов'ядина",
-    amount: 398,
-  },
-  {
-    category: "Гов'ядина",
-    amount: 398,
-  },
-
-  {
-    category: 'гречка',
-    amount: 980,
-  },
-  {
-    category: 'макарони',
-    amount: 191,
-  },
-  {
-    category: 'рис',
-    amount: 198,
-  },
-  {
-    category: 'рис',
-    amount: 198,
-  },
-  {
-    category: 'зелень',
-    amount: 918,
-  },
-  {
-    category: 'зелень',
-    amount: 158,
-  },
-  {
-    category: 'прмідори',
-    amount: 198,
-  },
-
-  {
-    category: 'фрукти',
-    amount: 398,
-  },
-];
-
 const Rechart = () => {
-  const income = useSelector(reportsSelectors.getIncomeDetail);
+  const [data, setData] = useState([]);
+  // const income = useSelector(reportsSelectors.getIncomeDetail);
   const expense = useSelector(reportsSelectors.getExpenseDetail);
   const isMatches = useMediaQuery('(min-width: 768px)');
+
+  const activeCategory = expense?.find(el => el.isActive);
+
+  useEffect(() => {
+    if (activeCategory) {
+      const { descriptions } = activeCategory;
+      setData(descriptions);
+    }
+  }, [activeCategory]);
 
   const sortBy = field => (a, b) => a[field] < b[field] ? 1 : -1;
 
   const newData = data
-    .reduce((acc, { category, amount }) => {
-      const myCategory = category;
-      const newArr = acc?.find(el => el.category === category);
+    .reduce((acc, { description, total }) => {
+      const myCategory = description;
+      const newArr = acc?.find(el => el.description === description);
       if (!newArr) {
-        acc.push({ category: myCategory, amount });
+        acc.push({ description: myCategory, total });
       }
 
       if (newArr) {
-        const idx = acc.findIndex(el => el.category === category);
-        acc[idx].amount += amount;
+        const idx = acc.findIndex(el => el.description === description);
+        acc[idx].total += total;
       }
 
       return acc;
     }, [])
-    .sort(sortBy('amount'));
+    .sort(sortBy('total'));
 
   const dataChart = newData.length ? newData : [0];
-  console.log(dataChart);
 
   return isMatches ? (
     <div className="container charts">
-      <DesktopCharts data={expense[0].descriptions} />
+      <DesktopCharts data={dataChart} />
     </div>
   ) : (
     <div className="mobileContainer">

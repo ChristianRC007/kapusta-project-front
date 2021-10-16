@@ -25,16 +25,16 @@ const DesktopCharts = ({ data }) => {
         className="chartText"
       >
         <Bar
-          dataKey="amount"
+          dataKey="total"
           radius={[10, 10, 0, 0]}
           barSize={38}
           label={renderCustomizedLabel}
         >
-          {data.map((el, idx) => (
+          {data?.map((el, idx) => (
             <Cell key={`cell-${idx}`} fill={idx % 3 ? '#FFDAC0' : '#ff751d'} />
           ))}
         </Bar>
-        <XAxis dataKey="category" axisLine={false} tickLine={false} />
+        <XAxis dataKey="description" axisLine={false} tickLine={false} />
       </BarChart>
     </div>
   );

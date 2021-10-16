@@ -2,6 +2,8 @@ import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 import DesktopCharts from './DesktopChart';
 import MobileCharts from './MobileChart';
+import { reportsSelectors } from '../../redux/reports';
+import { useSelector } from 'react-redux';
 
 const data = [
   {
@@ -53,6 +55,8 @@ const data = [
 ];
 
 const Rechart = () => {
+  const income = useSelector(reportsSelectors.getIncomeDetail);
+  const expense = useSelector(reportsSelectors.getExpenseDetail);
   const isMatches = useMediaQuery('(min-width: 768px)');
 
   const sortBy = field => (a, b) => a[field] < b[field] ? 1 : -1;
@@ -75,10 +79,11 @@ const Rechart = () => {
     .sort(sortBy('amount'));
 
   const dataChart = newData.length ? newData : [0];
+  console.log(dataChart);
 
   return isMatches ? (
     <div className="container charts">
-      <DesktopCharts data={dataChart} />
+      <DesktopCharts data={expense[0].descriptions} />
     </div>
   ) : (
     <div className="mobileContainer">

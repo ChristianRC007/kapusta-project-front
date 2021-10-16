@@ -39,7 +39,12 @@ export default function InputContainer({ options, profit, onSubmit }) {
     setProductName('');
     setPayValue('');
     setCategory([]);
-    setDate(initialDate);
+  };
+
+  const resetInput = () => {
+    setProductName('');
+    setPayValue('');
+    setCategory([]);
   };
 
   const selectDate = date => {
@@ -234,7 +239,7 @@ export default function InputContainer({ options, profit, onSubmit }) {
           type="button"
           text="Очистить"
           className="main-btn"
-          onClick={resetData}
+          onClick={resetInput}
         />
       </div>
     </div>

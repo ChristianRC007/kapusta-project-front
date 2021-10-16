@@ -6,30 +6,25 @@ import Rechart from '../../components/Recharts';
 import { useDispatch, useSelector } from 'react-redux';
 import { reportsOperations, reportsSelectors } from '../../redux/reports';
 
+import { format } from 'date-fns';
+
 export default function ReportPage() {
   const dispatch = useDispatch();
-  const Costs = useSelector(reportsSelectors.getCosts);
+  const costs = useSelector(reportsSelectors.getCosts);
   const getExpenseDetail = useSelector(reportsSelectors.getExpenseDetail);
   const getIncomeDetail = useSelector(reportsSelectors.getIncomeDetail);
-  const IsLoading = useSelector(reportsSelectors.getIsLoading);
 
   useEffect(() => {
-    const date = '2021-10';
-    dispatch(reportsOperations.getExpenseDetail(date)); //costs
-    dispatch(reportsOperations.getIncomeDetail(date)); //!costs
+    const formatDate = format(new Date(), 'yyyy-MM');
+    dispatch(reportsOperations.getExpenseDetail(formatDate)); //costs
+    dispatch(reportsOperations.getIncomeDetail(formatDate)); //!costs
   }, [dispatch]);
 
   return (
     <>
       <BalanceHeader />
       <ReportHeader />
-      {IsLoading ? (
-        console.log('Loading')
-      ) : (
-        <WestInCome
-          data={Costs ? getExpenseDetail : !Costs && getIncomeDetail}
-        />
-      )}
+      <WestInCome data={costs ? getExpenseDetail : !costs && getIncomeDetail} />
       <Rechart />
     </>
   );

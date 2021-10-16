@@ -5,16 +5,15 @@ import Controls from "./Controls";
 
  function MounthAmountsButton({ dataArr, step, onIncrement, onDecrement }) {
 
-    
-     return (
-         <div>
-         <Controls
-           dataArr={dataArr}
-             onIncrement={() => onIncrement(step)}
+  return (
+    <div className="month-amount-button">
+      <Controls
+        dataArr={dataArr}
+        onIncrement={() => onIncrement(step)}
         onDecrement={() => onDecrement(step)}
-         />
-</div>
-     )
+      />
+    </div>
+  )
 
 }
 

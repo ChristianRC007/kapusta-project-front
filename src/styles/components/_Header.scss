@@ -28,14 +28,14 @@ header {
 }
 
 .auth__user_name {
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
   font-size: 12px;
   letter-spacing: 0.04em;
 }
 .auth__user_div {
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
   width: 1px;
@@ -45,7 +45,7 @@ header {
 }
 
 .auth__user_btn {
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
 
@@ -62,7 +62,7 @@ header {
 }
 
 .auth__user_btn_mobile {
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     color: #52555f;
 
     background-color: inherit;
@@ -71,7 +71,7 @@ header {
     cursor: pointer;
     transition: fill 200ms liner;
   }
-  @media screen and (min-width: 481px) {
+  @media screen and (min-width: 768px) {
     display: none;
   }
   &:hover {

@@ -1,9 +1,7 @@
-import { useMediaQuery } from '../../hooks/useScreenWidth';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 import DesktopCharts from './DesktopChart';
 import MobileCharts from './MobileChart';
-
-import './Chart.scss';
 
 const data = [
   {
@@ -83,7 +81,7 @@ const Rechart = () => {
       <DesktopCharts data={dataChart} />
     </div>
   ) : (
-    <div className="container mobileContainer">
+    <div className="mobileContainer">
       <MobileCharts data={dataChart} />
     </div>
   );

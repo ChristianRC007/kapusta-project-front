@@ -36,13 +36,14 @@ const logIn = credentials => async dispatch => {
   }
 };
 
-const logOut = () => async dispatch => {
+const logOut = onSuccess => async dispatch => {
   dispatch(authActions.logoutRequest());
   try {
     await axios.post('/api/v1/users/logout');
 
     token.unset();
     dispatch(authActions.logoutSuccess());
+    onSuccess();
   } catch (error) {
     dispatch(authActions.logoutError(error.message));
   }

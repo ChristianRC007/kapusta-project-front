@@ -12,6 +12,10 @@ const transactions = createReducer(
       payload.transactions,
   },
 );
+const getLast = createReducer([], {
+  [transactionsActions.getLastSuccess]: (state, { payload }) =>
+    payload.transactions,
+});
 
 const initialDate = format(new Date(), 'yyyy-MM-dd');
 
@@ -32,6 +36,9 @@ const isLoading = createReducer(false, {
   [transactionsActions.getIncomeByDateRequest]: () => true,
   [transactionsActions.getIncomeByDateSuccess]: () => false,
   [transactionsActions.getIncomeByDateError]: () => false,
+  [transactionsActions.getLastRequest]: () => true,
+  [transactionsActions.getLastSuccess]: () => false,
+  [transactionsActions.getLastError]: () => false,
   [transactionsActions.deleteTransactionRequest]: () => true,
   [transactionsActions.deleteTransactionSuccess]: () => false,
   [transactionsActions.deleteTransactionError]: () => false,
@@ -44,4 +51,5 @@ export default combineReducers({
   transactions,
   selectedDate,
   isLoading,
+  getLast,
 });

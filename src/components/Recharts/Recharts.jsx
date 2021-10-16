@@ -81,7 +81,7 @@ const Rechart = () => {
       <DesktopCharts data={dataChart} />
     </div>
   ) : (
-    <div className="container mobileContainer">
+    <div className="mobileContainer">
       <MobileCharts data={dataChart} />
     </div>
   );

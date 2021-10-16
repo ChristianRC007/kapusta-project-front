@@ -1,18 +1,15 @@
-import axios from 'axios';
+import balanceServices from '../../services/balanceServices';
 import balanceActions from './balance-actions';
 
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
 const currentMonth = currentDate.getMonth() + 1;
 
-//operation for update balance
 const updateBalance = newBalance => async dispatch => {
   try {
     dispatch(balanceActions.setLoading(true));
-    const updatedBalance = await axios.patch('/api/v1/users/balance', {
-      balance: newBalance,
-    });
-    dispatch(balanceActions.updateBalance(updatedBalance.data.user.balance));
+    const updatedBalance = await balanceServices.updateBalance(newBalance);
+    dispatch(balanceActions.updateBalance(updatedBalance));
     dispatch(balanceActions.setLoading(false));
   } catch (error) {
     throw new Error(error);
@@ -24,19 +21,11 @@ const updateCurrentExpenses =
   async dispatch => {
     try {
       dispatch(balanceActions.setLoading(true));
-      const updatedExpenses = await axios.get(
-        '/api/v1/transactions/getExpenseByMonth',
+      const updatedExpenses = await balanceServices.updatedExpenses(
+        year,
+        month,
       );
-      dispatch(
-        balanceActions.updateCurrentExpenses(
-          updatedExpenses.data.expenseByMonth.length
-            ? updatedExpenses.data.expenseByMonth.find(
-                report =>
-                  report._id.month === month && report._id.year === year,
-              ).total
-            : 0,
-        ),
-      );
+      dispatch(balanceActions.updateCurrentExpenses(updatedExpenses));
       dispatch(balanceActions.setLoading(false));
     } catch (error) {
       throw new Error(error);
@@ -48,31 +37,19 @@ const updateCurrentIncomes =
   async dispatch => {
     try {
       dispatch(balanceActions.setLoading(true));
-      const updatedIncomes = await axios.get(
-        '/api/v1/transactions/getIncomeByMonth',
-      );
-      dispatch(
-        balanceActions.updateCurrentIncomes(
-          updatedIncomes.data.incomeByMonth.length
-            ? updatedIncomes.data.incomeByMonth.find(
-                report =>
-                  report._id.month === month && report._id.year === year,
-              ).total
-            : 0,
-        ),
-      );
+      const updatedIncomes = await balanceServices.updatedIncomes(year, month);
+      dispatch(balanceActions.updateCurrentIncomes(updatedIncomes));
       dispatch(balanceActions.setLoading(false));
     } catch (error) {
       throw new Error(error);
     }
   };
 
-//operation for get balance on start
 const getBalance = () => async dispatch => {
   try {
     dispatch(balanceActions.setLoading(true));
-    const user = await axios.get('/api/v1/users/current');
-    dispatch(balanceActions.getBalance(user.data.user.balance));
+    const balance = await balanceServices.getBalance();
+    dispatch(balanceActions.getBalance(balance));
     dispatch(balanceActions.setLoading(false));
   } catch (error) {
     throw new Error(error);

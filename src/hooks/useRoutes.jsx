@@ -3,7 +3,7 @@ import PublicRoute from '../routes/PublicRoute';
 import PrivateRoute from '../routes/PrivateRoute';
 import LoginPage from '../pages/LoginPage';
 import MainPage from '../pages/MainPage';
-import StatisticPage from '../pages/ReportPage';
+import ReportPage from '../pages/ReportPage';
 import { useSelector } from 'react-redux';
 import { authSelectors } from '../redux/auth';
 
@@ -23,8 +23,8 @@ export default function useRoutes() {
         }}
       />
       <PublicRoute exact path="/login" component={LoginPage} />
-      <PrivateRoute path="/main" component={MainPage} />
-      <PrivateRoute path="/report" component={StatisticPage} />
+      <PrivateRoute exact path="/main" component={MainPage} />
+      <PrivateRoute exact path="/report" component={ReportPage} />
       <Redirect to="/login" />
     </Switch>
   );

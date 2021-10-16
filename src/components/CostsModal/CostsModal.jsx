@@ -5,7 +5,7 @@ import Header from '../../components/Header/Header';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export default function CostsModal({ costs, onClose }) {
+export default function CostsModal({ costs, onClose, onSubmit }) {
   useEffect(() => {
     const handleKeyDown = event => {
       if (event.code === 'Escape') {
@@ -41,7 +41,7 @@ export default function CostsModal({ costs, onClose }) {
           </button>
         </div>
 
-        <MobileInputContainer costs={costs} />
+        <MobileInputContainer costs={costs} onSubmit={onSubmit} />
       </div>
     </div>,
     modalRoot,

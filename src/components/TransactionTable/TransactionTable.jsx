@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { transactionsSelectors } from '../../redux/transactions';
 import Transaction from './Transaction';
+import Loader from 'react-js-loader';
 
 const TransactionTable = ({ profit, transactions, onDelete }) => {
   const isLoading = useSelector(transactionsSelectors.getIsLoading);
@@ -18,9 +19,14 @@ const TransactionTable = ({ profit, transactions, onDelete }) => {
 
         <tbody className="tableBody">
           {isLoading ? (
-            <tr className="tableTr">
+            <tr className="tableTr loading">
               <td>
-                <span>Loading</span>
+                <Loader
+                  type="spinner-circle"
+                  bgColor={'#ff751d'}
+                  color={'#ff751d'}
+                  size={60}
+                />
               </td>
             </tr>
           ) : (

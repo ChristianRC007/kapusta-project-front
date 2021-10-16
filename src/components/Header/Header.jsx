@@ -7,11 +7,21 @@ import Modal from '../Modal';
 import MainButton from '../MainButton';
 
 import kapustaLogo from '../../assets/img/logo.png';
+import { useHistory } from 'react-router';
 
 const Header = ({ isAuthenticated, userName, onLogout }) => {
+  const history = useHistory();
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => {
     setShowModal(!showModal);
+  };
+
+  const handleLogout = () => {
+    onLogout(successLogout);
+  };
+
+  const successLogout = () => {
+    history.push('/login');
   };
 
   return (
@@ -83,7 +93,7 @@ const Header = ({ isAuthenticated, userName, onLogout }) => {
             text="Да"
             className="main-btn"
             accent
-            onClick={() => onLogout()}
+            onClick={handleLogout}
           />
           <MainButton
             onClick={toggleModal}

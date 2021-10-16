@@ -27,9 +27,18 @@ const getExpenseDetail = date => async dispatch => {
   }
 };
 
+const getCostsFalse = () => async dispatch => {
+  dispatch(reportsActions.getCostsFalse());
+};
+const getCostsTrue = () => async dispatch => {
+  dispatch(reportsActions.getCostsTrue());
+};
+
 const reportsOperations = {
   getIncomeDetail,
   getExpenseDetail,
+  getCostsFalse,
+  getCostsTrue,
 };
 
 export default reportsOperations;

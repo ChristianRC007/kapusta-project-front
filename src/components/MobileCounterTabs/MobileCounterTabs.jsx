@@ -1,10 +1,7 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import CostsModal from '../CostsModal';
-import {
-  transactionsOperations,
-  transactionsSelectors,
-} from '../../redux/transactions';
+import { transactionsOperations } from '../../redux/transactions';
 import balanceOperations from '../../redux/balance/balance-operations';
 import { toast } from 'react-toastify';
 
@@ -13,8 +10,6 @@ export default function MobileCounterTabs() {
   const [costs, setCosts] = useState(true);
   const [profits, setProfits] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
-  const selectedDate = useSelector(transactionsSelectors.currentDate);
 
   const clickCosts = () => {
     setProfits(false);

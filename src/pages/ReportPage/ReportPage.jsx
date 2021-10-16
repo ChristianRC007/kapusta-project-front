@@ -1,25 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ReportHeader from '../../components/ReportHeader/ReportHeader';
 import WestInCome from '../../components/WestInCome';
 import { reportsOperations, reportsSelectors } from '../../redux/reports';
-import {
-  transactionsSelectors,
-  transactionsOperations,
-} from '../../redux/transactions';
-import { format } from 'date-fns';
 
 export default function ReportPage() {
   const dispatch = useDispatch();
-  // const selectedDate = useSelector(transactionsSelectors.currentDate);
+  const Costs = useSelector(reportsSelectors.getCosts);
   const getExpenseDetail = useSelector(reportsSelectors.getExpenseDetail);
   const getIncomeDetail = useSelector(reportsSelectors.getIncomeDetail);
   const IsLoading = useSelector(reportsSelectors.getIsLoading);
 
   useEffect(() => {
     const date = '2021-10';
-    dispatch(reportsOperations.getExpenseDetail(date));
-    dispatch(reportsOperations.getIncomeDetail(date));
+    dispatch(reportsOperations.getExpenseDetail(date)); //costs
+    dispatch(reportsOperations.getIncomeDetail(date)); //!costs
   }, [dispatch]);
 
   // console.log(getExpenseDetail);
@@ -28,9 +23,13 @@ export default function ReportPage() {
   return (
     <>
       <ReportHeader />
-      {IsLoading
-        ? console.log('Loading')
-        : getExpenseDetail.length > 0 && <WestInCome data={getExpenseDetail} />}
+      {IsLoading ? (
+        console.log('Loading')
+      ) : (
+        <WestInCome
+          data={Costs ? getExpenseDetail : !Costs && getIncomeDetail}
+        />
+      )}
     </>
   );
 }

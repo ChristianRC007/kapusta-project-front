@@ -20,8 +20,14 @@ const isLoading = createReducer(false, {
   [reportsActions.getExpenseDetailError]: () => false,
 });
 
+const costs = createReducer(true, {
+  [reportsActions.getCostsFalse]: () => false,
+  [reportsActions.getCostsTrue]: () => true,
+});
+
 export default combineReducers({
   reportsIncome,
   reportsExpense,
+  costs,
   isLoading,
 });

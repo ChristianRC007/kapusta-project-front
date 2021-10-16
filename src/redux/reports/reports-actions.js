@@ -1,5 +1,8 @@
 import { createAction } from '@reduxjs/toolkit';
 
+const getCostsTrue = createAction('reports/getCostsTrue');
+const getCostsFalse = createAction('reports/getCostsFalse');
+
 const getIncomeDetailRequest = createAction('reports/getIncomeDetailRequest');
 const getIncomeDetailSuccess = createAction('reports/getIncomeDetailSuccess');
 const getIncomeDetailError = createAction('reports/getIncomeDetailError');
@@ -15,6 +18,8 @@ const reportsActions = {
   getExpenseDetailRequest,
   getExpenseDetailSuccess,
   getExpenseDetailError,
+  getCostsTrue,
+  getCostsFalse,
 };
 
 export default reportsActions;

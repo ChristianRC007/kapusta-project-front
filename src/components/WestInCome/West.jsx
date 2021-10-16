@@ -54,12 +54,10 @@ import Sport from './WestCategories/Sport';
 // ]
 
 const West = ({ data }) => {
-  //   const dataWest = data[0].dataByGroup;
   const dataWest = data;
   const arrCategory = [];
   let category = '';
   let categoryPrice = 0;
-  console.log(dataWest);
 
   function foundCatagorie() {
     for (let i = 0; i < dataWest.length; i++) {

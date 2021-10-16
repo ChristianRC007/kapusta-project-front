@@ -1,13 +1,15 @@
 import ButtonChangeCategories from './ButtonChangeCategories';
 import West from './West';
 import InCome from './InCome';
-let isClickChangeCategory = true;
+import { useSelector } from 'react-redux';
+import { reportsSelectors } from '../../redux/reports';
 
 const WestInCome = ({ data }) => {
+  const Costs = useSelector(reportsSelectors.getCosts);
   return (
     <div className="westInCome_container">
       <ButtonChangeCategories />
-      {!isClickChangeCategory ? <InCome data={data} /> : <West data={data} />}
+      {!Costs ? <InCome data={data} /> : <West data={data} />}
     </div>
   );
 };

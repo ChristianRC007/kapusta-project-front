@@ -36,7 +36,7 @@ class LoginForm extends Component {
     }
   };
 
-  chekUserField(name, email, password, isLogin) {
+  chekUserField(name, email, password, isLogin = false) {
     if (isLogin) {
       name = ' ';
     }

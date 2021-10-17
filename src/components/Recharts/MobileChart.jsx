@@ -10,13 +10,9 @@ import {
 
 const MobileCharts = ({ data }) => {
   const MobileBarLabel = ({ x, y, width, value }) => (
-    <text
-      x={x + width / 1.1}
-      y={y}
-      textAnchor="middle"
-      fontSize={10}
-      dy={-10}
-    >{`${value} грн`}</text>
+    <text x={x + width / 1.1} y={y} textAnchor="middle" fontSize={10} dy={-10}>
+      {value ? `${value} грн` : ''}
+    </text>
   );
 
   const MobileCategoryLabel = ({ x, y, value }) => (

@@ -8,23 +8,28 @@ import { useSelector } from 'react-redux';
 
 const Rechart = () => {
   const [data, setData] = useState([]);
-  // const income = useSelector(reportsSelectors.getIncomeDetail);
+  const costs = useSelector(reportsSelectors.getCosts);
+  const income = useSelector(reportsSelectors.getIncomeDetail);
   const expense = useSelector(reportsSelectors.getExpenseDetail);
   const isMatches = useMediaQuery('(min-width: 768px)');
 
-  const activeCategory = expense?.find(el => el.isActive);
+  const activeCategory = costs
+    ? expense?.find(el => el.isActive)
+    : income?.find(el => el.isActive);
 
   useEffect(() => {
     if (activeCategory) {
       const { descriptions } = activeCategory;
       setData(descriptions);
+    } else {
+      setData([]);
     }
   }, [activeCategory]);
 
   const sortBy = field => (a, b) => a[field] < b[field] ? 1 : -1;
 
   const newData = data
-    .reduce((acc, { description, total }) => {
+    ?.reduce((acc, { description, total }) => {
       const myCategory = description;
       const newArr = acc?.find(el => el.description === description);
       if (!newArr) {
@@ -40,7 +45,7 @@ const Rechart = () => {
     }, [])
     .sort(sortBy('total'));
 
-  const dataChart = newData.length ? newData : [0];
+  const dataChart = newData?.length ? newData : [0];
 
   return isMatches ? (
     <div className="container charts">

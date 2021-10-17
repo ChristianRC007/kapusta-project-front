@@ -5,7 +5,8 @@ import { setActive } from '../../services/setActive';
 
 const reportsIncome = createReducer([], {
   [reportsActions.getIncomeDetailSuccess]: (state, { payload }) =>
-    payload.incomeDetail,
+    setActive(payload.incomeDetail),
+  [reportsActions.setActiveIncome]: (_, { payload }) => payload,
 });
 
 const reportsExpense = createReducer([], {

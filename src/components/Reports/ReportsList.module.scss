@@ -7,10 +7,10 @@
   padding: 15px;
 
   @media screen and (min-width: 768px) {
-    height: 400px;
+    height: 100%;
   }
   @media screen and (min-width: 1060px) {
-    height: 358px;
+    height: 100%;
   }
   margin-top: 25px;
 
@@ -26,6 +26,7 @@
   flex-wrap: wrap;
   margin: 0 auto;
   padding-left: 0;
+  list-style: none;
 }
 
 .title_message {
@@ -43,6 +44,16 @@
   align-items: center;
   width: 100px;
   height: 140px;
+  cursor: pointer;
+
+  &:hover {
+    .svg_box {
+      background-color: #ffdac0;
+    }
+    .icon {
+      fill: #ff751d;
+    }
+  }
 }
 
 .text {
@@ -68,9 +79,6 @@
   border-radius: 20px;
   margin-bottom: 7px;
 }
-.svg_box:hover {
-  background-color: #ffdac0;
-}
 
 .icon {
   position: absolute;
@@ -79,10 +87,7 @@
   transform: translateX(-50%);
   transform: translateX(-50%);
   z-index: 10;
-}
-
-.icon:hover {
-  fill: #ff751d;
+  fill: #071f41;
 }
 
 .iconActive {
@@ -124,4 +129,13 @@
   .item {
     margin: 0 10px 0 0;
   }
+}
+
+.noData {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 17px;
+
+  color: #52555f;
+  padding-bottom: 30px;
 }

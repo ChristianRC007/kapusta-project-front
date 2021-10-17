@@ -8,7 +8,7 @@ export default function MainPage() {
   return (
     <>
       <div className="mobile-main-container">
-        <BalanceHeader/>
+        <BalanceHeader />
         <CounterTabs />
         <GetLastElements />
       </div>

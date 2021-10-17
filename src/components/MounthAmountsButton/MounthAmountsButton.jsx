@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Controls from './Controls';
 import { useDispatch } from 'react-redux';
 import { reportsOperations } from '../../redux/reports';
+import balanceOperations from '../../redux/balance/balance-operations';
 
 function MounthAmountsButton({
   dataArr,
@@ -24,6 +25,12 @@ function MounthAmountsButton({
     dispatch(
       reportsOperations.getIncomeDetail(`${dataArr[1]}-${newIncrementValue}`),
     );
+    dispatch(
+      balanceOperations.updateCurrentExpenses(dataArr[1], newIncrementValue),
+    );
+    dispatch(
+      balanceOperations.updateCurrentIncomes(dataArr[1], newIncrementValue),
+    );
   };
 
   const decrement = () => {
@@ -32,6 +39,12 @@ function MounthAmountsButton({
     );
     dispatch(
       reportsOperations.getIncomeDetail(`${dataArr[1]}-${newDecrementValue}`),
+    );
+    dispatch(
+      balanceOperations.updateCurrentExpenses(dataArr[1], newDecrementValue),
+    );
+    dispatch(
+      balanceOperations.updateCurrentIncomes(dataArr[1], newDecrementValue),
     );
   };
   return (

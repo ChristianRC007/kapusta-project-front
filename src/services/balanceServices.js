@@ -11,21 +11,21 @@ const updateBalance = async newBalance => {
 const updatedExpenses = async (year, month) => {
   const { data } = await axios.get('/api/v1/transactions/getExpenseByMonth');
 
-  return data.expenseByMonth.length
-    ? data.expenseByMonth.find(
-        report => report._id.month === month && report._id.year === year,
-      ).total
-    : 0;
+  const newData = data?.expenseByMonth?.find(
+    report => report._id.month === month && report._id.year === year,
+  );
+
+  return newData === undefined ? 0 : newData.total;
 };
 
 const updatedIncomes = async (year, month) => {
   const { data } = await axios.get('/api/v1/transactions/getIncomeByMonth');
 
-  return data.incomeByMonth.length
-    ? data.incomeByMonth.find(
-        report => report._id.month === month && report._id.year === year,
-      ).total
-    : 0;
+  const newData = data?.incomeByMonth?.find(
+    report => report._id.month === month && report._id.year === year,
+  );
+
+  return newData === undefined ? 0 : newData.total;
 };
 
 const getBalance = async () => {

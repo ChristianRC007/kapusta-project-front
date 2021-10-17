@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 
-const formatter = Intl.DateTimeFormat('ur', { month: 'long' });
+const formatter = Intl.DateTimeFormat('ru', { month: 'long' });
 
 export const getFormattedMonth = payload => {
   return payload.map(({ total, _id: { month, year } }) => {

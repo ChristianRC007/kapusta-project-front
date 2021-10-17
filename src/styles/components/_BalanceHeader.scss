@@ -5,6 +5,10 @@
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 40px;
   margin-bottom: 8px;
+
+  & .balance__datepicker {
+    display: none;
+  }
   @include tablet {
     grid-template-columns: 1fr 1fr;
     .balance {
@@ -14,7 +18,14 @@
   }
   @include mobile {
     grid-template-columns: 1fr;
-    grid-row-gap: 30px;
+    grid-row-gap: 40px;
+    .balance__datepicker {
+      display: block;
+      margin: 0 auto;
+      .datepicker-button {
+        margin: 0;
+      }
+    }
   }
 
   a {
@@ -35,7 +46,7 @@
   & > div {
     display: flex;
     align-self: center;
-    &:last-child {
+    &:nth-child(3) {
       justify-content: right;
       img {
         padding-left: 15px;

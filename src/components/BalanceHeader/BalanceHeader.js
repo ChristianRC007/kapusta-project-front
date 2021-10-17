@@ -5,6 +5,7 @@ import MainHeadPannel from '../MainHeadPannel';
 import routes from '../../routes/routes';
 import reportIcon from '../../images/report-icon.svg';
 import BalanceDatepicker from '../BalanceDatepicker/BalanceDatepicker';
+import MounthAmountsButton from '../MounthAmountsButton';
 
 const BalanceHeader = () => {
   const location = useLocation();
@@ -25,7 +26,11 @@ const BalanceHeader = () => {
           </NavLink>
         </div>
       )}
-      {location.pathname === routes.report && <BalanceDatepicker />}
+      {location.pathname === routes.report ? (
+        <MounthAmountsButton />
+      ) : (
+        <BalanceDatepicker />
+      )}
     </div>
   );
 };

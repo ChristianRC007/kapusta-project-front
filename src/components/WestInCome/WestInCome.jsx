@@ -1,5 +1,6 @@
 import ButtonChangeCategories from './ButtonChangeCategories';
-import West from './West';
+// import West from './West';
+import West from './West copy';
 import InCome from './InCome';
 import { useSelector } from 'react-redux';
 import { reportsSelectors } from '../../redux/reports';

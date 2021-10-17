@@ -89,6 +89,9 @@
     transition: var(--transit);
     fill: var(--mainRectal);
   }
+  &--active {
+    background-color: tomato;
+  }
 }
 
 .westInCome_item:hover {

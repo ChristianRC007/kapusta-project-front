@@ -1,11 +1,16 @@
 import React, { useEffect } from 'react';
 import ReportHeader from '../../components/ReportHeader/ReportHeader';
 import BalanceHeader from '../../components/BalanceHeader/BalanceHeader';
-import WestInCome from '../../components/WestInCome';
 import Rechart from '../../components/Recharts';
+import ButtonChangeCategories from '../../components/WestInCome/ButtonChangeCategories';
 import { useDispatch, useSelector } from 'react-redux';
-import { reportsOperations, reportsSelectors } from '../../redux/reports';
-
+import {
+  reportsOperations,
+  reportsSelectors,
+  reportsActions,
+} from '../../redux/reports';
+import ReportsList from '../../components/Reports/ReportsList';
+import st from '../../components/Reports/ReportsList.module.scss';
 import { format } from 'date-fns';
 
 export default function ReportPage() {
@@ -16,15 +21,53 @@ export default function ReportPage() {
 
   useEffect(() => {
     const formatDate = format(new Date(), 'yyyy-MM');
-    dispatch(reportsOperations.getExpenseDetail(formatDate)); //costs
-    dispatch(reportsOperations.getIncomeDetail(formatDate)); //!costs
+    dispatch(reportsOperations.getExpenseDetail(formatDate));
+    dispatch(reportsOperations.getIncomeDetail(formatDate));
   }, [dispatch]);
+
+  const setActiveCategory = (arr, category) => {
+    const array = arr?.map(el => {
+      if (el.isActive) {
+        return { ...el, isActive: !el.isActive };
+      }
+
+      if (el._id === category) {
+        return { ...el, isActive: !el.isActive };
+      }
+      return el;
+    });
+
+    return array;
+  };
+
+  const handleClickExpense = category => {
+    const expanse = setActiveCategory(getExpenseDetail, category);
+    dispatch(reportsActions.setActiveExpanse(expanse));
+  };
+
+  const handleClickIncome = category => {
+    const income = setActiveCategory(getIncomeDetail, category);
+    dispatch(reportsActions.setActiveIncome(income));
+  };
 
   return (
     <>
       <BalanceHeader />
       <ReportHeader />
-      <WestInCome data={costs ? getExpenseDetail : !costs && getIncomeDetail} />
+      <div className={st.wrapper}>
+        <ButtonChangeCategories />
+        {costs ? (
+          <ReportsList
+            transactions={getExpenseDetail}
+            onClick={handleClickExpense}
+          />
+        ) : (
+          <ReportsList
+            transactions={getIncomeDetail}
+            onClick={handleClickIncome}
+          />
+        )}
+      </div>
       <Rechart />
     </>
   );

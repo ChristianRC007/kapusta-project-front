@@ -1,6 +1,6 @@
-const Entertainment = ({price=0}) => (
-    <li className='westInCome_item'>
-        <p className='westInComet_title westInCome_price'>{price}</p>
+const Entertainment = ({ price = 0 }) => (
+  <li className="westInCome_item">
+    <p className="westInComet_title westInCome_price">{price}</p>
     <svg
       className="category_svg"
       width="56"
@@ -27,8 +27,8 @@ const Entertainment = ({price=0}) => (
       xmlns="http://www.w3.org/2000/svg"
     >
       <rect y="0.722656" width="59" height="46" rx="20" />
-        </svg>
-        <p className="westInCome_title">Развличение</p>
+    </svg>
+    <p className="westInCome_title">Развлечение</p>
   </li>
-)
-export default Entertainment
+);
+export default Entertainment;

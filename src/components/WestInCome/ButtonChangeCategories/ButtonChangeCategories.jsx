@@ -3,19 +3,18 @@ import { reportsSelectors, reportsOperations } from '../../../redux/reports';
 import { useDispatch, useSelector } from 'react-redux';
 
 const ButtonChangeCategories = () => {
-  const Costs = useSelector(reportsSelectors.getCosts);
+  const costs = useSelector(reportsSelectors.getCosts);
   const dispatch = useDispatch();
 
   const onClick = () => {
-    if (Costs) {
+    if (costs) {
       dispatch(reportsOperations.getCostsFalse());
     }
-    if (!Costs) {
+    if (!costs) {
       dispatch(reportsOperations.getCostsTrue());
     }
   };
 
-  console.log(Costs);
   return (
     <div className="westInCome__container_buttons">
       <button className="westInCome__button" onClick={onClick}>
@@ -30,7 +29,7 @@ const ButtonChangeCategories = () => {
         </svg>
       </button>
 
-      {!Costs ? (
+      {!costs ? (
         <p className="westInCome__text_categories">Доходы</p>
       ) : (
         <p className="westInCome__text_categories">Paсходы</p>

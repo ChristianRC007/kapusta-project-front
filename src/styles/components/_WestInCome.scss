@@ -1,7 +1,7 @@
 :root {
-  --transit: all 850ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transit: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
   --hoverSvg: #ff751d;
-  --mainSvg: black;
+  --mainSvg: #071f41;
   --hoverRectal: #ffdac0;
   --mainRectal: #f5f6fb;
 }
@@ -58,13 +58,13 @@
     flex-basis: calc(100% / 3 - 10px);
   }
   @media screen and (min-width: 768px) {
-    margin-left: 10px;
+    margin-left: 20px;
     margin-top: 10px;
-    flex-basis: calc(100% / 6 - 10px);
+    flex-basis: calc(100% / 6 - 20px);
   }
 
   & .westInCome_title {
-    margin: 8px 0 0;
+    margin: 14px 0 0;
     font-family: 'Roboto';
     font-size: 12px;
     line-height: 14px;

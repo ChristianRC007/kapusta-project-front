@@ -5,4 +5,9 @@ body {
   line-height: 16px;
   color: $main-text-cl;
   position: relative;
+  min-height: 850px;
+  padding-bottom: 54px;
+  @include mobile {
+    min-height: auto;
+  }
 }

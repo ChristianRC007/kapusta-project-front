@@ -76,7 +76,7 @@ const Balance = () => {
         </button>
       </div>
 
-      {!balance && !balanceLoading && tooltipOpen && (
+      {!parseFloat(balance) && !balanceLoading && tooltipOpen && (
         <div className="balance__tooltip" onClick={removeTooltip}>
           <p className="balance__tooltip__text-first">
             Привет! Для начала работы внеси текущий баланс своего счета!

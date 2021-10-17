@@ -39,7 +39,12 @@ export default function InputContainer({ options, profit, onSubmit }) {
     setProductName('');
     setPayValue('');
     setCategory([]);
-    setDate(initialDate);
+  };
+
+  const resetInput = () => {
+    setProductName('');
+    setPayValue('');
+    setCategory([]);
   };
 
   const selectDate = date => {
@@ -168,6 +173,7 @@ export default function InputContainer({ options, profit, onSubmit }) {
             options={options}
             value={category}
             onChange={setCategory}
+            isSearchable={false}
           />
           <label className="input-productValue-label">
             <input
@@ -234,7 +240,7 @@ export default function InputContainer({ options, profit, onSubmit }) {
           type="button"
           text="Очистить"
           className="main-btn"
-          onClick={resetData}
+          onClick={resetInput}
         />
       </div>
     </div>

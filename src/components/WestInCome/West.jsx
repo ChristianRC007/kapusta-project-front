@@ -9,6 +9,7 @@ import Transport from './WestCategories/Transport';
 import Other from './WestCategories/Other';
 import Housing from './WestCategories/Housing';
 import Sport from './WestCategories/Sport';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 // const data = [
 //   {
@@ -58,6 +59,9 @@ const West = ({ data }) => {
   const arrCategory = [];
   let category = '';
   let categoryPrice = 0;
+  console.log(data);
+
+  const isMobileWide = useMediaQuery('(max-width: 767px)');
 
   function foundCatagorie() {
     for (let i = 0; i < dataWest.length; i++) {
@@ -67,7 +71,9 @@ const West = ({ data }) => {
     }
     //[['Продукты',1000],['Развлечение',550]....[..]]
   }
+
   foundCatagorie();
+
   function foundMoney(name) {
     let arr = arrCategory.find(e => e.includes(name));
     return arr[1];
@@ -103,8 +109,8 @@ const West = ({ data }) => {
         ) : (
           ''
         )}
-        {isRender('Все для дома') ? (
-          <Housing price={foundMoney('Все для дома')} />
+        {isRender('Всё для дома') ? (
+          <Housing price={foundMoney('Всё для дома')} />
         ) : (
           ''
         )}

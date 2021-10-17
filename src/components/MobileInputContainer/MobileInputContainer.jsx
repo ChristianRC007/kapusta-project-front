@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
 import MainButton from '../MainButton';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { transactionsSelectors } from '../../redux/transactions';
 
 const options = [
@@ -104,6 +104,7 @@ export default function MobileInputContainer({ costs, onSubmit }) {
           options={costs ? options : optionsProfit}
           value={category}
           onChange={setCategory}
+          isSearchable={false}
         />
         <label className="mobile-input-productValue-label">
           <input

@@ -6,6 +6,13 @@ import Loader from 'react-js-loader';
 
 const ReportsList = ({ transactions, onClick }) => {
   const IsLoading = useSelector(reportsSelectors.getIsLoading);
+
+  function numberWithCommas(x) {
+    return parseFloat(x)
+      .toFixed(2)
+      .toString()
+      .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ' ');
+  }
   return (
     <>
       {IsLoading ? (
@@ -26,7 +33,7 @@ const ReportsList = ({ transactions, onClick }) => {
                 className={st.item}
                 onClick={() => onClick(obj._id, transactions)}
               >
-                <p className={st.text}>{obj.total}</p>
+                <p className={st.text}>{numberWithCommas(obj.total)}</p>
                 <div className={obj.isActive ? st.svg_boxActive : st.svg_box}>
                   <svg
                     width="58"

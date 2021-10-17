@@ -173,6 +173,7 @@ export default function InputContainer({ options, profit, onSubmit }) {
             options={options}
             value={category}
             onChange={setCategory}
+            isSearchable={false}
           />
           <label className="input-productValue-label">
             <input

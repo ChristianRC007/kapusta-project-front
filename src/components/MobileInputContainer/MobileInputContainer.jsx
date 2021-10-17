@@ -104,6 +104,7 @@ export default function MobileInputContainer({ costs, onSubmit }) {
           options={costs ? options : optionsProfit}
           value={category}
           onChange={setCategory}
+          isSearchable={false}
         />
         <label className="mobile-input-productValue-label">
           <input

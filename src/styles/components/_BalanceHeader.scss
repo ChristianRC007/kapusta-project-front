@@ -4,11 +4,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 40px;
-  margin-bottom: 8px;
+  margin-bottom: 30px;
 
   & .balance__datepicker {
     display: none;
   }
+
   @include tablet {
     grid-template-columns: 1fr 1fr;
     .balance {
@@ -19,6 +20,7 @@
   @include mobile {
     grid-template-columns: 1fr;
     grid-row-gap: 40px;
+    margin-top: 20px;
     .balance__datepicker {
       display: block;
       margin: 0 auto;
@@ -68,6 +70,10 @@
   }
 
   &.report {
+    & .balance__tooltip {
+      display: none;
+    }
+
     @include tablet {
       grid-template-columns: 1fr 1fr 1fr;
 

@@ -20,7 +20,6 @@ const Balance = () => {
 
   useEffect(() => {
     setBalance(`${parseFloat(currentBalance).toFixed(2)} UAH` || '');
-    console.log(currentBalance)
   }, [currentBalance]);
 
   const removeTooltip = () => {

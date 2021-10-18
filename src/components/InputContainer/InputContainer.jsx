@@ -29,7 +29,7 @@ export default function InputContainer({ options, profit, onSubmit }) {
       const formatDate = format(new Date(date), 'yyyy-MM-dd');
       dispatch(transactionsOperations.getIncomeByDate(formatDate));
     }
-  }, [dispatch, date]);
+  }, [dispatch, date, profit]);
 
   useEffect(() => {
     resetData();

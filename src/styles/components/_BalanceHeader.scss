@@ -10,7 +10,8 @@
     display: none;
   }
 
-  @include tablet {
+  // @include tablet {
+  @media screen and (min-width: $tablet) and (max-width: $desktop) {
     grid-template-columns: 1fr 1fr;
     .balance {
       justify-content: right;
@@ -63,7 +64,7 @@
         padding-right: 15px;
       }
 
-      @include tablet {
+      @media screen and (min-width: $tablet) and (max-width: $desktop) {
         display: none;
       }
     }
@@ -74,7 +75,8 @@
       display: none;
     }
 
-    @include tablet {
+    // @include tablet {
+    @media screen and (min-width: $tablet) and (max-width: $desktop) {
       grid-template-columns: 1fr 1fr 1fr;
 
       & .balance {

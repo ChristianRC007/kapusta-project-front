@@ -20,7 +20,7 @@
     letter-spacing: 0.02em;
     color: rgba(82, 85, 95, 0.7);
     margin-right: 31px;
-    @include tablet {
+    @media screen and (min-width: $tablet) and (max-width: $desktop) {
       margin-right: 21px;
     }
     @include mobile {

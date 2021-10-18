@@ -46,6 +46,10 @@
   height: 140px;
   cursor: pointer;
 
+  @media screen and (max-width: 767px) {
+    border-bottom: 1px solid #e0e5eb;
+  }
+
   &:hover {
     .svg_box {
       background-color: #ffdac0;

@@ -14,13 +14,12 @@ const Balance = () => {
 
   const loadingMessage = 'loading...';
 
-  useEffect(() => { 
-    dispatch(balanceOperations.getBalance())
+  useEffect(() => {
+    dispatch(balanceOperations.getBalance());
   }, [dispatch]);
 
   useEffect(() => {
     setBalance(`${parseFloat(currentBalance).toFixed(2)} UAH` || '');
-    console.log(currentBalance)
   }, [currentBalance]);
 
   const removeTooltip = () => {
@@ -31,24 +30,24 @@ const Balance = () => {
     dispatch(balanceOperations.updateBalance(parseFloat(balance)));
   };
 
-  const enterKeyHandler = (e) => {
+  const enterKeyHandler = e => {
     if (e.code === 'Enter') {
       dispatch(balanceOperations.updateBalance(parseFloat(balance)));
-      e.target.blur()
+      e.target.blur();
     }
-  }
+  };
 
-  const inputFocusHandler = (e) => {
+  const inputFocusHandler = e => {
     setBalance(parseFloat(e.target.value).toFixed(2));
-  }
+  };
 
   const inputBlurHandler = () => {
-    setBalance(`${parseFloat(currentBalance).toFixed(2)} UAH`)
-  }
+    setBalance(`${parseFloat(currentBalance).toFixed(2)} UAH`);
+  };
 
-  const onInputHandler = (e) => {
-    setBalance(e.target.value)
-  } 
+  const onInputHandler = e => {
+    setBalance(e.target.value);
+  };
 
   return (
     <div className="balance">
@@ -60,9 +59,7 @@ const Balance = () => {
           pattern="^[ 0-9]+$"
           placeholder="00.00 UAH"
           value={balanceLoading ? loadingMessage : balance}
-          onChange={
-            onInputHandler
-          }
+          onChange={onInputHandler}
           onFocus={inputFocusHandler}
           onBlur={inputBlurHandler}
           onKeyDown={enterKeyHandler}

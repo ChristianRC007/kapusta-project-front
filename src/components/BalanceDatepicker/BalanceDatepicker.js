@@ -4,7 +4,6 @@ import DatePicker from 'react-datepicker';
 import { format } from 'date-fns';
 import ru from 'date-fns/locale/ru';
 import { transactionsActions } from '../../redux/transactions';
-import MounthAmountsButton from '../MounthAmountsButton';
 
 const BalanceDatepicker = () => {
   const dispatch = useDispatch();

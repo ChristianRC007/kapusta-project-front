@@ -18,10 +18,14 @@
     line-height: 1.177;
     margin: 0;
     letter-spacing: -0.01em;
-    @include tablet {
+    @media screen and (min-width: $tablet) {
       font-size: 80px;
       line-height: 1.177;
     }
+    // @include tablet {
+    //   font-size: 80px;
+    //   line-height: 1.177;
+    // }
     @include mobile {
       font-size: 50px;
     }

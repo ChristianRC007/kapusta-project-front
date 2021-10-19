@@ -7,9 +7,9 @@ const transactions = createReducer(
   {},
   {
     [transactionsActions.getExpenseByDateSuccess]: (_, { payload }) =>
-      payload.transactions,
+      payload.transactions.reverse(),
     [transactionsActions.getIncomeByDateSuccess]: (_, { payload }) =>
-      payload.transactions,
+      payload.transactions.reverse(),
   },
 );
 const getLast = createReducer([], {
